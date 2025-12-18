@@ -1,38 +1,33 @@
 import { useState } from "react";
 import ycLogo from "../assets/ycLogo copy.avif";
-import emailjs from "emailjs-com";
+import { supabase } from "../supabase";
+
 
 
 export default function Home() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email) return;
   
-    try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/v1/waitlist`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email }),
-        }
-      );
+    const { error } = await supabase
+      .from("waitlist")
+      .insert([{ email }]);
   
-      if (res.ok) {
-        setSubmitted(true);
+    if (error) {
+      if (error.code === "23505") {
+        alert("You’re already on the waitlist");
       } else {
-        alert("Something went wrong. Try again.");
+        alert("Something went wrong");
+        console.error(error);
       }
-    } catch (err) {
-      console.error(err);
-      alert("Server error. Try again later.");
+    } else {
+      setSubmitted(true);
     }
   };
+  
   
   
 
