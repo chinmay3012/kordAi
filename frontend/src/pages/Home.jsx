@@ -13,7 +13,7 @@ export default function Home() {
   
     try {
       const res = await fetch(
-        "http://localhost:7070/api/v1/waitlist",
+        `${import.meta.env.VITE_API_URL}/api/v1/waitlist`,
         {
           method: "POST",
           headers: {
