@@ -58,6 +58,7 @@
 
 import express from "express";
 import Job from "../models/Job.js";
+import { requireAuth } from "../middleware/auth.middleware.js";
 
 const router = express.Router();
 
@@ -69,7 +70,7 @@ const router = express.Router();
  *  - keyword (optional)
  *  - source (optional)
  */
-router.get("/", async (req, res) => {
+router.get("/", requireAuth , async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;

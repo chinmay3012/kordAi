@@ -74,7 +74,8 @@ export default function Home() {
           </h2>
 
           <p className="mt-6 text-lg md:text-xl text-gray-600">
-            Kord works 24/7 to connect you with startup founders.
+            No need to search , wait and apply everytime everywhere.<br/><br/>
+            Kord works 24/7 collecting data for your Personalized JOB preference.
             <br />
             Personalized. Professional. Relentless.
           </p>
@@ -107,7 +108,7 @@ export default function Home() {
             Speed matters.
           </h3>
           The fastest applicants get seen first.<br></br>
-          Kord helps you move faster — swipe through roles matched to your skills and act before the crowd arrives.
+          Kord helps you move faster — just swipe the CARDS matched to your skills and act before the crowd arrives.
         </div><br></br><br></br><br></br>
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
           <div className="space-y-10">
@@ -116,7 +117,7 @@ export default function Home() {
                 Real Founder Data & Smart Follow-Ups
               </h3>
               <p className="mt-4 text-gray-600 leading-relaxed">
-                Don't worry tons of founders and hiring teams have been scanned by our AI.
+                Don't worry , 100's of founders and hiring teams have been scanned by our AI.
                 <br />
                 Kord tracks responses and enables smarter follow-ups
                 so no opportunity slips through.

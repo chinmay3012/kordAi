@@ -9,6 +9,7 @@ import waitlistRoute from "./routes/waitlist.js";
 import jobsRoute from "./routes/jobs.js";
 import Job from "./models/Job.js";
 import { scrapeRemoteOkJobs } from "./scraper/remoteOkJobs.js";
+import authRoutes from "./routes/auth.js";
 
 // --------------------
 // ENV SETUP
@@ -50,6 +51,8 @@ const jobsLimiter = rateLimit({
 // --------------------
 // ROUTES
 // --------------------
+app.use("/auth", authRoutes);
+
 app.use("/api/v1/waitlist", waitlistRoute);
 app.use("/api/v1/jobs", jobsLimiter, jobsRoute);
 
