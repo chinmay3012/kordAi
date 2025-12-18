@@ -11,11 +11,11 @@ export default function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email) return;
-  
+
     const { error } = await supabase
       .from("waitlist")
       .insert([{ email }]);
-  
+
     if (error) {
       if (error.code === "23505") {
         alert("You’re already on the waitlist");
@@ -27,9 +27,9 @@ export default function Home() {
       setSubmitted(true);
     }
   };
-  
-  
-  
+
+
+
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
@@ -87,11 +87,11 @@ export default function Home() {
       >
         <div className="max-w-3xl mx-auto text-center">
           <h3 className="text-3xl md:text-3xl font-semibold tracking-tight">
-          Speed matters.
+            Speed matters.
           </h3>
           The fastest applicants get seen first.<br></br>
           Kord helps you move faster — swipe through roles matched to your skills and act before the crowd arrives.
-          </div><br></br><br></br><br></br>
+        </div><br></br><br></br><br></br>
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
           <div className="space-y-10">
             <div>
@@ -146,15 +146,15 @@ export default function Home() {
       {/* CASINO STACK */}
       <section className="py-32 px-6">
         <div className="max-w-6xl mx-auto text-center">
-        <h3 className="text-3xl md:text-4xl font-semibold tracking-tight flex items-center justify-center gap-2 flex-wrap">
-  Swipe right on hundreds of high-signal startups —
-  <img
-    src={ycLogo}
-    alt="Y Combinator"
-    className="h-8 opacity-90 inline-block"
-  />
-  and beyond.
-</h3>
+          <h3 className="text-3xl md:text-4xl font-semibold tracking-tight flex items-center justify-center gap-2 flex-wrap">
+            Swipe right on hundreds of high-signal startups —
+            <img
+              src={ycLogo}
+              alt="Y Combinator"
+              className="h-8 opacity-90 inline-block"
+            />
+            and beyond.
+          </h3>
 
 
           <p className="mt-4 text-gray-600">
@@ -245,7 +245,7 @@ export default function Home() {
               </h3>
 
               <p className="mt-4 text-gray-600">
-              Early users get priority access to fresher-friendly roles before applications get crowded.
+                Early users get priority access to fresher-friendly roles before applications get crowded.
 
               </p>
 
@@ -285,6 +285,15 @@ export default function Home() {
             </div>
           )}
         </div>
+
+        <div className="mt-6 flex justify-center">
+          <div className="inline-flex items-center rounded-full border border-green-500/30 bg-green-950/50 px-3 py-1 text-xs font-medium text-green-300 shadow-lg shadow-green-900/50">
+            Powered by Supabase
+          </div>
+        </div>
+
+
+
       </section>
 
       {/* FOOTER */}
