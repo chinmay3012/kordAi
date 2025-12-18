@@ -1,0 +1,471 @@
+web_scraper_order,web_scraper_start_url,name,slogan,link,website,About,founder_name,founders_linkedIn,Job,job_name,salary
+1766065139-1,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Socratix AI,AI coworkers for fraud and risk teams.,https://www.ycombinator.com/companies/socratix-ai,https://getsocratix.ai/,"Socratix builds AI coworkers for fraud and risk teams so that humans don't have to spend their days drowning in alerts and spreadsheets.
+
+Today, fraud and risk teams at fintechs and banks are overwhelmed. Analysts jump between tools, manually stitch together context, and make judgment calls under pressure, often for hundreds of alerts a week. Too much of their work is slow, repetitive, and error-prone. We're here to change that. 
+
+Socratix gives fraud and risk teams AI coworkers that investigate alerts in real time, replacing manual reviews with fast, explainable decisions. Socratix agents plug into existing workflows and reason across signals just like human analysts to help teams reduce fraud losses, minimize false positives, and scale operations without scaling headcount.
+
+We've seen this problem firsthand. At DoorDash, Riya helped save $30M+ a year by building smarter fraud detection and investigation tooling, and at Unit21, she built products for analysts that made them 3X faster. We're able to build and sell enterprise-grade software. At Cruise, Satya built scalable AI systems powering petabyte-scale data, and at LinkedIn, he built enterprise products from 0 to 1 generating $50M+ in incremental revenue. Now, the two of us are teaming up to eliminate the manual toil in fraud and risk.
+
+We're obsessed with fraud, LLMs, real-world automation, and the messy edge cases traditional ML has trouble handling. We believe that every fraud analyst should have an AI coworker - and the future of fraud will involve combining human-level reasoning with machine-speed execution.",Riya Jagetia,https://twitter.com/RiyaJagetia,https://www.ycombinator.com/companies/socratix-ai/jobs,,
+1766065139-2,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Socratix AI,AI coworkers for fraud and risk teams.,https://www.ycombinator.com/companies/socratix-ai,https://getsocratix.ai/,"Socratix builds AI coworkers for fraud and risk teams so that humans don't have to spend their days drowning in alerts and spreadsheets.
+
+Today, fraud and risk teams at fintechs and banks are overwhelmed. Analysts jump between tools, manually stitch together context, and make judgment calls under pressure, often for hundreds of alerts a week. Too much of their work is slow, repetitive, and error-prone. We're here to change that. 
+
+Socratix gives fraud and risk teams AI coworkers that investigate alerts in real time, replacing manual reviews with fast, explainable decisions. Socratix agents plug into existing workflows and reason across signals just like human analysts to help teams reduce fraud losses, minimize false positives, and scale operations without scaling headcount.
+
+We've seen this problem firsthand. At DoorDash, Riya helped save $30M+ a year by building smarter fraud detection and investigation tooling, and at Unit21, she built products for analysts that made them 3X faster. We're able to build and sell enterprise-grade software. At Cruise, Satya built scalable AI systems powering petabyte-scale data, and at LinkedIn, he built enterprise products from 0 to 1 generating $50M+ in incremental revenue. Now, the two of us are teaming up to eliminate the manual toil in fraud and risk.
+
+We're obsessed with fraud, LLMs, real-world automation, and the messy edge cases traditional ML has trouble handling. We believe that every fraud analyst should have an AI coworker - and the future of fraud will involve combining human-level reasoning with machine-speed execution.",Satya Vasanth Tumati,https://x.com/SirWitWit,https://www.ycombinator.com/companies/socratix-ai/jobs,,
+1766065155-3,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Floot,The easiest way for non-coders to build apps with AI.,https://www.ycombinator.com/companies/floot,https://floot.com/,"Floot lets non-coders & entrepreneurs build real web apps that actually work. We’re taking a new approach by building everything from the ground up for AI.
+
+✨ Try building an app at floot.com
+
+Existing AI app builders fall short of enabling non-coders to build real, serious apps. They often:
+- Break down when building anything more than a prototype or toy app
+- Have non-coders stuck with errors they don’t understand
+- Require non-coders to handle multiple services designed for developers (e.g. for backend, database, hosting, etc)
+
+The fundamental problem: these AI app builders just cobble together existing developer tools and slap AI on top, but these tools were designed for humans and not for AI.
+
+The result? Non-coders get excited, start building, hit a wall, and then abandon their projects.
+
+Floot is purpose-built for AI. Our secret sauce:
+
+1) Instead of reusing a coding framework designed for humans, we created a specialized framework that dictates how AI should write code and how the code runs on our infrastructure. This allows us to enforce best practices, detect errors earlier, and give the best feedback to the AI. As a result, Floot can write better code and fix issues more effectively.
+
+2) Floot has the entire tech stack built-in (backend, database, hosting, etc) so building and managing an app feels seamless, especially for non-coders. And because we control every layer of the stack, we can optimize each layer for AI-first coding.
+
+Because of this, non-coders can get more done with less time and prompting. They can finally build serious apps that work, instead of getting stuck in frustrating error loops and then abandoning their projects.
+
+We also built a highly scalable hosting system directly on AWS so Floot apps can handle real traffic and business demands. This means non-coders can build, deploy, and scale their apps on a single platform seamlessly.
+
+Plus, Floot is really fun to use! Try building an app at floot.com",Yujian Yao,https://x.com/yyjhao,https://www.ycombinator.com/companies/floot/jobs,,
+1766065155-4,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Floot,The easiest way for non-coders to build apps with AI.,https://www.ycombinator.com/companies/floot,https://floot.com/,"Floot lets non-coders & entrepreneurs build real web apps that actually work. We’re taking a new approach by building everything from the ground up for AI.
+
+✨ Try building an app at floot.com
+
+Existing AI app builders fall short of enabling non-coders to build real, serious apps. They often:
+- Break down when building anything more than a prototype or toy app
+- Have non-coders stuck with errors they don’t understand
+- Require non-coders to handle multiple services designed for developers (e.g. for backend, database, hosting, etc)
+
+The fundamental problem: these AI app builders just cobble together existing developer tools and slap AI on top, but these tools were designed for humans and not for AI.
+
+The result? Non-coders get excited, start building, hit a wall, and then abandon their projects.
+
+Floot is purpose-built for AI. Our secret sauce:
+
+1) Instead of reusing a coding framework designed for humans, we created a specialized framework that dictates how AI should write code and how the code runs on our infrastructure. This allows us to enforce best practices, detect errors earlier, and give the best feedback to the AI. As a result, Floot can write better code and fix issues more effectively.
+
+2) Floot has the entire tech stack built-in (backend, database, hosting, etc) so building and managing an app feels seamless, especially for non-coders. And because we control every layer of the stack, we can optimize each layer for AI-first coding.
+
+Because of this, non-coders can get more done with less time and prompting. They can finally build serious apps that work, instead of getting stuck in frustrating error loops and then abandoning their projects.
+
+We also built a highly scalable hosting system directly on AWS so Floot apps can handle real traffic and business demands. This means non-coders can build, deploy, and scale their apps on a single platform seamlessly.
+
+Plus, Floot is really fun to use! Try building an app at floot.com",Edward Look,https://x.com/edlooky,https://www.ycombinator.com/companies/floot/jobs,,
+1766065159-5,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Idler,Reinforcement learning environments.,https://www.ycombinator.com/companies/idler,https://idler.ai/,Idler builds reinforcement learning environments that teach AI models to code at expert human levels. We create training environments based on real-world coding scenarios that prepare models for the complex challenges they'll face in production.,Ivan Chub,https://x.com/chubivan,https://www.ycombinator.com/companies/idler/jobs,,
+1766065159-6,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Idler,Reinforcement learning environments.,https://www.ycombinator.com/companies/idler,https://idler.ai/,Idler builds reinforcement learning environments that teach AI models to code at expert human levels. We create training environments based on real-world coding scenarios that prepare models for the complex challenges they'll face in production.,Nalu Concepcion,https://x.com/naluconcepcion,https://www.ycombinator.com/companies/idler/jobs,,
+1766065159-7,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Idler,Reinforcement learning environments.,https://www.ycombinator.com/companies/idler,https://idler.ai/,Idler builds reinforcement learning environments that teach AI models to code at expert human levels. We create training environments based on real-world coding scenarios that prepare models for the complex challenges they'll face in production.,Tony Goss,https://x.com/cha0sg0d_,https://www.ycombinator.com/companies/idler/jobs,,
+1766065162-8,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Humoniq,AI-Native BPO for travel & transport,https://www.ycombinator.com/companies/humoniq,https://humoniq.ai/,"Humoniq is building the first AI-Native BPO for the travel & transport industries, which outsource $20B of customer support each year. Our AI-native approach improves speed, accuracy, and satisfaction.
+
+Our team is uniquely equipped to solve this challenge. We previously grew a travel management company, Flightfox (YC S12), to $22M/yr. We handled thousands of customer requests each month, which exposed the limitations of traditional outsourcing.",Todd Sullivan,https://x.com/todsul,https://www.ycombinator.com/companies/humoniq/jobs,,
+1766065162-9,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Humoniq,AI-Native BPO for travel & transport,https://www.ycombinator.com/companies/humoniq,https://humoniq.ai/,"Humoniq is building the first AI-Native BPO for the travel & transport industries, which outsource $20B of customer support each year. Our AI-native approach improves speed, accuracy, and satisfaction.
+
+Our team is uniquely equipped to solve this challenge. We previously grew a travel management company, Flightfox (YC S12), to $22M/yr. We handled thousands of customer requests each month, which exposed the limitations of traditional outsourcing.",Will Weber,https://www.linkedin.com/in/w-weber/,https://www.ycombinator.com/companies/humoniq/jobs,,
+1766065171-10,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Altur,Voice AI Agents for Debt Collection,https://www.ycombinator.com/companies/altur,https://altur.io/,Voice AI Agents for Debt Collection,Luis Olave,https://linkedin.com/in/luis-olave,https://www.ycombinator.com/companies/altur/jobs,,
+1766065171-11,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Altur,Voice AI Agents for Debt Collection,https://www.ycombinator.com/companies/altur,https://altur.io/,Voice AI Agents for Debt Collection,Pedro Fernández,https://www.linkedin.com/in/pedrofdzl,https://www.ycombinator.com/companies/altur/jobs,,
+1766065175-12,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Metis,Infrastructure to build reliable agents,https://www.ycombinator.com/companies/metis,https://withmetis.ai/,We build infrastructure enabling AI agents to reliably perform complex tasks in production,Aryan Shah,https://www.linkedin.com/in/aryan-shah1/,https://www.ycombinator.com/companies/metis/jobs,,
+1766065175-13,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Metis,Infrastructure to build reliable agents,https://www.ycombinator.com/companies/metis,https://withmetis.ai/,We build infrastructure enabling AI agents to reliably perform complex tasks in production,Aayush Sheth,https://linkedin.com/in/aasheth1,https://www.ycombinator.com/companies/metis/jobs,,
+1766065175-14,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Metis,Infrastructure to build reliable agents,https://www.ycombinator.com/companies/metis,https://withmetis.ai/,We build infrastructure enabling AI agents to reliably perform complex tasks in production,Marcus Yearwood,https://www.linkedin.com/in/marcus-yearwood?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app,https://www.ycombinator.com/companies/metis/jobs,,
+1766065178-15,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Sira,AI Native Rippling for Deskless Workers,https://www.ycombinator.com/companies/sira,https://sira.team/,"Sira is the AI-powered platform for managing time tracking, scheduling, payroll, and HR — purpose-built for hourly teams.
+
+Our intelligent agents handle the manual, time-consuming tasks for you — like calling workers to fill open shifts, detecting timesheet anomalies, and streamlining payroll processing.
+
+With Sira, businesses stay organized, compliant, and focused on what really matters — while we take care of the team.",Nathan Belaye,https://www.linkedin.com/in/nathan-belaye-931005149/,https://www.ycombinator.com/companies/sira/jobs,,
+1766065178-16,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Sira,AI Native Rippling for Deskless Workers,https://www.ycombinator.com/companies/sira,https://sira.team/,"Sira is the AI-powered platform for managing time tracking, scheduling, payroll, and HR — purpose-built for hourly teams.
+
+Our intelligent agents handle the manual, time-consuming tasks for you — like calling workers to fill open shifts, detecting timesheet anomalies, and streamlining payroll processing.
+
+With Sira, businesses stay organized, compliant, and focused on what really matters — while we take care of the team.",Antonio Chan,https://www.linkedin.com/in/antonio-chan/,https://www.ycombinator.com/companies/sira/jobs,,
+1766065182-17,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Pally,Intelligent Unified Inbox + Personal CRM,https://www.ycombinator.com/companies/pally,https://pally.com/,"We spend our lives in messaging apps. Slack. iMessage. WhatsApp. We face a constant stream of information, introductions, and things we need to do.
+
+What if you could bring together every message, from every platform, in a Superhuman-like experience, with AI agents that automatically complete your action items?
+
+That’s exactly what we’re building at Pally; a future where you never need to check another inbox again.",Haz Hubble,https://www.x.com/hazhubble,https://www.ycombinator.com/companies/pally/jobs,,
+1766065182-18,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Pally,Intelligent Unified Inbox + Personal CRM,https://www.ycombinator.com/companies/pally,https://pally.com/,"We spend our lives in messaging apps. Slack. iMessage. WhatsApp. We face a constant stream of information, introductions, and things we need to do.
+
+What if you could bring together every message, from every platform, in a Superhuman-like experience, with AI agents that automatically complete your action items?
+
+That’s exactly what we’re building at Pally; a future where you never need to check another inbox again.",Wyatt Lansford,https://x.com/wylansford,https://www.ycombinator.com/companies/pally/jobs,,
+1766065192-19,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Hera,AI Motion Designer,https://www.ycombinator.com/companies/hera-video,https://hera.video/,"Hera is an AI motion designer that turns 5-hour projects into 5-minute tasks. 
+
+When you're a YouTuber making an infographic animation, instead of spending hours manually clicking buttons in Adobe After Effects, you can create the same animation in minutes in Hera. 
+
+Through talking to our users, we realized that 95% of time spent on motion graphics is manual button clicking, not creative work. This insight led us to focus on automating the tedious parts while giving the user all creative control.
+
+We launched in May 2025, got 100k waitlist signups in 8 weeks, and we're doubling revenue monthly.",Peter Tribelhorn,https://x.com/tribelhorn23,https://www.ycombinator.com/companies/hera-video/jobs,,
+1766065192-20,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Hera,AI Motion Designer,https://www.ycombinator.com/companies/hera-video,https://hera.video/,"Hera is an AI motion designer that turns 5-hour projects into 5-minute tasks. 
+
+When you're a YouTuber making an infographic animation, instead of spending hours manually clicking buttons in Adobe After Effects, you can create the same animation in minutes in Hera. 
+
+Through talking to our users, we realized that 95% of time spent on motion graphics is manual button clicking, not creative work. This insight led us to focus on automating the tedious parts while giving the user all creative control.
+
+We launched in May 2025, got 100k waitlist signups in 8 weeks, and we're doubling revenue monthly.",Chia-Lun Wu,https://x.com/leowuhera,https://www.ycombinator.com/companies/hera-video/jobs,,
+1766065197-21,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Reacher,We automate creator marketing for the world's largest brands,https://www.ycombinator.com/companies/reacher,https://reacherapp.com/,"Reacher is an AI-powered platform that automates creator marketing workflows—from discovery and outreach to campaign management and content strategy—making marketing teams 10x more productive. 
+
+We handle the manual tasks so brands can focus on building relationships with creators while centralizing their operations in one platform to manage creators on TikTok Shop, Instagram, and YouTube.",Jerry Qian,https://x.com/JerryQian_,https://www.ycombinator.com/companies/reacher/jobs,,
+1766065197-22,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Reacher,We automate creator marketing for the world's largest brands,https://www.ycombinator.com/companies/reacher,https://reacherapp.com/,"Reacher is an AI-powered platform that automates creator marketing workflows—from discovery and outreach to campaign management and content strategy—making marketing teams 10x more productive. 
+
+We handle the manual tasks so brands can focus on building relationships with creators while centralizing their operations in one platform to manage creators on TikTok Shop, Instagram, and YouTube.",Bora Mutluoglu,https://x.com/BoraMutluoglu,https://www.ycombinator.com/companies/reacher/jobs,,
+1766065200-23,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,dScribe AI,Computer vision for bulk inventory tracking,https://www.ycombinator.com/companies/dscribe-ai,https://dscribeai.com/,"dScribe AI uses autonomous drones and 3D vision to track bulk inventory. We're starting by helping the ag and mining industry track stockpiles of grain and gravel.
+
+Bulk inventory tracking is broken. Companies either rely on guesstimates or pay for expensive manual surveys which are still off by 30 to 50%. Without accurate numbers, it’s hard to plan logistics, like how many truckloads are needed. And it creates accounting issues by misreporting inventory value, hurting financial planning and leading to missed opportunities.
+
+We’ve lived this problem, and we know how to solve it. Warren saw it firsthand as a Product Manager at Milk Moovement, a $20M Series A AgTech startup, working closely with feed suppliers and farm managers. Cole was engineer #3 at Tropic, scaling it from seed to Series B, and later led engineering at an AI startup.
+
+We’ve built an integrated hardware and software platform and have signed one of the largest agricultural company in North America. As industries demand real-time visibility into the physical world, dScribe AI is positioned to become the system of record for inventory that don’t fit in traditional boxes and barcodes.",Warren Wijaya Wang,https://linkedin.com/in/warrenwang-fnu/,https://www.ycombinator.com/companies/dscribe-ai/jobs,,
+1766065200-24,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,dScribe AI,Computer vision for bulk inventory tracking,https://www.ycombinator.com/companies/dscribe-ai,https://dscribeai.com/,"dScribe AI uses autonomous drones and 3D vision to track bulk inventory. We're starting by helping the ag and mining industry track stockpiles of grain and gravel.
+
+Bulk inventory tracking is broken. Companies either rely on guesstimates or pay for expensive manual surveys which are still off by 30 to 50%. Without accurate numbers, it’s hard to plan logistics, like how many truckloads are needed. And it creates accounting issues by misreporting inventory value, hurting financial planning and leading to missed opportunities.
+
+We’ve lived this problem, and we know how to solve it. Warren saw it firsthand as a Product Manager at Milk Moovement, a $20M Series A AgTech startup, working closely with feed suppliers and farm managers. Cole was engineer #3 at Tropic, scaling it from seed to Series B, and later led engineering at an AI startup.
+
+We’ve built an integrated hardware and software platform and have signed one of the largest agricultural company in North America. As industries demand real-time visibility into the physical world, dScribe AI is positioned to become the system of record for inventory that don’t fit in traditional boxes and barcodes.",Cole Robertson,https://x.com/cole__robertson,https://www.ycombinator.com/companies/dscribe-ai/jobs,,
+1766065204-25,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Fleetline,Optimizing fleet planning with data driven algorithms,https://www.ycombinator.com/companies/fleetline,https://fleetline.ai/,"Fleetline is building the first complete-context algorithmic load planner for mid to large-sized trucking fleets. Today’s dispatchers face an overwhelming task: balancing regulations, customer demands, live fleet data, and individual driver needs, all while coordinating across siloed tools and teams. Mistakes run rampant, and each mistake is thousands of dollars. Even the select fleets using algorithms that have fleet-wide context struggle: the outputs are rigid, hard to interpret, and are blind to real-world nuances like driver preferences and schedule exceptions. Fleetline solves this by combining advanced optimization with LLMs that can easily adapt algorithms to each fleet’s needs and capture driver-specific information. The result is smarter planning truly optimized for every fleet and its drivers.",Saurav Kumar,https://twitter.com/sauravml,https://www.ycombinator.com/companies/fleetline/jobs,,
+1766065204-26,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Fleetline,Optimizing fleet planning with data driven algorithms,https://www.ycombinator.com/companies/fleetline,https://fleetline.ai/,"Fleetline is building the first complete-context algorithmic load planner for mid to large-sized trucking fleets. Today’s dispatchers face an overwhelming task: balancing regulations, customer demands, live fleet data, and individual driver needs, all while coordinating across siloed tools and teams. Mistakes run rampant, and each mistake is thousands of dollars. Even the select fleets using algorithms that have fleet-wide context struggle: the outputs are rigid, hard to interpret, and are blind to real-world nuances like driver preferences and schedule exceptions. Fleetline solves this by combining advanced optimization with LLMs that can easily adapt algorithms to each fleet’s needs and capture driver-specific information. The result is smarter planning truly optimized for every fleet and its drivers.",Veer Juneja,https://www.linkedin.com/in/veer-juneja-67255417a/,https://www.ycombinator.com/companies/fleetline/jobs,,
+1766065212-27,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Magnetic,AI Tax Preparer for CPA firms,https://www.ycombinator.com/companies/magnetic,https://www.magnetictax.com/,"Magnetic scans client documents - from handwritten charity notes to excel spreadsheet Schedule Cs to multi-state K-1s - and enters them into tax software automatically, saving hours of tedious data entry. 
+
+The accounting profession is facing a massive talent shortage, as graduates choose different professions and the old guard begins to retire. As a result, CPA and tax preparation firms are awash in clientele, but unable to keep up. At many firms, phones go unanswered, clients are ""fired"", and websites are taken down, as the existing workforce tries to handle the grueling 80 hour+ weeks necessary to push through tax season to the April 15th deadline.
+
+We built this because a former colleague who owns her own tax firm asked us to automate her workload, and we quickly realized the massive opportunity. Thomas brings deep domain expertise as the former Head of Product at Keeper (YC W19), where he built tax engine automation systems and an OCR form scanning system that outperformed everything else on the market. At Keeper, he leveraged early access to OpenAI's LLMs (well before ChatGPT) to build systems that automated the entire tax filing process, allowing a tiny team of CPAs to process thousands of returns with near zero busy work. Patrick was the first engineer at FunCraft, shipping multiple mobile games with 1M+ downloads and building scalable shared codebases. We've worked together since 2017, including co-leading multiple teams at Zynga as PM & Tech Lead respectively.
+
+We launched this year in the middle of tax season and quickly processed hundreds of returns, earning thousands in ARR, and since tax season we've been growing customers by >30% month-over-month. We've completely automated over 25% of the return process so far and developed a proprietary vision model that beats incumbent scanning technology by almost 2x on accuracy - jumping from 50% field-level accuracy to 89%, approaching the quality of their expensive human-verified service at 92%.
+
+The opportunity is massive - there are 80M US personal tax returns filed via professionals annually, in a $2B outsourcing market where individual CPA firms currently pay $100k-$1M per year for inferior services. We're positioned to capture significant market share by offering better accuracy & document coverage, instant processing, and superior user experience.
+
+We've built this kind of software before, we've worked together for years (and even lived together), we've built products to $10M ARR before, and we have the grit to outwork anyone in this space.",Thomas Shelley,https://x.com/tsh3ll,https://www.ycombinator.com/companies/magnetic/jobs,,
+1766065212-28,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Magnetic,AI Tax Preparer for CPA firms,https://www.ycombinator.com/companies/magnetic,https://www.magnetictax.com/,"Magnetic scans client documents - from handwritten charity notes to excel spreadsheet Schedule Cs to multi-state K-1s - and enters them into tax software automatically, saving hours of tedious data entry. 
+
+The accounting profession is facing a massive talent shortage, as graduates choose different professions and the old guard begins to retire. As a result, CPA and tax preparation firms are awash in clientele, but unable to keep up. At many firms, phones go unanswered, clients are ""fired"", and websites are taken down, as the existing workforce tries to handle the grueling 80 hour+ weeks necessary to push through tax season to the April 15th deadline.
+
+We built this because a former colleague who owns her own tax firm asked us to automate her workload, and we quickly realized the massive opportunity. Thomas brings deep domain expertise as the former Head of Product at Keeper (YC W19), where he built tax engine automation systems and an OCR form scanning system that outperformed everything else on the market. At Keeper, he leveraged early access to OpenAI's LLMs (well before ChatGPT) to build systems that automated the entire tax filing process, allowing a tiny team of CPAs to process thousands of returns with near zero busy work. Patrick was the first engineer at FunCraft, shipping multiple mobile games with 1M+ downloads and building scalable shared codebases. We've worked together since 2017, including co-leading multiple teams at Zynga as PM & Tech Lead respectively.
+
+We launched this year in the middle of tax season and quickly processed hundreds of returns, earning thousands in ARR, and since tax season we've been growing customers by >30% month-over-month. We've completely automated over 25% of the return process so far and developed a proprietary vision model that beats incumbent scanning technology by almost 2x on accuracy - jumping from 50% field-level accuracy to 89%, approaching the quality of their expensive human-verified service at 92%.
+
+The opportunity is massive - there are 80M US personal tax returns filed via professionals annually, in a $2B outsourcing market where individual CPA firms currently pay $100k-$1M per year for inferior services. We're positioned to capture significant market share by offering better accuracy & document coverage, instant processing, and superior user experience.
+
+We've built this kind of software before, we've worked together for years (and even lived together), we've built products to $10M ARR before, and we have the grit to outwork anyone in this space.",Patrick Fay,https://linkedin.com/in/patrick-fay-5418a822,https://www.ycombinator.com/companies/magnetic/jobs,,
+1766065216-29,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Duranium,Reshoring critical metal production,https://www.ycombinator.com/companies/duranium,https://www.duranium.co/,"China and Russia control the world’s critical minerals. We can produce Titanium, Magnesium, Aluminum, Zirconium & Hafnium in the U.S. more profitably than any existing process, and carbon neutrally via co-production.
+
+Carbochlorination is the primary process for producing critical metals like titanium, hafnium, and zirconium, and was once the standard for magnesium. The problem: conventional carbochlorination relies on purchasing carbon feedstocks, wastes valuable byproducts, and is highly CO₂-intensive.
+
+Duranium changes this with a novel reactor that recycles CO₂ emissions back into feedstock (CO) while generating a valuable co-product (bleaching agents). This closed loop slashes emissions and delivers Chinese-level metal pricing without subsidies — unlocking the full potential of carbochlorination for U.S. critical mineral production.",Brenden Prins-McKinney,https://www.linkedin.com/in/brenden-prins-mckinney-96959a69/,https://www.ycombinator.com/companies/duranium/jobs,,
+1766065216-30,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Duranium,Reshoring critical metal production,https://www.ycombinator.com/companies/duranium,https://www.duranium.co/,"China and Russia control the world’s critical minerals. We can produce Titanium, Magnesium, Aluminum, Zirconium & Hafnium in the U.S. more profitably than any existing process, and carbon neutrally via co-production.
+
+Carbochlorination is the primary process for producing critical metals like titanium, hafnium, and zirconium, and was once the standard for magnesium. The problem: conventional carbochlorination relies on purchasing carbon feedstocks, wastes valuable byproducts, and is highly CO₂-intensive.
+
+Duranium changes this with a novel reactor that recycles CO₂ emissions back into feedstock (CO) while generating a valuable co-product (bleaching agents). This closed loop slashes emissions and delivers Chinese-level metal pricing without subsidies — unlocking the full potential of carbochlorination for U.S. critical mineral production.",Berkley Noble,https://www.linkedin.com/in/berkleynoble/,https://www.ycombinator.com/companies/duranium/jobs,,
+1766065219-31,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,TectoAI,A Platform for AI Governance,https://www.ycombinator.com/companies/tectoai,https://www.tecto.ai/,"We help your company identify roles that can be filled by agentic AI tools, onboard them quickly, monitor their performance and behavior post deployment, ensure they remain compliant, and aligned with regulations. Tecto is building the governance platform for managing the AI stack!","Niosha Afsharikia, PhD",https://www.linkedin.com/in/afsharikia/,https://www.ycombinator.com/companies/tectoai/jobs,,
+1766065219-32,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,TectoAI,A Platform for AI Governance,https://www.ycombinator.com/companies/tectoai,https://www.tecto.ai/,"We help your company identify roles that can be filled by agentic AI tools, onboard them quickly, monitor their performance and behavior post deployment, ensure they remain compliant, and aligned with regulations. Tecto is building the governance platform for managing the AI stack!",Roksana Baleshzar,https://www.linkedin.com/in/roksana-baleshzar/,https://www.ycombinator.com/companies/tectoai/jobs,,
+1766065223-33,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Interfere,Build software that never breaks,https://www.ycombinator.com/companies/interfere,https://interfere.com/,,Luke Shiels,https://x.com/lukeshiels_,https://www.ycombinator.com/companies/interfere/jobs,,
+1766065227-34,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Vulcan Technologies,AI regulatory drafting and compliance,https://www.ycombinator.com/companies/vulcan-technologies,https://www.vulcan-tech.com/,"Vulcan uses AI to map every law, regulation, and court case in America, allowing government agencies and businesses to replace massive consulting projects with instant automated analyses. We call this ""intelligent legal cartography.""
+
+In 3 months, we went from zero customers to Virginia's Executive Order 51, requiring all state agencies to use Vulcan. We are now live with the U.S. Department of Education, a regulatory reform PAC in South Carolina, and have a pipeline of several additional state and federal agencies and major enterprises.
+
+Our initial agency partners use legal cartography to draft lawful regulations, respond to public comments on regulations, and instantly generate mandatory cost-benefit analyses.
+
+We have both public and private sector visions. In the public sector: we endeavor to automate the entire regulatory process end-to-end; replacing the consulting industrial complex with software. In the private sector: we plan to automate regulatory compliance, tackling the $4 trillion regulatory cost on the U.S. economy.",Tanner Jones,https://x.com/Tanner_H_Jones,https://www.ycombinator.com/companies/vulcan-technologies/jobs,,
+1766065227-35,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Vulcan Technologies,AI regulatory drafting and compliance,https://www.ycombinator.com/companies/vulcan-technologies,https://www.vulcan-tech.com/,"Vulcan uses AI to map every law, regulation, and court case in America, allowing government agencies and businesses to replace massive consulting projects with instant automated analyses. We call this ""intelligent legal cartography.""
+
+In 3 months, we went from zero customers to Virginia's Executive Order 51, requiring all state agencies to use Vulcan. We are now live with the U.S. Department of Education, a regulatory reform PAC in South Carolina, and have a pipeline of several additional state and federal agencies and major enterprises.
+
+Our initial agency partners use legal cartography to draft lawful regulations, respond to public comments on regulations, and instantly generate mandatory cost-benefit analyses.
+
+We have both public and private sector visions. In the public sector: we endeavor to automate the entire regulatory process end-to-end; replacing the consulting industrial complex with software. In the private sector: we plan to automate regulatory compliance, tackling the $4 trillion regulatory cost on the U.S. economy.",Aleksander Mekhanik,https://www.linkedin.com/in/aleksander-mekhanik-41547b272/,https://www.ycombinator.com/companies/vulcan-technologies/jobs,,
+1766065227-36,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Vulcan Technologies,AI regulatory drafting and compliance,https://www.ycombinator.com/companies/vulcan-technologies,https://www.vulcan-tech.com/,"Vulcan uses AI to map every law, regulation, and court case in America, allowing government agencies and businesses to replace massive consulting projects with instant automated analyses. We call this ""intelligent legal cartography.""
+
+In 3 months, we went from zero customers to Virginia's Executive Order 51, requiring all state agencies to use Vulcan. We are now live with the U.S. Department of Education, a regulatory reform PAC in South Carolina, and have a pipeline of several additional state and federal agencies and major enterprises.
+
+Our initial agency partners use legal cartography to draft lawful regulations, respond to public comments on regulations, and instantly generate mandatory cost-benefit analyses.
+
+We have both public and private sector visions. In the public sector: we endeavor to automate the entire regulatory process end-to-end; replacing the consulting industrial complex with software. In the private sector: we plan to automate regulatory compliance, tackling the $4 trillion regulatory cost on the U.S. economy.",Chris Minge,https://www.linkedin.com/in/chrisminge,https://www.ycombinator.com/companies/vulcan-technologies/jobs,,
+1766065232-37,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,NOSO LABS,Build AI agents for field technicians to diagnose and sell 10x better,https://www.ycombinator.com/companies/noso-labs,https://noso.so/,"In the home services industry, field technicians are expected to handle three key tasks: diagnosing issues, making sales, and completing paperwork. It's rare to find individuals who excel at all three. We build AI agents to support technicians by improving diagnostic accuracy and helping them capture sales opportunities.",Winston Chi,https://www.linkedin.com/in/lwchi/,https://www.ycombinator.com/companies/noso-labs/jobs,,
+1766065236-38,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,NOSO LABS,Build AI agents for field technicians to diagnose and sell 10x better,https://www.ycombinator.com/companies/noso-labs,https://noso.so/,"In the home services industry, field technicians are expected to handle three key tasks: diagnosing issues, making sales, and completing paperwork. It's rare to find individuals who excel at all three. We build AI agents to support technicians by improving diagnostic accuracy and helping them capture sales opportunities.",Alex Xi,,https://www.ycombinator.com/companies/noso-labs/jobs,Founding Engineer,$120K - $200K
+1766065245-39,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,burnt,Agentic Operating System for Food Supply Chain,https://www.ycombinator.com/companies/burnt,https://getburnt.ai/,"Food Supply Chain companies have been using legacy ERPs for decades. Everyone knows these are necessary evils that essentially run the business but take up a lot of operational capacity. They are not about to just rip and replace their existing system that runs their whole business with a system that takes years to implement. Imagine if they could implement AI that runs the ERP for them, in weeks?
+
+Burnt’s building an agentic OS for the Food Supply Chain with AI Agents for each department. 
+
+Our AI Agent, Ozai, has started by replacing the whole order management job function at food distribution companies, so that sales and customer service teams can focus on what matters - the customer. Ozai monitors all incoming messages (emails, phone calls, voicemails, whatsapp, fax etc.), figures out if it's an order, learns each customer's habits, shorthand, and favorite products, picks up on any prep notes, and enters it straight into the existing ERP. It'll even go back to the customers on your behalf when it's not sure about something, clarify things and carry on working. 
+
+The more it sees, the smarter it gets.",Joseph Jacob,https://x.com/Joseph_Jacob13,https://www.ycombinator.com/companies/burnt/jobs,,
+1766065245-40,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,burnt,Agentic Operating System for Food Supply Chain,https://www.ycombinator.com/companies/burnt,https://getburnt.ai/,"Food Supply Chain companies have been using legacy ERPs for decades. Everyone knows these are necessary evils that essentially run the business but take up a lot of operational capacity. They are not about to just rip and replace their existing system that runs their whole business with a system that takes years to implement. Imagine if they could implement AI that runs the ERP for them, in weeks?
+
+Burnt’s building an agentic OS for the Food Supply Chain with AI Agents for each department. 
+
+Our AI Agent, Ozai, has started by replacing the whole order management job function at food distribution companies, so that sales and customer service teams can focus on what matters - the customer. Ozai monitors all incoming messages (emails, phone calls, voicemails, whatsapp, fax etc.), figures out if it's an order, learns each customer's habits, shorthand, and favorite products, picks up on any prep notes, and enters it straight into the existing ERP. It'll even go back to the customers on your behalf when it's not sure about something, clarify things and carry on working. 
+
+The more it sees, the smarter it gets.",Rhea Karimpanal,https://x.com/RheaKarimpanal,https://www.ycombinator.com/companies/burnt/jobs,,
+1766065245-41,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,burnt,Agentic Operating System for Food Supply Chain,https://www.ycombinator.com/companies/burnt,https://getburnt.ai/,"Food Supply Chain companies have been using legacy ERPs for decades. Everyone knows these are necessary evils that essentially run the business but take up a lot of operational capacity. They are not about to just rip and replace their existing system that runs their whole business with a system that takes years to implement. Imagine if they could implement AI that runs the ERP for them, in weeks?
+
+Burnt’s building an agentic OS for the Food Supply Chain with AI Agents for each department. 
+
+Our AI Agent, Ozai, has started by replacing the whole order management job function at food distribution companies, so that sales and customer service teams can focus on what matters - the customer. Ozai monitors all incoming messages (emails, phone calls, voicemails, whatsapp, fax etc.), figures out if it's an order, learns each customer's habits, shorthand, and favorite products, picks up on any prep notes, and enters it straight into the existing ERP. It'll even go back to the customers on your behalf when it's not sure about something, clarify things and carry on working. 
+
+The more it sees, the smarter it gets.",Chandru Shanumugasundaram,https://x.com/tweetchanshan,https://www.ycombinator.com/companies/burnt/jobs,,
+1766065249-42,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Luminal,Making AI run fast on any hardware.,https://www.ycombinator.com/companies/luminal,https://luminal.com/,"Luminal builds an ML framework and compiler that generates GPU code.
+Our stack 10x's model speed while simplifying deployment and cutting idle GPU costs
+
+Github: https://github.com/luminal-ai/luminal
+Discord: https://discord.gg/APjuwHAbGy",Joe Fioti,https://x.com/joefioti,https://www.ycombinator.com/companies/luminal/jobs,,
+1766065249-43,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Luminal,Making AI run fast on any hardware.,https://www.ycombinator.com/companies/luminal,https://luminal.com/,"Luminal builds an ML framework and compiler that generates GPU code.
+Our stack 10x's model speed while simplifying deployment and cutting idle GPU costs
+
+Github: https://github.com/luminal-ai/luminal
+Discord: https://discord.gg/APjuwHAbGy",Matthew Gunton,https://x.com/matthewjgunton,https://www.ycombinator.com/companies/luminal/jobs,,
+1766065249-44,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Luminal,Making AI run fast on any hardware.,https://www.ycombinator.com/companies/luminal,https://luminal.com/,"Luminal builds an ML framework and compiler that generates GPU code.
+Our stack 10x's model speed while simplifying deployment and cutting idle GPU costs
+
+Github: https://github.com/luminal-ai/luminal
+Discord: https://discord.gg/APjuwHAbGy",Jake Stevens,https://x.com/stake_jevens,https://www.ycombinator.com/companies/luminal/jobs,,
+1766065259-45,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Digipals,The future of Social in the age of AI,https://www.ycombinator.com/companies/digipals,https://www.digipals.app/,"Social networks are dead. Social media became more media than social. My friends aren't on social media anymore - it's one third ads, one third content from strangers, and one third AI slop. Our social lives are fragmented across dozens of different apps - iMessage, WhatsApp, Find My, Partiful, and Venmo. 
+
+Digipals is the first AI-native social operating system that improves our relationships with friends. We built ambient AI agents that use social context from our location, calendar, and photos to take action and write code in our group chats. We are the last social platform anyone will ever need.
+
+Launch Video
+https://youtu.be/KW2tjLl6sxM",Peggy Wang,https://twitter.com/peggy_wang,https://www.ycombinator.com/companies/digipals/jobs,,
+1766065259-46,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Digipals,The future of Social in the age of AI,https://www.ycombinator.com/companies/digipals,https://www.digipals.app/,"Social networks are dead. Social media became more media than social. My friends aren't on social media anymore - it's one third ads, one third content from strangers, and one third AI slop. Our social lives are fragmented across dozens of different apps - iMessage, WhatsApp, Find My, Partiful, and Venmo. 
+
+Digipals is the first AI-native social operating system that improves our relationships with friends. We built ambient AI agents that use social context from our location, calendar, and photos to take action and write code in our group chats. We are the last social platform anyone will ever need.
+
+Launch Video
+https://youtu.be/KW2tjLl6sxM",Mathew Matakovic,https://x.com/GoalieSave25,https://www.ycombinator.com/companies/digipals/jobs,,
+1766065266-47,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Nox Metals,"The modern factory for fast, low-cost metals.",https://www.ycombinator.com/companies/nox-metals,https://noxmetals.co/,"Nox Metals is building the fastest metals processing factories in North America. Our software runs quoting, scheduling, and operations to streamline production and reduce cost. We supply America's industrial base with custom-cut material at unmatched speed and efficiency.",Zane Hengsperger,https://x.com/zanehengsperger,https://www.ycombinator.com/companies/nox-metals/jobs,,
+1766065270-48,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,F2,The AI platform for private markets investors,https://www.ycombinator.com/companies/f2,http://f2.ai/,"F2 is the AI platform for private markets investors. Purpose-built for private credit, private equity, and commercial banking, F2 accelerates diligence, underwriting, and portfolio monitoring, helping teams evaluate deals over 60% faster. 
+
+F2 turns unstructured deal data into investment-grade analysis and polished memos in minutes. Unlike general-purpose AI, F2 is built with the domain expertise and depth to handle the most complex financial analysis. Already trusted across thousands of deals, F2 makes collaboration easy and retains historical context, so past work compounds into future wins. 
+
+Headquartered in New York City, F2 is backed by leading investors including NFX, Left Lane Capital, and Y Combinator.",Don Muir,https://www.linkedin.com/in/don-muir,https://www.ycombinator.com/companies/f2/jobs,,
+1766065273-49,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Uplane,Replace marketing agencies with AI,https://www.ycombinator.com/companies/uplane,https://uplane.com/,"Uplane replaces marketing agencies with AI. We generate hundreds of ads with matching landing pages and steer the ad spend across channels like Meta, Google, LinkedIn and others. By connecting to CRM and ERP data, Uplane learns what drives profits and continuously improves campaigns.
+
+Companies waste billions on bad ads, mismatched landing pages, and poor budget allocation. Uplane fixes this by replacing a patchwork of agencies, spreadsheets, and siloed tools with one self-improving system. The result: Higher ROAS for enterprises and effortless, expert-level marketing for SMBs.",Julius Körfgen,https://www.linkedin.com/in/julius-koerfgen/,https://www.ycombinator.com/companies/uplane/jobs,,
+1766065273-50,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Uplane,Replace marketing agencies with AI,https://www.ycombinator.com/companies/uplane,https://uplane.com/,"Uplane replaces marketing agencies with AI. We generate hundreds of ads with matching landing pages and steer the ad spend across channels like Meta, Google, LinkedIn and others. By connecting to CRM and ERP data, Uplane learns what drives profits and continuously improves campaigns.
+
+Companies waste billions on bad ads, mismatched landing pages, and poor budget allocation. Uplane fixes this by replacing a patchwork of agencies, spreadsheets, and siloed tools with one self-improving system. The result: Higher ROAS for enterprises and effortless, expert-level marketing for SMBs.",Marvin Abdel-Massih,https://www.linkedin.com/in/marvinabdel-massih/,https://www.ycombinator.com/companies/uplane/jobs,,
+1766065273-51,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Uplane,Replace marketing agencies with AI,https://www.ycombinator.com/companies/uplane,https://uplane.com/,"Uplane replaces marketing agencies with AI. We generate hundreds of ads with matching landing pages and steer the ad spend across channels like Meta, Google, LinkedIn and others. By connecting to CRM and ERP data, Uplane learns what drives profits and continuously improves campaigns.
+
+Companies waste billions on bad ads, mismatched landing pages, and poor budget allocation. Uplane fixes this by replacing a patchwork of agencies, spreadsheets, and siloed tools with one self-improving system. The result: Higher ROAS for enterprises and effortless, expert-level marketing for SMBs.",Lukas Vollmer,https://www.linkedin.com/in/lukasvollmer/,https://www.ycombinator.com/companies/uplane/jobs,,
+1766065278-52,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Structured AI,AI workforce for Construction Engineering,https://www.ycombinator.com/companies/structured-ai,https://www.getstructured.ai/,"Structured AI is building the AI workforce for construction design engineering, starting with AI agents that perform quality control on technical documents and drawings. Our agents learn your standards, apply the right building codes, and automatically review your drawings, so you see fewer clashes, fewer inconsistencies, and fewer costly RFIs and change orders.
+
+⚙️ Automates QA/QC across mechanical, electrical, structural and more
+🧩 Used by multi-disciplinary design firms to deliver projects faster with less risk
+🚀 Mission: Free engineers to focus on creative design, not repetitive admin",Raymond Zhao,https://x.com/stingrayzz22,https://www.ycombinator.com/companies/structured-ai/jobs,,
+1766065278-53,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Structured AI,AI workforce for Construction Engineering,https://www.ycombinator.com/companies/structured-ai,https://www.getstructured.ai/,"Structured AI is building the AI workforce for construction design engineering, starting with AI agents that perform quality control on technical documents and drawings. Our agents learn your standards, apply the right building codes, and automatically review your drawings, so you see fewer clashes, fewer inconsistencies, and fewer costly RFIs and change orders.
+
+⚙️ Automates QA/QC across mechanical, electrical, structural and more
+🧩 Used by multi-disciplinary design firms to deliver projects faster with less risk
+🚀 Mission: Free engineers to focus on creative design, not repetitive admin",Issy Greenslade,https://x.com/Green181024,https://www.ycombinator.com/companies/structured-ai/jobs,,
+1766065278-54,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Structured AI,AI workforce for Construction Engineering,https://www.ycombinator.com/companies/structured-ai,https://www.getstructured.ai/,"Structured AI is building the AI workforce for construction design engineering, starting with AI agents that perform quality control on technical documents and drawings. Our agents learn your standards, apply the right building codes, and automatically review your drawings, so you see fewer clashes, fewer inconsistencies, and fewer costly RFIs and change orders.
+
+⚙️ Automates QA/QC across mechanical, electrical, structural and more
+🧩 Used by multi-disciplinary design firms to deliver projects faster with less risk
+🚀 Mission: Free engineers to focus on creative design, not repetitive admin",Brandon Abreu Smith,https://x.com/brandonstarxel,https://www.ycombinator.com/companies/structured-ai/jobs,,
+1766065291-55,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Bolna AI,Voice AI to enable India's next billion,https://www.ycombinator.com/companies/bolna-ai,https://bolna.ai/,"Bolna handles the complexity of voice infra, so enterprises can automate calls faster, better, and cheaper, at scale
+
+Bolna is a Voice AI Orchestration platform purpose-built for Indian enterprises.
+Businesses in India run tens of thousands of calls every day - across sales, support, collections, recruitment, and more. Bolna gives them the power to build and deploy Voice AI Agents directly from their transcripts and FAQs, so they can start automating calls immediately.
+
+With Bolna, enterprises get:
+
+1. Full control over agent intelligence, tone, and workflows
+2. Cost efficiency at scale with smart routing across providers and price points
+3. Enterprise-grade performance on latency, interruptions, multi-language, and multi-accent understanding",Prateek Sachan,https://x.com/xan_ps,https://www.ycombinator.com/companies/bolna-ai/jobs,,
+1766065291-56,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Bolna AI,Voice AI to enable India's next billion,https://www.ycombinator.com/companies/bolna-ai,https://bolna.ai/,"Bolna handles the complexity of voice infra, so enterprises can automate calls faster, better, and cheaper, at scale
+
+Bolna is a Voice AI Orchestration platform purpose-built for Indian enterprises.
+Businesses in India run tens of thousands of calls every day - across sales, support, collections, recruitment, and more. Bolna gives them the power to build and deploy Voice AI Agents directly from their transcripts and FAQs, so they can start automating calls immediately.
+
+With Bolna, enterprises get:
+
+1. Full control over agent intelligence, tone, and workflows
+2. Cost efficiency at scale with smart routing across providers and price points
+3. Enterprise-grade performance on latency, interruptions, multi-language, and multi-accent understanding",Maitreya Wagh,https://x.com/maitreya_wagh,https://www.ycombinator.com/companies/bolna-ai/jobs,,
+1766065310-57,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Wardstone,Satellites for Missile Defense,https://www.ycombinator.com/companies/wardstone,https://www.wardstone.space/,"Wardstone is a space defense-tech company developing next-generation capabilities to protect the United States and its allies from missiles and other space-based threats. We design, build, and deploy satellites equipped with space-based interceptors to kinetically counter hypersonic and ballistic missiles.",Sebastian Fischer,https://www.linkedin.com/in/sebastian-fischer-71ba9658/,https://www.ycombinator.com/companies/wardstone/jobs,,
+1766065310-58,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Wardstone,Satellites for Missile Defense,https://www.ycombinator.com/companies/wardstone,https://www.wardstone.space/,"Wardstone is a space defense-tech company developing next-generation capabilities to protect the United States and its allies from missiles and other space-based threats. We design, build, and deploy satellites equipped with space-based interceptors to kinetically counter hypersonic and ballistic missiles.",Tobias Fischer,https://www.linkedin.com/in/tobifischer,https://www.ycombinator.com/companies/wardstone/jobs,,
+1766065317-59,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Flick,"Figma + Cursor, for AI Filmmaking",https://www.ycombinator.com/companies/flick,https://flick.art/,"Flick is an AI filmmaking software that lets people create Hollywood-level short films completely using AI end-to-end.
+
+There are many AI tools that can give you 8-second casual clips to post on social media, but when it comes to creating truly high-quality films with coherent storylines, consistent characters, and cinematic aesthetics, they don’t come close due to their lack of flexibility, creative control, and fragmented creative flow.
+
+Founded by an award-winning filmmaker and a founding engineer at Instagram, Flick defines an interface specifically designed for native AI filmmaking that feels natural and enables end-to-end creative flows. Think of Flick as Figma for AI filmmaking.
+
+There are 4 complete AI short films created using Flick that got 20+ awards in international film festivals already and our early creator residency community are generating several AI short films every week.
+
+We are also building a community where we produce our own AI films as well as collaborating with other well-known filmmakers to share their “behind-the-scenes” workflows as resuable templates to inspire users in our community. We not only build product, we also build world-class content.
+
+The whole film industry will be revolutionized by AI and our goal is to be “the product” that defines this category.",Ray Wang,https://x.com/RuiCromwell,https://www.ycombinator.com/companies/flick/jobs,,
+1766065317-60,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Flick,"Figma + Cursor, for AI Filmmaking",https://www.ycombinator.com/companies/flick,https://flick.art/,"Flick is an AI filmmaking software that lets people create Hollywood-level short films completely using AI end-to-end.
+
+There are many AI tools that can give you 8-second casual clips to post on social media, but when it comes to creating truly high-quality films with coherent storylines, consistent characters, and cinematic aesthetics, they don’t come close due to their lack of flexibility, creative control, and fragmented creative flow.
+
+Founded by an award-winning filmmaker and a founding engineer at Instagram, Flick defines an interface specifically designed for native AI filmmaking that feels natural and enables end-to-end creative flows. Think of Flick as Figma for AI filmmaking.
+
+There are 4 complete AI short films created using Flick that got 20+ awards in international film festivals already and our early creator residency community are generating several AI short films every week.
+
+We are also building a community where we produce our own AI films as well as collaborating with other well-known filmmakers to share their “behind-the-scenes” workflows as resuable templates to inspire users in our community. We not only build product, we also build world-class content.
+
+The whole film industry will be revolutionized by AI and our goal is to be “the product” that defines this category.",Zoey Zhang,https://x.com/ZoeyZ1004,https://www.ycombinator.com/companies/flick/jobs,,
+1766065321-61,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Semble AI,Autonomous building-system design for construction companies.,https://www.ycombinator.com/companies/semble-ai,https://www.sembleai.com/,"Semble AI builds AI agents that design building-systems (fire, HVAC, plumbing, security). Construction companies use Semble to cut down weeks on commercial and residential projects. 
+
+The $600B building-system integration industry still runs on spreadsheets and manual drawings, even as building codes rapidly evolve and become more localized. It’s a massive blind spot for the tech world. 
+
+Jonathan and Ethan met studying computer science at Stanford. Jonathan worked at Convergint, one of the world's largest building system integrators, specifically for the purpose of learning how this industry works. Ethan is obsessed for a different reason: His house burned down in 2017 due to a faulty fire system.
+
+They are determined to make Semble the industry standard for construction design.",Jonathan Tyshler,https://www.linkedin.com/in/jonathan-tyshler,https://www.ycombinator.com/companies/semble-ai/jobs,,
+1766065321-62,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Semble AI,Autonomous building-system design for construction companies.,https://www.ycombinator.com/companies/semble-ai,https://www.sembleai.com/,"Semble AI builds AI agents that design building-systems (fire, HVAC, plumbing, security). Construction companies use Semble to cut down weeks on commercial and residential projects. 
+
+The $600B building-system integration industry still runs on spreadsheets and manual drawings, even as building codes rapidly evolve and become more localized. It’s a massive blind spot for the tech world. 
+
+Jonathan and Ethan met studying computer science at Stanford. Jonathan worked at Convergint, one of the world's largest building system integrators, specifically for the purpose of learning how this industry works. Ethan is obsessed for a different reason: His house burned down in 2017 due to a faulty fire system.
+
+They are determined to make Semble the industry standard for construction design.",Ethan Boyers,https://www.linkedin.com/in/ethan-boyers/,https://www.ycombinator.com/companies/semble-ai/jobs,,
+1766065328-63,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Sunflower,Building the Sobriety Platform for the future of Superintelligence. 🌻,https://www.ycombinator.com/companies/sunflower,https://sunflowersober.com/,"Sunflower is on a mission to create one trillion days sober. Our product is both a consumer app (think a ""Duolingo for addiction"") but also with a tele-therapy clinic inside. 
+
+Consumer App: 
+- We built the #1 AI Sponsor for any kind of addiction
+- Beautiful visual progression tracking to power the core ""task to be done"" of addiction
+- A twitter style social media for addicts 
+- DIY learn content (think Masterclass for addiction) for all major addiction types 
+- CBT based journaling exercises 
+
+Tele-Therapy: 
+- Think a ""Early Medical Peter Attia"" quality of clinic, but completely focused on addiction 
+- Starting with talk therapy in CA & TX we're rolling out to all 50 states + MAT 
+- Bringing together the worlds best doctors to create the most effective protocol for addiction 
+
+Sunflower went from 0 - 100k MAU in less than 6 months, and now we're continuing the traction to create the #1 product for addiction for the 1.2B humans on this planet that struggle with this fundamental human problem.",Koby Conrad,https://x.com/kobyjconrad,https://www.ycombinator.com/companies/sunflower/jobs,,
+1766065346-64,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Bravi,The AI operating system powering home services businesses,https://www.ycombinator.com/companies/bravi,https://www.bravi.app/,"Bravi is building the AI operating system for home-services businesses, using AI-powered customer communication as the wedge.
+
+We replace the front office (calls, chats, follow-ups) with AI agents that never miss a lead, then layer an internal AI copilot that understands products, pricing, and technical documentation.
+
+We started with fenestration (shutters, windows, garage doors), a large, complex vertical with no modern software, before expanding to adjacent trades.
+
+Bravi is already live with leading installers and manufacturers across Europe and the US, turning missed demand into revenue.",Anas Bouassami,https://www.linkedin.com/in/anas-bouassami,https://www.ycombinator.com/companies/bravi/jobs,,
+1766065346-65,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Bravi,The AI operating system powering home services businesses,https://www.ycombinator.com/companies/bravi,https://www.bravi.app/,"Bravi is building the AI operating system for home-services businesses, using AI-powered customer communication as the wedge.
+
+We replace the front office (calls, chats, follow-ups) with AI agents that never miss a lead, then layer an internal AI copilot that understands products, pricing, and technical documentation.
+
+We started with fenestration (shutters, windows, garage doors), a large, complex vertical with no modern software, before expanding to adjacent trades.
+
+Bravi is already live with leading installers and manufacturers across Europe and the US, turning missed demand into revenue.",Pierre-Habte Nouvellon,https://www.linkedin.com/in/pierre-habte-nouvellon/,https://www.ycombinator.com/companies/bravi/jobs,,
+1766065357-66,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Leadbay,Discover and qualify SMB leads that couldn't be found before.,https://www.ycombinator.com/companies/leadbay,https://leadbay.ai/,"Leadbay (YC F25) discovers and qualifies SMB leads that couldn't be found before. Small-to-enterprise teams use us to prospect the most low-data-low-signals industries like construction, hospitality, even startups.
+
+Co-founders are Milan Stankovic (CTO) - PhD to make AI work with limited data, and Ludovic Granger (CEO). 
+
+Try us on leadbay.ai.",Ludovic Granger,https://x.com/ludogranger,https://www.ycombinator.com/companies/leadbay/jobs,,
+1766065357-67,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Leadbay,Discover and qualify SMB leads that couldn't be found before.,https://www.ycombinator.com/companies/leadbay,https://leadbay.ai/,"Leadbay (YC F25) discovers and qualifies SMB leads that couldn't be found before. Small-to-enterprise teams use us to prospect the most low-data-low-signals industries like construction, hospitality, even startups.
+
+Co-founders are Milan Stankovic (CTO) - PhD to make AI work with limited data, and Ludovic Granger (CEO). 
+
+Try us on leadbay.ai.",Milan Stankovic,https://x.com/milstan,https://www.ycombinator.com/companies/leadbay/jobs,,
+1766065364-68,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Everest,AI employees for outsourced IT,https://www.ycombinator.com/companies/everest,https://everestmanagedai.com/,"Outsourced IT is a $350B industry running on 10-20% margins. We're building AI employees to help them solve support tickets faster and increase margins to 70-80%. 
+
+Yolanda worked as a Senior Support Engineer at Netflix. Her team ran 3x more efficiently than average outsourced IT companies. We're now bringing the automation Netflix has to 150K companies globally.",Yolanda Cao,https://x.com/yolandaaacao,https://www.ycombinator.com/companies/everest/jobs,,
+1766065364-69,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Everest,AI employees for outsourced IT,https://www.ycombinator.com/companies/everest,https://everestmanagedai.com/,"Outsourced IT is a $350B industry running on 10-20% margins. We're building AI employees to help them solve support tickets faster and increase margins to 70-80%. 
+
+Yolanda worked as a Senior Support Engineer at Netflix. Her team ran 3x more efficiently than average outsourced IT companies. We're now bringing the automation Netflix has to 150K companies globally.",Spencer McKee,https://x.com/spenmcke,https://www.ycombinator.com/companies/everest/jobs,,
+1766065368-70,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,HireGlide,AI screening and matching for hiring teams,https://www.ycombinator.com/companies/hireglide,https://www.hireglide.ai/,"Hireglide is an AI screening tool for hiring teams. Instead of wading through 500 CVs, we screen them and surface the best candidates. In future, with access to millions of CVs, we will match candidates with relevant roles.",Theo Kitsberg,https://www.linkedin.com/in/theokitsberg/,https://www.ycombinator.com/companies/hireglide/jobs,,
+1766065368-71,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,HireGlide,AI screening and matching for hiring teams,https://www.ycombinator.com/companies/hireglide,https://www.hireglide.ai/,"Hireglide is an AI screening tool for hiring teams. Instead of wading through 500 CVs, we screen them and surface the best candidates. In future, with access to millions of CVs, we will match candidates with relevant roles.",Axel La Pira,https://www.linkedin.com/in/axel-la-pira,https://www.ycombinator.com/companies/hireglide/jobs,,
+1766065371-72,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Kalpa Labs,Scaling Generalist Speech models,https://www.ycombinator.com/companies/kalpa-labs,https://kalpalabs.ai/,"We're building the next frontier of speech models. Generalist speech models that unlock in-context learning & strong instruction following for speech models alongside unifying existing speech capabilities like speech to text, text to speech, voice cloning, etc.",Prashant Shishodia,https://x.com/pshishodiaa,https://www.ycombinator.com/companies/kalpa-labs/jobs,,
+1766065371-73,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Kalpa Labs,Scaling Generalist Speech models,https://www.ycombinator.com/companies/kalpa-labs,https://kalpalabs.ai/,"We're building the next frontier of speech models. Generalist speech models that unlock in-context learning & strong instruction following for speech models alongside unifying existing speech capabilities like speech to text, text to speech, voice cloning, etc.",Gautam Jha,https://x.com/JhaGauti,https://www.ycombinator.com/companies/kalpa-labs/jobs,,
+1766065376-74,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Metorial,The infra layer for AI integrations.,https://www.ycombinator.com/companies/metorial,https://metorial.com/,"Metorial is the infra layer for AI integrations. We built the only serverless MCP runtime that can maintain state with sub-second cold starts, built-in security, and monitoring. We make it easy for developers to connect AI agents to apps and data sources at scale.",Karim (Wen) Rahme,https://x.com/wen_rahme,https://www.ycombinator.com/companies/metorial/jobs,,
+1766065376-75,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Metorial,The infra layer for AI integrations.,https://www.ycombinator.com/companies/metorial,https://metorial.com/,"Metorial is the infra layer for AI integrations. We built the only serverless MCP runtime that can maintain state with sub-second cold starts, built-in security, and monitoring. We make it easy for developers to connect AI agents to apps and data sources at scale.",Tobias Herber,https://x.com/tobiasherber_,https://www.ycombinator.com/companies/metorial/jobs,,
+1766065379-76,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Karumi,The Waymo of Personalized demos,https://www.ycombinator.com/companies/karumi,https://www.karumi.ai/,"Karumi is an AI agent that joins a live video call with your prospects to deliver personalized product demos, 24/7, in any language.
+
+It bridges the gap between your landing page and your sales team by engaging visitors at the peak of their interest, turning curiosity into conversion. For those not ready to talk to sales but eager to explore, Karumi offers the next generation of interactive, self-guided demos.",Pablo Omenaca,https://x.com/houmland,https://www.ycombinator.com/companies/karumi/jobs,,
+1766065379-77,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Karumi,The Waymo of Personalized demos,https://www.ycombinator.com/companies/karumi,https://www.karumi.ai/,"Karumi is an AI agent that joins a live video call with your prospects to deliver personalized product demos, 24/7, in any language.
+
+It bridges the gap between your landing page and your sales team by engaging visitors at the peak of their interest, turning curiosity into conversion. For those not ready to talk to sales but eager to explore, Karumi offers the next generation of interactive, self-guided demos.",Toni Lopez,https://x.com/tonilopezmr,https://www.ycombinator.com/companies/karumi/jobs,,
+1766065384-78,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Miniswap,The Marketplace for Complex Hobbies,https://www.ycombinator.com/companies/miniswap,https://miniswap.gg/,"Miniswap a marketplace for complex hobbies, starting with Warhammer.
+
+In hobbies as complex as Warhammer, finding what you want on general marketplaces is a huge pain. Filters don't work, free-form listings mean that products are regularly misidentified, and piles of counterfeit junk crowd search results. 
+
+Miniswap saves hobbyists from this chaos with its catalogue of more than 20,000 unique miniatures. Sellers match their listings against Miniswap's catalogue giving buyers more information and structure as they shop.
+
+The global market for tabletop games is estimated to be worth $20B in 2025 and Warhammer alone is projected to grow to $3B by 2030. By capturing the market in this untapped niche, Miniswap is strongly positioned to bringing greater transparency, simplicity, and connectivity into adjacent verticals.
+
+Miniswap's founding team merges deep domain knowledge with elite programming expertise and years of experience in business consulting and startups. Co-founders Zak and Will met while studying together at Cambridge, bonded over their love of Warhammer and early modern history. They have been best friends ever since.",Zak Singh,https://www.linkedin.com/in/zak-singh/,https://www.ycombinator.com/companies/miniswap/jobs,,
+1766065384-79,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,Miniswap,The Marketplace for Complex Hobbies,https://www.ycombinator.com/companies/miniswap,https://miniswap.gg/,"Miniswap a marketplace for complex hobbies, starting with Warhammer.
+
+In hobbies as complex as Warhammer, finding what you want on general marketplaces is a huge pain. Filters don't work, free-form listings mean that products are regularly misidentified, and piles of counterfeit junk crowd search results. 
+
+Miniswap saves hobbyists from this chaos with its catalogue of more than 20,000 unique miniatures. Sellers match their listings against Miniswap's catalogue giving buyers more information and structure as they shop.
+
+The global market for tabletop games is estimated to be worth $20B in 2025 and Warhammer alone is projected to grow to $3B by 2030. By capturing the market in this untapped niche, Miniswap is strongly positioned to bringing greater transparency, simplicity, and connectivity into adjacent verticals.
+
+Miniswap's founding team merges deep domain knowledge with elite programming expertise and years of experience in business consulting and startups. Co-founders Zak and Will met while studying together at Cambridge, bonded over their love of Warhammer and early modern history. They have been best friends ever since.",Will Hanna,https://www.linkedin.com/in/will-h-48a38bbb/,https://www.ycombinator.com/companies/miniswap/jobs,,
+1766065392-80,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,The Hog,AI Demand Gen for Companies,https://www.ycombinator.com/companies/the-hog,https://thehog.ai/,"TheHog.ai is the first predictive intelligence engine for growth. We don't just find leads; we predict your next customer before they enter the market.
+
+TheHog.ai maps your ICP, channels, and opportunities across the internet, monitors competitors, communities, keywords, and turns signals into ranked actionable game plans.
+
+The future of sales isn't a static dashboard; it is a living, autonomous command center. TheHog.ai gives a single operator the power of an entire sales and marketing teams by compressing weeks of research into minutes of execution.
+
+The Hog Mind & Global Graph At our core is ""The Hog Mind"": a proprietary Contributory Global Graph that fuses real-time social listening with advanced identity resolution. Unlike traditional enrichment tools that rely on stale databases, The Hog monitors millions of live conversations across the internet to identify high-frequency intent signals. This creates a self-reinforcing data flywheel that ranks opportunities and triggers autonomous engagement workflows instantly.
+
+What We Do:
+
+Predictive Buying Intelligence: We map the ""Global Graph"" of customer nodes to surface opportunities before competitors know they exist.
+
+Autonomous Engagement: An army of AI agents that don't just draft, but identify, verify, and engage with customers across LinkedIn, Reddit, and X.
+
+Deep Data Enrichment: We bridge the gap between anonymous social signals and verified contact data, creating a holistic view of your market.
+
+The Data Flywheel: A bottom-up network where every user interaction cleans and verifies our dataset, creating a defensive moat that gets smarter with every query.
+
+The Result: Win your customers before it’s even a competition",Hudson Liao,https://x.com/hudsonliao,https://www.ycombinator.com/companies/the-hog/jobs,,
+1766065392-81,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,The Hog,AI Demand Gen for Companies,https://www.ycombinator.com/companies/the-hog,https://thehog.ai/,"TheHog.ai is the first predictive intelligence engine for growth. We don't just find leads; we predict your next customer before they enter the market.
+
+TheHog.ai maps your ICP, channels, and opportunities across the internet, monitors competitors, communities, keywords, and turns signals into ranked actionable game plans.
+
+The future of sales isn't a static dashboard; it is a living, autonomous command center. TheHog.ai gives a single operator the power of an entire sales and marketing teams by compressing weeks of research into minutes of execution.
+
+The Hog Mind & Global Graph At our core is ""The Hog Mind"": a proprietary Contributory Global Graph that fuses real-time social listening with advanced identity resolution. Unlike traditional enrichment tools that rely on stale databases, The Hog monitors millions of live conversations across the internet to identify high-frequency intent signals. This creates a self-reinforcing data flywheel that ranks opportunities and triggers autonomous engagement workflows instantly.
+
+What We Do:
+
+Predictive Buying Intelligence: We map the ""Global Graph"" of customer nodes to surface opportunities before competitors know they exist.
+
+Autonomous Engagement: An army of AI agents that don't just draft, but identify, verify, and engage with customers across LinkedIn, Reddit, and X.
+
+Deep Data Enrichment: We bridge the gap between anonymous social signals and verified contact data, creating a holistic view of your market.
+
+The Data Flywheel: A bottom-up network where every user interaction cleans and verifies our dataset, creating a defensive moat that gets smarter with every query.
+
+The Result: Win your customers before it’s even a competition",Paulo Nascimento,https://x.com/paulodoestech,https://www.ycombinator.com/companies/the-hog/jobs,,
+1766065399-82,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,DiligenceSquared,AI-powered market due diligence for investment decisions,https://www.ycombinator.com/companies/diligencesquared-inc,https://diligencesquared.com/,"DiligenceSquared delivers AI-powered market due diligence for investment decisions - like the $500k McKinsey reports, but automated, auditable, and at a fraction of the cost.
+
+When Private Equity funds evaluate deals, they pay firms like McKinsey, BCG, and Bain $500K-$1M for market due diligence. The process takes weeks, and the output is a static PowerPoint that's impossible to audit. A single large-cap PE fund can spend >$30M annually on this and the total market is $10B per year.
+
+Our AI agents conduct expert interviews and synthesize insights with every claim linked to source transcripts. No black box, no ""trust me"" slides, and no 10x mark-up for human labor.
+
+Frederik bought these reports as a Principal at Blackstone. Soren sold them as a Principal at BCG. Harshil is a repeat founder and former Software Engineer at Google. We've seen both sides and know what matters in due diligence - and now we automate it.
+
+Our clients already include 8 leading private equity funds with over $2.4 trillion in combined AUM.",Frederik Hansen,https://www.linkedin.com/in/frederik-kofoed-hansen/,https://www.ycombinator.com/companies/diligencesquared-inc/jobs,,
+1766065399-83,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,DiligenceSquared,AI-powered market due diligence for investment decisions,https://www.ycombinator.com/companies/diligencesquared-inc,https://diligencesquared.com/,"DiligenceSquared delivers AI-powered market due diligence for investment decisions - like the $500k McKinsey reports, but automated, auditable, and at a fraction of the cost.
+
+When Private Equity funds evaluate deals, they pay firms like McKinsey, BCG, and Bain $500K-$1M for market due diligence. The process takes weeks, and the output is a static PowerPoint that's impossible to audit. A single large-cap PE fund can spend >$30M annually on this and the total market is $10B per year.
+
+Our AI agents conduct expert interviews and synthesize insights with every claim linked to source transcripts. No black box, no ""trust me"" slides, and no 10x mark-up for human labor.
+
+Frederik bought these reports as a Principal at Blackstone. Soren sold them as a Principal at BCG. Harshil is a repeat founder and former Software Engineer at Google. We've seen both sides and know what matters in due diligence - and now we automate it.
+
+Our clients already include 8 leading private equity funds with over $2.4 trillion in combined AUM.",Soren Biltoft-Knudsen,https://www.linkedin.com/in/s%C3%B8ren-biltoft-knudsen-58010932/,https://www.ycombinator.com/companies/diligencesquared-inc/jobs,,
+1766065399-84,https://www.ycombinator.com/companies?batch=Fall%202025&batch=Summer%202025&isHiring=true,DiligenceSquared,AI-powered market due diligence for investment decisions,https://www.ycombinator.com/companies/diligencesquared-inc,https://diligencesquared.com/,"DiligenceSquared delivers AI-powered market due diligence for investment decisions - like the $500k McKinsey reports, but automated, auditable, and at a fraction of the cost.
+
+When Private Equity funds evaluate deals, they pay firms like McKinsey, BCG, and Bain $500K-$1M for market due diligence. The process takes weeks, and the output is a static PowerPoint that's impossible to audit. A single large-cap PE fund can spend >$30M annually on this and the total market is $10B per year.
+
+Our AI agents conduct expert interviews and synthesize insights with every claim linked to source transcripts. No black box, no ""trust me"" slides, and no 10x mark-up for human labor.
+
+Frederik bought these reports as a Principal at Blackstone. Soren sold them as a Principal at BCG. Harshil is a repeat founder and former Software Engineer at Google. We've seen both sides and know what matters in due diligence - and now we automate it.
+
+Our clients already include 8 leading private equity funds with over $2.4 trillion in combined AUM.",Harshil Rastogi,https://www.linkedin.com/in/harshil-rastogi-3a754b65/,https://www.ycombinator.com/companies/diligencesquared-inc/jobs,,

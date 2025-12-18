@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const JobSchema = new mongoose.Schema({
+  source: String,
   title: String,
   company: String,
   location: String,
@@ -15,7 +16,6 @@ const JobSchema = new mongoose.Schema({
   founders: [
     {
       name: String,
-      role: String,
       bio: String,
       linkedin: String
     }

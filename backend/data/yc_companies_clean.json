@@ -1,0 +1,1138 @@
+[
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Socratix AI",
+      "slogan": "AI coworkers for fraud and risk teams.",
+      "about": "Socratix builds AI coworkers for fraud and risk teams so that humans don't have to spend their days drowning in alerts and spreadsheets.\n\nToday, fraud and risk teams at fintechs and banks are overwhelmed. Analysts jump between tools, manually stitch together context, and make judgment calls under pressure, often for hundreds of alerts a week. Too much of their work is slow, repetitive, and error-prone. We're here to change that. \n\nSocratix gives fraud and risk teams AI coworkers that investigate alerts in real time, replacing manual reviews with fast, explainable decisions. Socratix agents plug into existing workflows and reason across signals just like human analysts to help teams reduce fraud losses, minimize false positives, and scale operations without scaling headcount.\n\nWe've seen this problem firsthand. At DoorDash, Riya helped save $30M+ a year by building smarter fraud detection and investigation tooling, and at Unit21, she built products for analysts that made them 3X faster. We're able to build and sell enterprise-grade software. At Cruise, Satya built scalable AI systems powering petabyte-scale data, and at LinkedIn, he built enterprise products from 0 to 1 generating $50M+ in incremental revenue. Now, the two of us are teaming up to eliminate the manual toil in fraud and risk.\n\nWe're obsessed with fraud, LLMs, real-world automation, and the messy edge cases traditional ML has trouble handling. We believe that every fraud analyst should have an AI coworker - and the future of fraud will involve combining human-level reasoning with machine-speed execution.",
+      "website": "https://getsocratix.ai/",
+      "yc_url": "https://www.ycombinator.com/companies/socratix-ai"
+    },
+    "founders": [
+      {
+        "name": "Riya Jagetia",
+        "social": "https://twitter.com/RiyaJagetia"
+      },
+      {
+        "name": "Satya Vasanth Tumati",
+        "social": "https://x.com/SirWitWit"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/socratix-ai/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Floot",
+      "slogan": "The easiest way for non-coders to build apps with AI.",
+      "about": "Floot lets non-coders & entrepreneurs build real web apps that actually work. We’re taking a new approach by building everything from the ground up for AI.\n\n✨ Try building an app at floot.com\n\nExisting AI app builders fall short of enabling non-coders to build real, serious apps. They often:\n- Break down when building anything more than a prototype or toy app\n- Have non-coders stuck with errors they don’t understand\n- Require non-coders to handle multiple services designed for developers (e.g. for backend, database, hosting, etc)\n\nThe fundamental problem: these AI app builders just cobble together existing developer tools and slap AI on top, but these tools were designed for humans and not for AI.\n\nThe result? Non-coders get excited, start building, hit a wall, and then abandon their projects.\n\nFloot is purpose-built for AI. Our secret sauce:\n\n1) Instead of reusing a coding framework designed for humans, we created a specialized framework that dictates how AI should write code and how the code runs on our infrastructure. This allows us to enforce best practices, detect errors earlier, and give the best feedback to the AI. As a result, Floot can write better code and fix issues more effectively.\n\n2) Floot has the entire tech stack built-in (backend, database, hosting, etc) so building and managing an app feels seamless, especially for non-coders. And because we control every layer of the stack, we can optimize each layer for AI-first coding.\n\nBecause of this, non-coders can get more done with less time and prompting. They can finally build serious apps that work, instead of getting stuck in frustrating error loops and then abandoning their projects.\n\nWe also built a highly scalable hosting system directly on AWS so Floot apps can handle real traffic and business demands. This means non-coders can build, deploy, and scale their apps on a single platform seamlessly.\n\nPlus, Floot is really fun to use! Try building an app at floot.com",
+      "website": "https://floot.com/",
+      "yc_url": "https://www.ycombinator.com/companies/floot"
+    },
+    "founders": [
+      {
+        "name": "Yujian Yao",
+        "social": "https://x.com/yyjhao"
+      },
+      {
+        "name": "Edward Look",
+        "social": "https://x.com/edlooky"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/floot/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Idler",
+      "slogan": "Reinforcement learning environments.",
+      "about": "Idler builds reinforcement learning environments that teach AI models to code at expert human levels. We create training environments based on real-world coding scenarios that prepare models for the complex challenges they'll face in production.",
+      "website": "https://idler.ai/",
+      "yc_url": "https://www.ycombinator.com/companies/idler"
+    },
+    "founders": [
+      {
+        "name": "Ivan Chub",
+        "social": "https://x.com/chubivan"
+      },
+      {
+        "name": "Nalu Concepcion",
+        "social": "https://x.com/naluconcepcion"
+      },
+      {
+        "name": "Tony Goss",
+        "social": "https://x.com/cha0sg0d_"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/idler/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Humoniq",
+      "slogan": "AI-Native BPO for travel & transport",
+      "about": "Humoniq is building the first AI-Native BPO for the travel & transport industries, which outsource $20B of customer support each year. Our AI-native approach improves speed, accuracy, and satisfaction.\n\nOur team is uniquely equipped to solve this challenge. We previously grew a travel management company, Flightfox (YC S12), to $22M/yr. We handled thousands of customer requests each month, which exposed the limitations of traditional outsourcing.",
+      "website": "https://humoniq.ai/",
+      "yc_url": "https://www.ycombinator.com/companies/humoniq"
+    },
+    "founders": [
+      {
+        "name": "Todd Sullivan",
+        "social": "https://x.com/todsul"
+      },
+      {
+        "name": "Will Weber",
+        "social": "https://www.linkedin.com/in/w-weber/"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/humoniq/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Altur",
+      "slogan": "Voice AI Agents for Debt Collection",
+      "about": "Voice AI Agents for Debt Collection",
+      "website": "https://altur.io/",
+      "yc_url": "https://www.ycombinator.com/companies/altur"
+    },
+    "founders": [
+      {
+        "name": "Luis Olave",
+        "social": "https://linkedin.com/in/luis-olave"
+      },
+      {
+        "name": "Pedro Fernández",
+        "social": "https://www.linkedin.com/in/pedrofdzl"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/altur/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Metis",
+      "slogan": "Infrastructure to build reliable agents",
+      "about": "We build infrastructure enabling AI agents to reliably perform complex tasks in production",
+      "website": "https://withmetis.ai/",
+      "yc_url": "https://www.ycombinator.com/companies/metis"
+    },
+    "founders": [
+      {
+        "name": "Aryan Shah",
+        "social": "https://www.linkedin.com/in/aryan-shah1/"
+      },
+      {
+        "name": "Aayush Sheth",
+        "social": "https://linkedin.com/in/aasheth1"
+      },
+      {
+        "name": "Marcus Yearwood",
+        "social": "https://www.linkedin.com/in/marcus-yearwood?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/metis/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Sira",
+      "slogan": "AI Native Rippling for Deskless Workers",
+      "about": "Sira is the AI-powered platform for managing time tracking, scheduling, payroll, and HR — purpose-built for hourly teams.\n\nOur intelligent agents handle the manual, time-consuming tasks for you — like calling workers to fill open shifts, detecting timesheet anomalies, and streamlining payroll processing.\n\nWith Sira, businesses stay organized, compliant, and focused on what really matters — while we take care of the team.",
+      "website": "https://sira.team/",
+      "yc_url": "https://www.ycombinator.com/companies/sira"
+    },
+    "founders": [
+      {
+        "name": "Nathan Belaye",
+        "social": "https://www.linkedin.com/in/nathan-belaye-931005149/"
+      },
+      {
+        "name": "Antonio Chan",
+        "social": "https://www.linkedin.com/in/antonio-chan/"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/sira/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Pally",
+      "slogan": "Intelligent Unified Inbox + Personal CRM",
+      "about": "We spend our lives in messaging apps. Slack. iMessage. WhatsApp. We face a constant stream of information, introductions, and things we need to do.\n\nWhat if you could bring together every message, from every platform, in a Superhuman-like experience, with AI agents that automatically complete your action items?\n\nThat’s exactly what we’re building at Pally; a future where you never need to check another inbox again.",
+      "website": "https://pally.com/",
+      "yc_url": "https://www.ycombinator.com/companies/pally"
+    },
+    "founders": [
+      {
+        "name": "Haz Hubble",
+        "social": "https://www.x.com/hazhubble"
+      },
+      {
+        "name": "Wyatt Lansford",
+        "social": "https://x.com/wylansford"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/pally/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Hera",
+      "slogan": "AI Motion Designer",
+      "about": "Hera is an AI motion designer that turns 5-hour projects into 5-minute tasks. \n\nWhen you're a YouTuber making an infographic animation, instead of spending hours manually clicking buttons in Adobe After Effects, you can create the same animation in minutes in Hera. \n\nThrough talking to our users, we realized that 95% of time spent on motion graphics is manual button clicking, not creative work. This insight led us to focus on automating the tedious parts while giving the user all creative control.\n\nWe launched in May 2025, got 100k waitlist signups in 8 weeks, and we're doubling revenue monthly.",
+      "website": "https://hera.video/",
+      "yc_url": "https://www.ycombinator.com/companies/hera-video"
+    },
+    "founders": [
+      {
+        "name": "Peter Tribelhorn",
+        "social": "https://x.com/tribelhorn23"
+      },
+      {
+        "name": "Chia-Lun Wu",
+        "social": "https://x.com/leowuhera"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/hera-video/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Reacher",
+      "slogan": "We automate creator marketing for the world's largest brands",
+      "about": "Reacher is an AI-powered platform that automates creator marketing workflows—from discovery and outreach to campaign management and content strategy—making marketing teams 10x more productive. \n\nWe handle the manual tasks so brands can focus on building relationships with creators while centralizing their operations in one platform to manage creators on TikTok Shop, Instagram, and YouTube.",
+      "website": "https://reacherapp.com/",
+      "yc_url": "https://www.ycombinator.com/companies/reacher"
+    },
+    "founders": [
+      {
+        "name": "Jerry Qian",
+        "social": "https://x.com/JerryQian_"
+      },
+      {
+        "name": "Bora Mutluoglu",
+        "social": "https://x.com/BoraMutluoglu"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/reacher/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "dScribe AI",
+      "slogan": "Computer vision for bulk inventory tracking",
+      "about": "dScribe AI uses autonomous drones and 3D vision to track bulk inventory. We're starting by helping the ag and mining industry track stockpiles of grain and gravel.\n\nBulk inventory tracking is broken. Companies either rely on guesstimates or pay for expensive manual surveys which are still off by 30 to 50%. Without accurate numbers, it’s hard to plan logistics, like how many truckloads are needed. And it creates accounting issues by misreporting inventory value, hurting financial planning and leading to missed opportunities.\n\nWe’ve lived this problem, and we know how to solve it. Warren saw it firsthand as a Product Manager at Milk Moovement, a $20M Series A AgTech startup, working closely with feed suppliers and farm managers. Cole was engineer #3 at Tropic, scaling it from seed to Series B, and later led engineering at an AI startup.\n\nWe’ve built an integrated hardware and software platform and have signed one of the largest agricultural company in North America. As industries demand real-time visibility into the physical world, dScribe AI is positioned to become the system of record for inventory that don’t fit in traditional boxes and barcodes.",
+      "website": "https://dscribeai.com/",
+      "yc_url": "https://www.ycombinator.com/companies/dscribe-ai"
+    },
+    "founders": [
+      {
+        "name": "Warren Wijaya Wang",
+        "social": "https://linkedin.com/in/warrenwang-fnu/"
+      },
+      {
+        "name": "Cole Robertson",
+        "social": "https://x.com/cole__robertson"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/dscribe-ai/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Fleetline",
+      "slogan": "Optimizing fleet planning with data driven algorithms",
+      "about": "Fleetline is building the first complete-context algorithmic load planner for mid to large-sized trucking fleets. Today’s dispatchers face an overwhelming task: balancing regulations, customer demands, live fleet data, and individual driver needs, all while coordinating across siloed tools and teams. Mistakes run rampant, and each mistake is thousands of dollars. Even the select fleets using algorithms that have fleet-wide context struggle: the outputs are rigid, hard to interpret, and are blind to real-world nuances like driver preferences and schedule exceptions. Fleetline solves this by combining advanced optimization with LLMs that can easily adapt algorithms to each fleet’s needs and capture driver-specific information. The result is smarter planning truly optimized for every fleet and its drivers.",
+      "website": "https://fleetline.ai/",
+      "yc_url": "https://www.ycombinator.com/companies/fleetline"
+    },
+    "founders": [
+      {
+        "name": "Saurav Kumar",
+        "social": "https://twitter.com/sauravml"
+      },
+      {
+        "name": "Veer Juneja",
+        "social": "https://www.linkedin.com/in/veer-juneja-67255417a/"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/fleetline/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Magnetic",
+      "slogan": "AI Tax Preparer for CPA firms",
+      "about": "Magnetic scans client documents - from handwritten charity notes to excel spreadsheet Schedule Cs to multi-state K-1s - and enters them into tax software automatically, saving hours of tedious data entry. \n\nThe accounting profession is facing a massive talent shortage, as graduates choose different professions and the old guard begins to retire. As a result, CPA and tax preparation firms are awash in clientele, but unable to keep up. At many firms, phones go unanswered, clients are \"fired\", and websites are taken down, as the existing workforce tries to handle the grueling 80 hour+ weeks necessary to push through tax season to the April 15th deadline.\n\nWe built this because a former colleague who owns her own tax firm asked us to automate her workload, and we quickly realized the massive opportunity. Thomas brings deep domain expertise as the former Head of Product at Keeper (YC W19), where he built tax engine automation systems and an OCR form scanning system that outperformed everything else on the market. At Keeper, he leveraged early access to OpenAI's LLMs (well before ChatGPT) to build systems that automated the entire tax filing process, allowing a tiny team of CPAs to process thousands of returns with near zero busy work. Patrick was the first engineer at FunCraft, shipping multiple mobile games with 1M+ downloads and building scalable shared codebases. We've worked together since 2017, including co-leading multiple teams at Zynga as PM & Tech Lead respectively.\n\nWe launched this year in the middle of tax season and quickly processed hundreds of returns, earning thousands in ARR, and since tax season we've been growing customers by >30% month-over-month. We've completely automated over 25% of the return process so far and developed a proprietary vision model that beats incumbent scanning technology by almost 2x on accuracy - jumping from 50% field-level accuracy to 89%, approaching the quality of their expensive human-verified service at 92%.\n\nThe opportunity is massive - there are 80M US personal tax returns filed via professionals annually, in a $2B outsourcing market where individual CPA firms currently pay $100k-$1M per year for inferior services. We're positioned to capture significant market share by offering better accuracy & document coverage, instant processing, and superior user experience.\n\nWe've built this kind of software before, we've worked together for years (and even lived together), we've built products to $10M ARR before, and we have the grit to outwork anyone in this space.",
+      "website": "https://www.magnetictax.com/",
+      "yc_url": "https://www.ycombinator.com/companies/magnetic"
+    },
+    "founders": [
+      {
+        "name": "Thomas Shelley",
+        "social": "https://x.com/tsh3ll"
+      },
+      {
+        "name": "Patrick Fay",
+        "social": "https://linkedin.com/in/patrick-fay-5418a822"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/magnetic/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Duranium",
+      "slogan": "Reshoring critical metal production",
+      "about": "China and Russia control the world’s critical minerals. We can produce Titanium, Magnesium, Aluminum, Zirconium & Hafnium in the U.S. more profitably than any existing process, and carbon neutrally via co-production.\n\nCarbochlorination is the primary process for producing critical metals like titanium, hafnium, and zirconium, and was once the standard for magnesium. The problem: conventional carbochlorination relies on purchasing carbon feedstocks, wastes valuable byproducts, and is highly CO₂-intensive.\n\nDuranium changes this with a novel reactor that recycles CO₂ emissions back into feedstock (CO) while generating a valuable co-product (bleaching agents). This closed loop slashes emissions and delivers Chinese-level metal pricing without subsidies — unlocking the full potential of carbochlorination for U.S. critical mineral production.",
+      "website": "https://www.duranium.co/",
+      "yc_url": "https://www.ycombinator.com/companies/duranium"
+    },
+    "founders": [
+      {
+        "name": "Brenden Prins-McKinney",
+        "social": "https://www.linkedin.com/in/brenden-prins-mckinney-96959a69/"
+      },
+      {
+        "name": "Berkley Noble",
+        "social": "https://www.linkedin.com/in/berkleynoble/"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/duranium/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "TectoAI",
+      "slogan": "A Platform for AI Governance",
+      "about": "We help your company identify roles that can be filled by agentic AI tools, onboard them quickly, monitor their performance and behavior post deployment, ensure they remain compliant, and aligned with regulations. Tecto is building the governance platform for managing the AI stack!",
+      "website": "https://www.tecto.ai/",
+      "yc_url": "https://www.ycombinator.com/companies/tectoai"
+    },
+    "founders": [
+      {
+        "name": "Niosha Afsharikia, PhD",
+        "social": "https://www.linkedin.com/in/afsharikia/"
+      },
+      {
+        "name": "Roksana Baleshzar",
+        "social": "https://www.linkedin.com/in/roksana-baleshzar/"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/tectoai/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Interfere",
+      "slogan": "Build software that never breaks",
+      "about": null,
+      "website": "https://interfere.com/",
+      "yc_url": "https://www.ycombinator.com/companies/interfere"
+    },
+    "founders": [
+      {
+        "name": "Luke Shiels",
+        "social": "https://x.com/lukeshiels_"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/interfere/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Vulcan Technologies",
+      "slogan": "AI regulatory drafting and compliance",
+      "about": "Vulcan uses AI to map every law, regulation, and court case in America, allowing government agencies and businesses to replace massive consulting projects with instant automated analyses. We call this \"intelligent legal cartography.\"\n\nIn 3 months, we went from zero customers to Virginia's Executive Order 51, requiring all state agencies to use Vulcan. We are now live with the U.S. Department of Education, a regulatory reform PAC in South Carolina, and have a pipeline of several additional state and federal agencies and major enterprises.\n\nOur initial agency partners use legal cartography to draft lawful regulations, respond to public comments on regulations, and instantly generate mandatory cost-benefit analyses.\n\nWe have both public and private sector visions. In the public sector: we endeavor to automate the entire regulatory process end-to-end; replacing the consulting industrial complex with software. In the private sector: we plan to automate regulatory compliance, tackling the $4 trillion regulatory cost on the U.S. economy.",
+      "website": "https://www.vulcan-tech.com/",
+      "yc_url": "https://www.ycombinator.com/companies/vulcan-technologies"
+    },
+    "founders": [
+      {
+        "name": "Tanner Jones",
+        "social": "https://x.com/Tanner_H_Jones"
+      },
+      {
+        "name": "Aleksander Mekhanik",
+        "social": "https://www.linkedin.com/in/aleksander-mekhanik-41547b272/"
+      },
+      {
+        "name": "Chris Minge",
+        "social": "https://www.linkedin.com/in/chrisminge"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/vulcan-technologies/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "NOSO LABS",
+      "slogan": "Build AI agents for field technicians to diagnose and sell 10x better",
+      "about": "In the home services industry, field technicians are expected to handle three key tasks: diagnosing issues, making sales, and completing paperwork. It's rare to find individuals who excel at all three. We build AI agents to support technicians by improving diagnostic accuracy and helping them capture sales opportunities.",
+      "website": "https://noso.so/",
+      "yc_url": "https://www.ycombinator.com/companies/noso-labs"
+    },
+    "founders": [
+      {
+        "name": "Winston Chi",
+        "social": "https://www.linkedin.com/in/lwchi/"
+      },
+      {
+        "name": "Alex Xi",
+        "social": null
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/noso-labs/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "burnt",
+      "slogan": "Agentic Operating System for Food Supply Chain",
+      "about": "Food Supply Chain companies have been using legacy ERPs for decades. Everyone knows these are necessary evils that essentially run the business but take up a lot of operational capacity. They are not about to just rip and replace their existing system that runs their whole business with a system that takes years to implement. Imagine if they could implement AI that runs the ERP for them, in weeks?\n\nBurnt’s building an agentic OS for the Food Supply Chain with AI Agents for each department. \n\nOur AI Agent, Ozai, has started by replacing the whole order management job function at food distribution companies, so that sales and customer service teams can focus on what matters - the customer. Ozai monitors all incoming messages (emails, phone calls, voicemails, whatsapp, fax etc.), figures out if it's an order, learns each customer's habits, shorthand, and favorite products, picks up on any prep notes, and enters it straight into the existing ERP. It'll even go back to the customers on your behalf when it's not sure about something, clarify things and carry on working. \n\nThe more it sees, the smarter it gets.",
+      "website": "https://getburnt.ai/",
+      "yc_url": "https://www.ycombinator.com/companies/burnt"
+    },
+    "founders": [
+      {
+        "name": "Joseph Jacob",
+        "social": "https://x.com/Joseph_Jacob13"
+      },
+      {
+        "name": "Rhea Karimpanal",
+        "social": "https://x.com/RheaKarimpanal"
+      },
+      {
+        "name": "Chandru Shanumugasundaram",
+        "social": "https://x.com/tweetchanshan"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/burnt/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Luminal",
+      "slogan": "Making AI run fast on any hardware.",
+      "about": "Luminal builds an ML framework and compiler that generates GPU code.\nOur stack 10x's model speed while simplifying deployment and cutting idle GPU costs\n\nGithub: https://github.com/luminal-ai/luminal\nDiscord: https://discord.gg/APjuwHAbGy",
+      "website": "https://luminal.com/",
+      "yc_url": "https://www.ycombinator.com/companies/luminal"
+    },
+    "founders": [
+      {
+        "name": "Joe Fioti",
+        "social": "https://x.com/joefioti"
+      },
+      {
+        "name": "Matthew Gunton",
+        "social": "https://x.com/matthewjgunton"
+      },
+      {
+        "name": "Jake Stevens",
+        "social": "https://x.com/stake_jevens"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/luminal/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Digipals",
+      "slogan": "The future of Social in the age of AI",
+      "about": "Social networks are dead. Social media became more media than social. My friends aren't on social media anymore - it's one third ads, one third content from strangers, and one third AI slop. Our social lives are fragmented across dozens of different apps - iMessage, WhatsApp, Find My, Partiful, and Venmo. \n\nDigipals is the first AI-native social operating system that improves our relationships with friends. We built ambient AI agents that use social context from our location, calendar, and photos to take action and write code in our group chats. We are the last social platform anyone will ever need.\n\nLaunch Video\nhttps://youtu.be/KW2tjLl6sxM",
+      "website": "https://www.digipals.app/",
+      "yc_url": "https://www.ycombinator.com/companies/digipals"
+    },
+    "founders": [
+      {
+        "name": "Peggy Wang",
+        "social": "https://twitter.com/peggy_wang"
+      },
+      {
+        "name": "Mathew Matakovic",
+        "social": "https://x.com/GoalieSave25"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/digipals/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Nox Metals",
+      "slogan": "The modern factory for fast, low-cost metals.",
+      "about": "Nox Metals is building the fastest metals processing factories in North America. Our software runs quoting, scheduling, and operations to streamline production and reduce cost. We supply America's industrial base with custom-cut material at unmatched speed and efficiency.",
+      "website": "https://noxmetals.co/",
+      "yc_url": "https://www.ycombinator.com/companies/nox-metals"
+    },
+    "founders": [
+      {
+        "name": "Zane Hengsperger",
+        "social": "https://x.com/zanehengsperger"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/nox-metals/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "F2",
+      "slogan": "The AI platform for private markets investors",
+      "about": "F2 is the AI platform for private markets investors. Purpose-built for private credit, private equity, and commercial banking, F2 accelerates diligence, underwriting, and portfolio monitoring, helping teams evaluate deals over 60% faster. \n\nF2 turns unstructured deal data into investment-grade analysis and polished memos in minutes. Unlike general-purpose AI, F2 is built with the domain expertise and depth to handle the most complex financial analysis. Already trusted across thousands of deals, F2 makes collaboration easy and retains historical context, so past work compounds into future wins. \n\nHeadquartered in New York City, F2 is backed by leading investors including NFX, Left Lane Capital, and Y Combinator.",
+      "website": "http://f2.ai/",
+      "yc_url": "https://www.ycombinator.com/companies/f2"
+    },
+    "founders": [
+      {
+        "name": "Don Muir",
+        "social": "https://www.linkedin.com/in/don-muir"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/f2/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Uplane",
+      "slogan": "Replace marketing agencies with AI",
+      "about": "Uplane replaces marketing agencies with AI. We generate hundreds of ads with matching landing pages and steer the ad spend across channels like Meta, Google, LinkedIn and others. By connecting to CRM and ERP data, Uplane learns what drives profits and continuously improves campaigns.\n\nCompanies waste billions on bad ads, mismatched landing pages, and poor budget allocation. Uplane fixes this by replacing a patchwork of agencies, spreadsheets, and siloed tools with one self-improving system. The result: Higher ROAS for enterprises and effortless, expert-level marketing for SMBs.",
+      "website": "https://uplane.com/",
+      "yc_url": "https://www.ycombinator.com/companies/uplane"
+    },
+    "founders": [
+      {
+        "name": "Julius Körfgen",
+        "social": "https://www.linkedin.com/in/julius-koerfgen/"
+      },
+      {
+        "name": "Marvin Abdel-Massih",
+        "social": "https://www.linkedin.com/in/marvinabdel-massih/"
+      },
+      {
+        "name": "Lukas Vollmer",
+        "social": "https://www.linkedin.com/in/lukasvollmer/"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/uplane/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Structured AI",
+      "slogan": "AI workforce for Construction Engineering",
+      "about": "Structured AI is building the AI workforce for construction design engineering, starting with AI agents that perform quality control on technical documents and drawings. Our agents learn your standards, apply the right building codes, and automatically review your drawings, so you see fewer clashes, fewer inconsistencies, and fewer costly RFIs and change orders.\n\n⚙️ Automates QA/QC across mechanical, electrical, structural and more\n🧩 Used by multi-disciplinary design firms to deliver projects faster with less risk\n🚀 Mission: Free engineers to focus on creative design, not repetitive admin",
+      "website": "https://www.getstructured.ai/",
+      "yc_url": "https://www.ycombinator.com/companies/structured-ai"
+    },
+    "founders": [
+      {
+        "name": "Raymond Zhao",
+        "social": "https://x.com/stingrayzz22"
+      },
+      {
+        "name": "Issy Greenslade",
+        "social": "https://x.com/Green181024"
+      },
+      {
+        "name": "Brandon Abreu Smith",
+        "social": "https://x.com/brandonstarxel"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/structured-ai/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Bolna AI",
+      "slogan": "Voice AI to enable India's next billion",
+      "about": "Bolna handles the complexity of voice infra, so enterprises can automate calls faster, better, and cheaper, at scale\n\nBolna is a Voice AI Orchestration platform purpose-built for Indian enterprises.\nBusinesses in India run tens of thousands of calls every day - across sales, support, collections, recruitment, and more. Bolna gives them the power to build and deploy Voice AI Agents directly from their transcripts and FAQs, so they can start automating calls immediately.\n\nWith Bolna, enterprises get:\n\n1. Full control over agent intelligence, tone, and workflows\n2. Cost efficiency at scale with smart routing across providers and price points\n3. Enterprise-grade performance on latency, interruptions, multi-language, and multi-accent understanding",
+      "website": "https://bolna.ai/",
+      "yc_url": "https://www.ycombinator.com/companies/bolna-ai"
+    },
+    "founders": [
+      {
+        "name": "Prateek Sachan",
+        "social": "https://x.com/xan_ps"
+      },
+      {
+        "name": "Maitreya Wagh",
+        "social": "https://x.com/maitreya_wagh"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/bolna-ai/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Wardstone",
+      "slogan": "Satellites for Missile Defense",
+      "about": "Wardstone is a space defense-tech company developing next-generation capabilities to protect the United States and its allies from missiles and other space-based threats. We design, build, and deploy satellites equipped with space-based interceptors to kinetically counter hypersonic and ballistic missiles.",
+      "website": "https://www.wardstone.space/",
+      "yc_url": "https://www.ycombinator.com/companies/wardstone"
+    },
+    "founders": [
+      {
+        "name": "Sebastian Fischer",
+        "social": "https://www.linkedin.com/in/sebastian-fischer-71ba9658/"
+      },
+      {
+        "name": "Tobias Fischer",
+        "social": "https://www.linkedin.com/in/tobifischer"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/wardstone/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Flick",
+      "slogan": "Figma + Cursor, for AI Filmmaking",
+      "about": "Flick is an AI filmmaking software that lets people create Hollywood-level short films completely using AI end-to-end.\n\nThere are many AI tools that can give you 8-second casual clips to post on social media, but when it comes to creating truly high-quality films with coherent storylines, consistent characters, and cinematic aesthetics, they don’t come close due to their lack of flexibility, creative control, and fragmented creative flow.\n\nFounded by an award-winning filmmaker and a founding engineer at Instagram, Flick defines an interface specifically designed for native AI filmmaking that feels natural and enables end-to-end creative flows. Think of Flick as Figma for AI filmmaking.\n\nThere are 4 complete AI short films created using Flick that got 20+ awards in international film festivals already and our early creator residency community are generating several AI short films every week.\n\nWe are also building a community where we produce our own AI films as well as collaborating with other well-known filmmakers to share their “behind-the-scenes” workflows as resuable templates to inspire users in our community. We not only build product, we also build world-class content.\n\nThe whole film industry will be revolutionized by AI and our goal is to be “the product” that defines this category.",
+      "website": "https://flick.art/",
+      "yc_url": "https://www.ycombinator.com/companies/flick"
+    },
+    "founders": [
+      {
+        "name": "Ray Wang",
+        "social": "https://x.com/RuiCromwell"
+      },
+      {
+        "name": "Zoey Zhang",
+        "social": "https://x.com/ZoeyZ1004"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/flick/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Semble AI",
+      "slogan": "Autonomous building-system design for construction companies.",
+      "about": "Semble AI builds AI agents that design building-systems (fire, HVAC, plumbing, security). Construction companies use Semble to cut down weeks on commercial and residential projects. \n\nThe $600B building-system integration industry still runs on spreadsheets and manual drawings, even as building codes rapidly evolve and become more localized. It’s a massive blind spot for the tech world. \n\nJonathan and Ethan met studying computer science at Stanford. Jonathan worked at Convergint, one of the world's largest building system integrators, specifically for the purpose of learning how this industry works. Ethan is obsessed for a different reason: His house burned down in 2017 due to a faulty fire system.\n\nThey are determined to make Semble the industry standard for construction design.",
+      "website": "https://www.sembleai.com/",
+      "yc_url": "https://www.ycombinator.com/companies/semble-ai"
+    },
+    "founders": [
+      {
+        "name": "Jonathan Tyshler",
+        "social": "https://www.linkedin.com/in/jonathan-tyshler"
+      },
+      {
+        "name": "Ethan Boyers",
+        "social": "https://www.linkedin.com/in/ethan-boyers/"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/semble-ai/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Sunflower",
+      "slogan": "Building the Sobriety Platform for the future of Superintelligence. 🌻",
+      "about": "Sunflower is on a mission to create one trillion days sober. Our product is both a consumer app (think a \"Duolingo for addiction\") but also with a tele-therapy clinic inside. \n\nConsumer App: \n- We built the #1 AI Sponsor for any kind of addiction\n- Beautiful visual progression tracking to power the core \"task to be done\" of addiction\n- A twitter style social media for addicts \n- DIY learn content (think Masterclass for addiction) for all major addiction types \n- CBT based journaling exercises \n\nTele-Therapy: \n- Think a \"Early Medical Peter Attia\" quality of clinic, but completely focused on addiction \n- Starting with talk therapy in CA & TX we're rolling out to all 50 states + MAT \n- Bringing together the worlds best doctors to create the most effective protocol for addiction \n\nSunflower went from 0 - 100k MAU in less than 6 months, and now we're continuing the traction to create the #1 product for addiction for the 1.2B humans on this planet that struggle with this fundamental human problem.",
+      "website": "https://sunflowersober.com/",
+      "yc_url": "https://www.ycombinator.com/companies/sunflower"
+    },
+    "founders": [
+      {
+        "name": "Koby Conrad",
+        "social": "https://x.com/kobyjconrad"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/sunflower/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Bravi",
+      "slogan": "The AI operating system powering home services businesses",
+      "about": "Bravi is building the AI operating system for home-services businesses, using AI-powered customer communication as the wedge.\n\nWe replace the front office (calls, chats, follow-ups) with AI agents that never miss a lead, then layer an internal AI copilot that understands products, pricing, and technical documentation.\n\nWe started with fenestration (shutters, windows, garage doors), a large, complex vertical with no modern software, before expanding to adjacent trades.\n\nBravi is already live with leading installers and manufacturers across Europe and the US, turning missed demand into revenue.",
+      "website": "https://www.bravi.app/",
+      "yc_url": "https://www.ycombinator.com/companies/bravi"
+    },
+    "founders": [
+      {
+        "name": "Anas Bouassami",
+        "social": "https://www.linkedin.com/in/anas-bouassami"
+      },
+      {
+        "name": "Pierre-Habte Nouvellon",
+        "social": "https://www.linkedin.com/in/pierre-habte-nouvellon/"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/bravi/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Leadbay",
+      "slogan": "Discover and qualify SMB leads that couldn't be found before.",
+      "about": "Leadbay (YC F25) discovers and qualifies SMB leads that couldn't be found before. Small-to-enterprise teams use us to prospect the most low-data-low-signals industries like construction, hospitality, even startups.\n\nCo-founders are Milan Stankovic (CTO) - PhD to make AI work with limited data, and Ludovic Granger (CEO). \n\nTry us on leadbay.ai.",
+      "website": "https://leadbay.ai/",
+      "yc_url": "https://www.ycombinator.com/companies/leadbay"
+    },
+    "founders": [
+      {
+        "name": "Ludovic Granger",
+        "social": "https://x.com/ludogranger"
+      },
+      {
+        "name": "Milan Stankovic",
+        "social": "https://x.com/milstan"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/leadbay/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Everest",
+      "slogan": "AI employees for outsourced IT",
+      "about": "Outsourced IT is a $350B industry running on 10-20% margins. We're building AI employees to help them solve support tickets faster and increase margins to 70-80%. \n\nYolanda worked as a Senior Support Engineer at Netflix. Her team ran 3x more efficiently than average outsourced IT companies. We're now bringing the automation Netflix has to 150K companies globally.",
+      "website": "https://everestmanagedai.com/",
+      "yc_url": "https://www.ycombinator.com/companies/everest"
+    },
+    "founders": [
+      {
+        "name": "Yolanda Cao",
+        "social": "https://x.com/yolandaaacao"
+      },
+      {
+        "name": "Spencer McKee",
+        "social": "https://x.com/spenmcke"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/everest/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "HireGlide",
+      "slogan": "AI screening and matching for hiring teams",
+      "about": "Hireglide is an AI screening tool for hiring teams. Instead of wading through 500 CVs, we screen them and surface the best candidates. In future, with access to millions of CVs, we will match candidates with relevant roles.",
+      "website": "https://www.hireglide.ai/",
+      "yc_url": "https://www.ycombinator.com/companies/hireglide"
+    },
+    "founders": [
+      {
+        "name": "Theo Kitsberg",
+        "social": "https://www.linkedin.com/in/theokitsberg/"
+      },
+      {
+        "name": "Axel La Pira",
+        "social": "https://www.linkedin.com/in/axel-la-pira"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/hireglide/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Kalpa Labs",
+      "slogan": "Scaling Generalist Speech models",
+      "about": "We're building the next frontier of speech models. Generalist speech models that unlock in-context learning & strong instruction following for speech models alongside unifying existing speech capabilities like speech to text, text to speech, voice cloning, etc.",
+      "website": "https://kalpalabs.ai/",
+      "yc_url": "https://www.ycombinator.com/companies/kalpa-labs"
+    },
+    "founders": [
+      {
+        "name": "Prashant Shishodia",
+        "social": "https://x.com/pshishodiaa"
+      },
+      {
+        "name": "Gautam Jha",
+        "social": "https://x.com/JhaGauti"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/kalpa-labs/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Metorial",
+      "slogan": "The infra layer for AI integrations.",
+      "about": "Metorial is the infra layer for AI integrations. We built the only serverless MCP runtime that can maintain state with sub-second cold starts, built-in security, and monitoring. We make it easy for developers to connect AI agents to apps and data sources at scale.",
+      "website": "https://metorial.com/",
+      "yc_url": "https://www.ycombinator.com/companies/metorial"
+    },
+    "founders": [
+      {
+        "name": "Karim (Wen) Rahme",
+        "social": "https://x.com/wen_rahme"
+      },
+      {
+        "name": "Tobias Herber",
+        "social": "https://x.com/tobiasherber_"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/metorial/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Karumi",
+      "slogan": "The Waymo of Personalized demos",
+      "about": "Karumi is an AI agent that joins a live video call with your prospects to deliver personalized product demos, 24/7, in any language.\n\nIt bridges the gap between your landing page and your sales team by engaging visitors at the peak of their interest, turning curiosity into conversion. For those not ready to talk to sales but eager to explore, Karumi offers the next generation of interactive, self-guided demos.",
+      "website": "https://www.karumi.ai/",
+      "yc_url": "https://www.ycombinator.com/companies/karumi"
+    },
+    "founders": [
+      {
+        "name": "Pablo Omenaca",
+        "social": "https://x.com/houmland"
+      },
+      {
+        "name": "Toni Lopez",
+        "social": "https://x.com/tonilopezmr"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/karumi/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "Miniswap",
+      "slogan": "The Marketplace for Complex Hobbies",
+      "about": "Miniswap a marketplace for complex hobbies, starting with Warhammer.\n\nIn hobbies as complex as Warhammer, finding what you want on general marketplaces is a huge pain. Filters don't work, free-form listings mean that products are regularly misidentified, and piles of counterfeit junk crowd search results. \n\nMiniswap saves hobbyists from this chaos with its catalogue of more than 20,000 unique miniatures. Sellers match their listings against Miniswap's catalogue giving buyers more information and structure as they shop.\n\nThe global market for tabletop games is estimated to be worth $20B in 2025 and Warhammer alone is projected to grow to $3B by 2030. By capturing the market in this untapped niche, Miniswap is strongly positioned to bringing greater transparency, simplicity, and connectivity into adjacent verticals.\n\nMiniswap's founding team merges deep domain knowledge with elite programming expertise and years of experience in business consulting and startups. Co-founders Zak and Will met while studying together at Cambridge, bonded over their love of Warhammer and early modern history. They have been best friends ever since.",
+      "website": "https://miniswap.gg/",
+      "yc_url": "https://www.ycombinator.com/companies/miniswap"
+    },
+    "founders": [
+      {
+        "name": "Zak Singh",
+        "social": "https://www.linkedin.com/in/zak-singh/"
+      },
+      {
+        "name": "Will Hanna",
+        "social": "https://www.linkedin.com/in/will-h-48a38bbb/"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/miniswap/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "The Hog",
+      "slogan": "AI Demand Gen for Companies",
+      "about": "TheHog.ai is the first predictive intelligence engine for growth. We don't just find leads; we predict your next customer before they enter the market.\n\nTheHog.ai maps your ICP, channels, and opportunities across the internet, monitors competitors, communities, keywords, and turns signals into ranked actionable game plans.\n\nThe future of sales isn't a static dashboard; it is a living, autonomous command center. TheHog.ai gives a single operator the power of an entire sales and marketing teams by compressing weeks of research into minutes of execution.\n\nThe Hog Mind & Global Graph At our core is \"The Hog Mind\": a proprietary Contributory Global Graph that fuses real-time social listening with advanced identity resolution. Unlike traditional enrichment tools that rely on stale databases, The Hog monitors millions of live conversations across the internet to identify high-frequency intent signals. This creates a self-reinforcing data flywheel that ranks opportunities and triggers autonomous engagement workflows instantly.\n\nWhat We Do:\n\nPredictive Buying Intelligence: We map the \"Global Graph\" of customer nodes to surface opportunities before competitors know they exist.\n\nAutonomous Engagement: An army of AI agents that don't just draft, but identify, verify, and engage with customers across LinkedIn, Reddit, and X.\n\nDeep Data Enrichment: We bridge the gap between anonymous social signals and verified contact data, creating a holistic view of your market.\n\nThe Data Flywheel: A bottom-up network where every user interaction cleans and verifies our dataset, creating a defensive moat that gets smarter with every query.\n\nThe Result: Win your customers before it’s even a competition",
+      "website": "https://thehog.ai/",
+      "yc_url": "https://www.ycombinator.com/companies/the-hog"
+    },
+    "founders": [
+      {
+        "name": "Hudson Liao",
+        "social": "https://x.com/hudsonliao"
+      },
+      {
+        "name": "Paulo Nascimento",
+        "social": "https://x.com/paulodoestech"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/the-hog/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  },
+  {
+    "source": "ycombinator",
+    "company": {
+      "name": "DiligenceSquared",
+      "slogan": "AI-powered market due diligence for investment decisions",
+      "about": "DiligenceSquared delivers AI-powered market due diligence for investment decisions - like the $500k McKinsey reports, but automated, auditable, and at a fraction of the cost.\n\nWhen Private Equity funds evaluate deals, they pay firms like McKinsey, BCG, and Bain $500K-$1M for market due diligence. The process takes weeks, and the output is a static PowerPoint that's impossible to audit. A single large-cap PE fund can spend >$30M annually on this and the total market is $10B per year.\n\nOur AI agents conduct expert interviews and synthesize insights with every claim linked to source transcripts. No black box, no \"trust me\" slides, and no 10x mark-up for human labor.\n\nFrederik bought these reports as a Principal at Blackstone. Soren sold them as a Principal at BCG. Harshil is a repeat founder and former Software Engineer at Google. We've seen both sides and know what matters in due diligence - and now we automate it.\n\nOur clients already include 8 leading private equity funds with over $2.4 trillion in combined AUM.",
+      "website": "https://diligencesquared.com/",
+      "yc_url": "https://www.ycombinator.com/companies/diligencesquared-inc"
+    },
+    "founders": [
+      {
+        "name": "Frederik Hansen",
+        "social": "https://www.linkedin.com/in/frederik-kofoed-hansen/"
+      },
+      {
+        "name": "Soren Biltoft-Knudsen",
+        "social": "https://www.linkedin.com/in/s%C3%B8ren-biltoft-knudsen-58010932/"
+      },
+      {
+        "name": "Harshil Rastogi",
+        "social": "https://www.linkedin.com/in/harshil-rastogi-3a754b65/"
+      }
+    ],
+    "apply": {
+      "url": "https://www.ycombinator.com/companies/diligencesquared-inc/jobs"
+    },
+    "meta": {
+      "job_name": null,
+      "salary": null
+    },
+    "createdAt": "2025-12-18T16:53:02.586Z"
+  }
+]

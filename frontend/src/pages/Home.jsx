@@ -51,10 +51,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       {/* HEADER */}
-      <header className="sticky top-0 z-50 bg-white border-b">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-50 bg-white">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <h1 className="text-4xl font-semibold tracking-tight">
-            Kord AI
+            <a href="#home">Kord AI</a>
           </h1>
 
           <a
@@ -69,7 +69,7 @@ export default function Home() {
       {/* HERO */}
       <section className="pt-28 pb-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
+          <h2 id="home" className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
             Meet your AI-powered career shadchan
           </h2>
 
