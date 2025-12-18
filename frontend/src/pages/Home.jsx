@@ -11,22 +11,39 @@ export default function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email) return;
-
+  
+    // 1. Insert into Supabase
     const { error } = await supabase
       .from("waitlist")
       .insert([{ email }]);
-
+  
     if (error) {
       if (error.code === "23505") {
         alert("You’re already on the waitlist");
       } else {
-        alert("Something went wrong");
         console.error(error);
+        alert("Something went wrong");
       }
-    } else {
-      setSubmitted(true);
+      return;
     }
+  
+    // 2. Fire confirmation email (do NOT block UI)
+    fetch(
+      `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/resend-email`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({ email }),
+      }
+    ).catch(console.error);
+  
+    // 3. Update UI instantly
+    setSubmitted(true);
   };
+  
 
 
 
