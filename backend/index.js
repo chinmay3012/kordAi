@@ -21,21 +21,18 @@ dotenv.config();
 const app = express();
 
 // --------------------
-// CORS (FIXED FOR PROD)
+// CORS (EXPRESS 5 SAFE)
 // --------------------
 app.use(
   cors({
     origin: [
-      "http://localhost:5173",          // local dev
-      "https://joinkord.onrender.com",  // live frontend
+      "http://localhost:5173",
+      "https://joinkord.onrender.com",
     ],
     methods: ["GET", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type"],
   })
 );
-
-// Handle preflight requests
-app.options("*", cors());
 
 // --------------------
 // BODY PARSER
