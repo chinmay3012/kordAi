@@ -183,8 +183,8 @@ if (fs.existsSync(path.join(frontendDistPath, "index.html"))) {
   app.use(express.static(frontendDistPath));
 
   // Catch-all route for React Router (SPA Support)
-  // In Express 5, we use '/*' instead of '*' to avoid PathError
-  app.get("/*", (req, res, next) => {
+  // Using Regex to match any path (Express 5 compatible)
+  app.get(/.*/, (req, res, next) => {
     // Skip if it's an API request - let the 404 handler below handle it
     if (req.path.startsWith("/api") || req.path.startsWith("/auth") || req.path === "/health") {
       return next();
