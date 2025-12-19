@@ -177,26 +177,25 @@ const getFrontendDistPath = () => {
 
 const frontendDistPath = getFrontendDistPath();
 
-// Serve static files from the dist directory
-app.use(express.static(frontendDistPath));
+// Serve static files from the dist directory only if it exists
+if (fs.existsSync(path.join(frontendDistPath, "index.html"))) {
+  console.log(`📦 Serving frontend from: ${frontendDistPath}`);
+  app.use(express.static(frontendDistPath));
 
-// Catch-all route for React Router (SPA Support)
-// This must be AFTER all other specific routes (API, health, etc.)
-app.get("*", (req, res, next) => {
-  // Skip if it's an API request - let the 404 handler below handle it
-  if (req.path.startsWith("/api") || req.path.startsWith("/auth") || req.path === "/health") {
-    return next();
-  }
+  // Catch-all route for React Router (SPA Support)
+  // In Express 5, we use '/*' instead of '*' to avoid PathError
+  app.get("/*", (req, res, next) => {
+    // Skip if it's an API request - let the 404 handler below handle it
+    if (req.path.startsWith("/api") || req.path.startsWith("/auth") || req.path === "/health") {
+      return next();
+    }
 
-  const indexPath = path.join(frontendDistPath, "index.html");
-  if (fs.existsSync(indexPath)) {
+    const indexPath = path.join(frontendDistPath, "index.html");
     res.sendFile(indexPath);
-  } else {
-    // If we're here, it means even index.html is missing
-    console.warn(`❌ SPA Catch-all failed: index.html not found at ${indexPath}`);
-    next();
-  }
-});
+  });
+} else {
+  console.log("ℹ️ Backend running in API-only mode (No local frontend assets found)");
+}
 
 // --------------------
 // 404 HANDLER (API & Missing Assets)
