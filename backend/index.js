@@ -4,6 +4,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import cron from "node-cron";
 import rateLimit from "express-rate-limit";
+import path from "path";
+import { fileURLToPath } from "url";
+import fs from "fs";
 
 import { connectDB, getConnectionStatus } from "./db.js";
 import waitlistRoute from "./routes/waitlist.js";
@@ -21,6 +24,8 @@ dotenv.config();
 // APP INIT
 // --------------------
 const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // --------------------
 // CORS CONFIGURATION
@@ -110,8 +115,8 @@ app.use("/api/v1/waitlist", waitlistRoute);
 app.use("/api/v1/jobs", jobsLimiter, jobsRoute);
 app.use("/api/v1/resume", jobsLimiter, resumeRoutes);
 
-// Root endpoint
-app.get("/", (req, res) => {
+// Root endpoint (moved to /api/v1)
+app.get("/api/v1", (req, res) => {
   res.json({
     name: "Kord AI API",
     version: "1.0.0",
@@ -145,13 +150,67 @@ app.get("/api/v1/status", (req, res) => {
 });
 
 // --------------------
-// 404 HANDLER
+// STATIC FILES & SPA (For Deployment)
+// --------------------
+const getFrontendDistPath = () => {
+  const possiblePaths = [
+    path.join(__dirname, "dist"), // If dist is inside backend (common in some build setups)
+    path.join(__dirname, "../frontend/dist"), // Standard mono-repo structure
+    path.join(process.cwd(), "frontend/dist"), // Another mono-repo variation
+    path.join(process.cwd(), "dist"), // Root dist if build script moves it there
+    path.join(__dirname, "../../frontend/dist"), // If nested deeper
+  ];
+
+  for (const p of possiblePaths) {
+    if (fs.existsSync(path.join(p, "index.html"))) {
+      console.log(`✅ Found frontend assets at: ${p}`);
+      return p;
+    }
+  }
+
+  // Log all checked paths if not found to help debugging in Render logs
+  console.warn("⚠️ Could not find frontend index.html in any expected location:");
+  possiblePaths.forEach(p => console.warn(`   Checked: ${p}`));
+
+  return possiblePaths[1]; // Fallback to standard mono-repo path
+};
+
+const frontendDistPath = getFrontendDistPath();
+
+// Serve static files from the dist directory
+app.use(express.static(frontendDistPath));
+
+// Catch-all route for React Router (SPA Support)
+// This must be AFTER all other specific routes (API, health, etc.)
+app.get("*", (req, res, next) => {
+  // Skip if it's an API request - let the 404 handler below handle it
+  if (req.path.startsWith("/api") || req.path.startsWith("/auth") || req.path === "/health") {
+    return next();
+  }
+
+  const indexPath = path.join(frontendDistPath, "index.html");
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath);
+  } else {
+    // If we're here, it means even index.html is missing
+    console.warn(`❌ SPA Catch-all failed: index.html not found at ${indexPath}`);
+    next();
+  }
+});
+
+// --------------------
+// 404 HANDLER (API & Missing Assets)
 // --------------------
 app.use((req, res) => {
+  const isApi = req.path.startsWith("/api") || req.path.startsWith("/auth");
+
   res.status(404).json({
     error: "Not Found",
-    message: `Route ${req.method} ${req.path} not found`,
+    message: isApi
+      ? `API Endpoint ${req.method} ${req.path} not found.`
+      : `Page or asset not found. If this is a frontend route, ensure the build completed and the 'dist' folder is in the correct place.`,
     timestamp: new Date().toISOString(),
+    help: "Visit /health to check API status."
   });
 });
 
