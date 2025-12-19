@@ -82,6 +82,8 @@ async function connectDB() {
 }
 
 await connectDB();
+console.log("🧠 DB NAME:", mongoose.connection.name);
+
 
 // --------------------
 // SCRAPER BOOTSTRAP

@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "waitlist",
     },
+    refreshToken: {
+      type: String,
+      default: null
+    },
   },
   { timestamps: true }
 );

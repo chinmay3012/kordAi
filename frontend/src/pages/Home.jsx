@@ -26,6 +26,12 @@ export default function Home() {
       }
       return;
     }
+    await fetch(`${import.meta.env.VITE_API_URL}/auth/waitlist`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email })
+    });
+    
   
     // 2. Fire confirmation email (do NOT block UI)
     fetch(
