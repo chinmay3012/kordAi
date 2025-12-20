@@ -241,42 +241,51 @@ export async function getMatchedJobs(userId, options = {}) {
         };
     });
 
+    // Check user tier
+    const isPremium = user.subscription?.plan !== "free";
+
     // Filter and Sort YC Jobs vs Others
-    // Database source is lowercase "ycombinator"
     const ycJobs = scoredJobs
-        .filter(j => j.source === "ycombinator" || j.source === "YCombinator" || j.company?.ycBatch)
+        .filter(j => j.source?.toLowerCase() === "ycombinator" || !!j.company?.ycBatch)
         .filter(j => j.matchScore >= 10);
 
     const otherJobs = scoredJobs
-        .filter(j => j.source !== "ycombinator" && j.source !== "YCombinator" && !j.company?.ycBatch)
+        .filter(j => j.source?.toLowerCase() !== "ycombinator" && !j.company?.ycBatch)
         .filter(j => j.matchScore >= minScore);
 
     // 1. Get top YCombinator Jobs (Up to 5)
-    // We prioritize them but still sort by match score to give relevant ones
+    // Prioritize ones that have founder data already populated
     const topYCMatches = ycJobs
-        .sort((a, b) => b.matchScore - a.matchScore)
+        .sort((a, b) => {
+            const aHas = (a.founders && a.founders.length > 0) ? 1 : 0;
+            const bHas = (b.founders && b.founders.length > 0) ? 1 : 0;
+            if (aHas !== bHas) return bHas - aHas;
+            return b.matchScore - a.matchScore;
+        })
         .slice(0, 5);
 
-    // Shuffle slightly to keep it fresh
     const selectedYC = topYCMatches.sort(() => Math.random() - 0.5);
 
     // 2. Get 5 regular jobs from other sources
     const selectedOthersCount = 5;
 
-    // Sort others by score
     const topOtherMatches = otherJobs
         .sort((a, b) => b.matchScore - a.matchScore)
-        .slice(0, 50); // Pool of top candidates
+        .slice(0, 50);
 
-    // Shuffle pool and take 5
     const selectedOthers = topOtherMatches
         .sort(() => Math.random() - 0.5)
         .slice(0, selectedOthersCount);
 
-    // Combine: YC first (5), then others (5)
+    // FOR FREE USERS: strictly return 5 YC + 5 Regular (Exactly 10)
+    if (!isPremium) {
+        // Return exactly these 10 in order: 5 YC, then 5 others
+        return [...selectedYC, ...selectedOthers];
+    }
+
+    // FOR PREMIUM USERS: Combine and fill up to the requested limit
     let matchedJobs = [...selectedYC, ...selectedOthers];
 
-    // If limit (e.g. 20) is higher than 10, fill with remaining
     if (matchedJobs.length < limit) {
         const remainingCount = limit - matchedJobs.length;
         const matchedIds = new Set(matchedJobs.map(j => j._id.toString()));
@@ -287,23 +296,6 @@ export async function getMatchedJobs(userId, options = {}) {
             .slice(0, remainingCount);
 
         matchedJobs = [...matchedJobs, ...additionalFillers];
-    }
-
-    // If still not enough, fill with random fillers
-    if (matchedJobs.length < limit) {
-        const remainingCount = limit - matchedJobs.length;
-        const matchedIds = new Set(matchedJobs.map(j => j._id.toString()));
-
-        const fillerJobs = scoredJobs
-            .filter(job => !matchedIds.has(job._id.toString()))
-            .sort(() => Math.random() - 0.5)
-            .slice(0, remainingCount)
-            .map(job => ({
-                ...job,
-                matchScore: Math.max(job.matchScore, 20),
-            }));
-
-        matchedJobs.push(...fillerJobs);
     }
 
     return matchedJobs;
