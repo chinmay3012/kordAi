@@ -59,12 +59,12 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
-    if (!user.password) {
-      return res.status(401).json({
-        message: "Please activate your account first",
-        needsActivation: true,
-      });
-    }
+    // if (!user.password) {
+    //   return res.status(401).json({
+    //     message: "Please activate your account first",
+    //     needsActivation: true,
+    //   });
+    // }
 
     const isValid = await comparePassword(body.password, user.password);
     if (!isValid) {

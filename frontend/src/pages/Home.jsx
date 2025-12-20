@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import ycLogo from "../assets/ycLogo copy.avif";
 import { supabase } from "../supabase";
 
@@ -11,12 +12,12 @@ export default function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email) return;
-  
+
     // 1. Insert into Supabase
     const { error } = await supabase
       .from("waitlist")
       .insert([{ email }]);
-  
+
     if (error) {
       if (error.code === "23505") {
         alert("You’re already on the waitlist");
@@ -31,8 +32,8 @@ export default function Home() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email })
     });
-    
-  
+
+
     // 2. Fire confirmation email (do NOT block UI)
     fetch(
       `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/resend-email`,
@@ -45,11 +46,11 @@ export default function Home() {
         body: JSON.stringify({ email }),
       }
     ).catch(console.error);
-  
+
     // 3. Update UI instantly
     setSubmitted(true);
   };
-  
+
 
 
 
@@ -63,12 +64,20 @@ export default function Home() {
             <a href="#home">Kord AI</a>
           </h1>
 
-          <a
-            href="#waitlist"
-            className="text-sm px-5 py-2 rounded-full bg-black text-white hover:opacity-90 transition"
-          >
-            Join waitlist
-          </a>
+          <div className="flex items-center gap-3">
+            <Link
+              to="/login"
+              className="text-sm px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition"
+            >
+              Login
+            </Link>
+            <a
+              href="#waitlist"
+              className="text-sm px-5 py-2 rounded-full bg-black text-white hover:opacity-90 transition"
+            >
+              Join waitlist
+            </a>
+          </div>
         </div>
       </header>
 
@@ -80,7 +89,7 @@ export default function Home() {
           </h2>
 
           <p className="mt-6 text-lg md:text-xl text-gray-600">
-            No need to search , wait and apply everytime everywhere.<br/><br/>
+            No need to search , wait and apply everytime everywhere.<br /><br />
             Kord works 24/7 collecting data for your Personalized JOB preference.
             <br />
             Personalized. Professional. Relentless.
