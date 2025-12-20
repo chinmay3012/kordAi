@@ -110,7 +110,7 @@ if (process.env.NODE_ENV !== "production") {
 // --------------------
 // ROUTES
 // --------------------
-app.use("/auth", authLimiter, authRoutes);
+app.use("/api/v1/auth", authLimiter, authRoutes);
 app.use("/api/v1/waitlist", waitlistRoute);
 app.use("/api/v1/jobs", jobsLimiter, jobsRoute);
 app.use("/api/v1/resume", jobsLimiter, resumeRoutes);
