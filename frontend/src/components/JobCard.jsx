@@ -116,8 +116,8 @@ export default function JobCard({ job }) {
         <button
           onClick={() => setActiveTab("company")}
           className={`pb-2 text-sm font-medium transition ${activeTab === "company"
-              ? "border-b-2 border-black text-black"
-              : "text-gray-400 hover:text-gray-600"
+            ? "border-b-2 border-black text-black"
+            : "text-gray-400 hover:text-gray-600"
             }`}
         >
           Company
@@ -127,8 +127,8 @@ export default function JobCard({ job }) {
           <button
             onClick={() => setActiveTab("founders")}
             className={`pb-2 text-sm font-medium transition ${activeTab === "founders"
-                ? "border-b-2 border-black text-black"
-                : "text-gray-400 hover:text-gray-600"
+              ? "border-b-2 border-black text-black"
+              : "text-gray-400 hover:text-gray-600"
               }`}
           >
             Founders & Insights
@@ -139,8 +139,8 @@ export default function JobCard({ job }) {
           <button
             onClick={() => setActiveTab("match")}
             className={`pb-2 text-sm font-medium transition ${activeTab === "match"
-                ? "border-b-2 border-black text-black"
-                : "text-gray-400 hover:text-gray-600"
+              ? "border-b-2 border-black text-black"
+              : "text-gray-400 hover:text-gray-600"
               }`}
           >
             Why This Match
@@ -381,17 +381,29 @@ export default function JobCard({ job }) {
         </div>
       )}
 
+      {/* Description Snippet (Always visible to add length) */}
+      <div className="mt-6 p-4 rounded-xl bg-gray-50 border border-gray-100">
+        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
+          About the role
+        </h3>
+        <p className="text-sm text-gray-700 leading-relaxed line-clamp-4">
+          {job.description || job.shortDescription || "No detailed description available."}
+        </p>
+      </div>
+
       {/* CTA */}
       {job.applyUrl && (
-        <a
-          href={job.applyUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block text-center mt-6 bg-black text-white py-3 rounded-xl hover:opacity-90 transition"
-          onClick={(e) => e.stopPropagation()}
-        >
-          View Opportunity →
-        </a>
+        <div className="flex justify-center mt-8">
+          <a
+            href={job.applyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-3 bg-blue-600 text-white font-medium rounded-full shadow-lg shadow-blue-200 hover:bg-blue-700 hover:shadow-xl hover:scale-105 transition transform"
+            onClick={(e) => e.stopPropagation()}
+          >
+            View Opportunity
+          </a>
+        </div>
       )}
     </div>
   );

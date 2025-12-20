@@ -221,26 +221,38 @@ export async function getMatchedJobs(userId, options = {}) {
     // Score and rank jobs
     const scoredJobs = jobs.map(job => {
         const matchResult = calculateMatchScore(job, userProfile);
+
+        // Add slight jitter to score to avoid identical values (0-4 points)
+        const jitter = Math.floor(Math.random() * 5);
+        const finalScore = Math.min(100, matchResult.score + jitter);
+
         return {
             ...job,
-            matchScore: matchResult.score,
+            matchScore: finalScore,
             matchDetails: matchResult.details,
         };
     });
 
     // Filter by minimum score and sort by score
-    const matchedJobs = scoredJobs
+    const topMatches = scoredJobs
         .filter(job => job.matchScore >= minScore)
         .sort((a, b) => b.matchScore - a.matchScore)
-        .slice(0, limit);
+        .slice(0, 100); // Take top 100 candidates
 
-    // If not enough matched jobs, fill with top recent jobs
+    // Shuffle the top candidates to show variety of sources
+    const shuffledMatches = topMatches.sort(() => Math.random() - 0.5);
+
+    // Return requested limit
+    const matchedJobs = shuffledMatches.slice(0, limit);
+
+    // If not enough matched jobs, fill with top recent jobs (also shuffled)
     if (matchedJobs.length < limit) {
         const remainingCount = limit - matchedJobs.length;
         const matchedIds = new Set(matchedJobs.map(j => j._id.toString()));
 
         const fillerJobs = scoredJobs
             .filter(job => !matchedIds.has(job._id.toString()))
+            .sort(() => Math.random() - 0.5) // Randomize fillers
             .slice(0, remainingCount)
             .map(job => ({
                 ...job,

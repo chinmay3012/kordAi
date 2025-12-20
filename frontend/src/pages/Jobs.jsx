@@ -18,6 +18,7 @@ export default function Jobs() {
   const [error, setError] = useState("");
   const [hasResume, setHasResume] = useState(null);
   const [saving, setSaving] = useState(false);
+  const [exitX, setExitX] = useState(0);
 
   const { isAuthenticated, loading: authLoading } = useAuth();
   const navigate = useNavigate();
@@ -97,6 +98,10 @@ export default function Jobs() {
 
   const handleLike = async () => {
     if (saving) return;
+    setExitX(200);
+
+    // allow animation to start before data update
+    await new Promise(r => setTimeout(r, 200));
 
     const currentJob = jobs[currentIndex];
     if (!currentJob) return;
@@ -109,11 +114,16 @@ export default function Jobs() {
     } finally {
       setSaving(false);
       setCurrentIndex(i => i + 1);
+      setExitX(0); // reset
     }
   };
 
   const handleSkip = async () => {
     if (saving) return;
+    setExitX(-200);
+
+    // allow animation to start before data update
+    await new Promise(r => setTimeout(r, 200));
 
     const currentJob = jobs[currentIndex];
     if (!currentJob) return;
@@ -126,6 +136,7 @@ export default function Jobs() {
     } finally {
       setSaving(false);
       setCurrentIndex(i => i + 1);
+      setExitX(0); // reset
     }
   };
 
@@ -249,11 +260,11 @@ export default function Jobs() {
                 onDragEnd={(e, info) => {
                   if (info.offset.x > 120) handleLike();
                   else if (info.offset.x < -120) handleSkip();
-                  x.set(0);
+                  else x.set(0);
                 }}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, x: -100 }}
+                initial={{ opacity: 0, y: 50, x: 0 }}
+                animate={{ opacity: 1, y: 0, x: 0 }}
+                exit={{ opacity: 0, x: exitX || -200, rotate: exitX > 0 ? 15 : -15 }}
                 transition={{ duration: 0.4 }}
                 className="relative touch-pan-x cursor-grab active:cursor-grabbing"
               >

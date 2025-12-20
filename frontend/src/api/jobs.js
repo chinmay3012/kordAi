@@ -72,7 +72,7 @@ API.interceptors.response.use(
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
         localStorage.removeItem("userEmail");
-        window.location.href = "/login.html"; // Ensure full redirect
+        window.location.href = "/login"; // Correct redirect
         return Promise.reject(error);
       }
 
