@@ -37,21 +37,46 @@ export default function Navbar() {
               <nav className="hidden md:flex items-center gap-6 mr-4">
                 <Link
                   to="/app"
-                  className={`text-sm transition ${
-                    location.pathname === "/app"
-                      ? "text-black font-medium"
-                      : "text-gray-600 hover:text-black"
-                  }`}
+                  className={`text-sm transition ${location.pathname === "/app"
+                    ? "text-black font-medium"
+                    : "text-gray-600 hover:text-black"
+                    }`}
                 >
                   Jobs
                 </Link>
                 <Link
+                  to="/email-tracker"
+                  className={`text-sm transition ${location.pathname === "/email-tracker"
+                    ? "text-black font-medium"
+                    : "text-gray-600 hover:text-black"
+                    }`}
+                >
+                  Email Tracker
+                </Link>
+                <Link
+                  to="/resumes"
+                  className={`text-sm transition ${location.pathname === "/resumes"
+                    ? "text-black font-medium"
+                    : "text-gray-600 hover:text-black"
+                    }`}
+                >
+                  Resumes
+                </Link>
+                <Link
+                  to="/premium"
+                  className={`text-sm transition ${location.pathname === "/premium"
+                    ? "text-black font-medium"
+                    : "text-gray-600 hover:text-black"
+                    }`}
+                >
+                  Premium
+                </Link>
+                <Link
                   to="/saved"
-                  className={`text-sm transition ${
-                    location.pathname === "/saved"
-                      ? "text-black font-medium"
-                      : "text-gray-600 hover:text-black"
-                  }`}
+                  className={`text-sm transition ${location.pathname === "/saved"
+                    ? "text-black font-medium"
+                    : "text-gray-600 hover:text-black"
+                    }`}
                 >
                   Saved
                 </Link>
@@ -70,9 +95,8 @@ export default function Navbar() {
                     {user?.email}
                   </span>
                   <svg
-                    className={`w-4 h-4 transition-transform ${
-                      showDropdown ? "rotate-180" : ""
-                    }`}
+                    className={`w-4 h-4 transition-transform ${showDropdown ? "rotate-180" : ""
+                      }`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -108,6 +132,30 @@ export default function Navbar() {
                         className="md:hidden block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                       >
                         Jobs
+                      </Link>
+
+                      <Link
+                        to="/email-tracker"
+                        onClick={() => setShowDropdown(false)}
+                        className="md:hidden block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                      >
+                        Email Tracker
+                      </Link>
+
+                      <Link
+                        to="/resumes"
+                        onClick={() => setShowDropdown(false)}
+                        className="md:hidden block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                      >
+                        Resumes
+                      </Link>
+
+                      <Link
+                        to="/premium"
+                        onClick={() => setShowDropdown(false)}
+                        className="md:hidden block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                      >
+                        Premium
                       </Link>
 
                       <Link

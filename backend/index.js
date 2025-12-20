@@ -13,6 +13,8 @@ import waitlistRoute from "./routes/waitlist.js";
 import jobsRoute from "./routes/jobs.js";
 import authRoutes from "./routes/auth.js";
 import resumeRoutes from "./routes/resume.js";
+import emailTrackerRoute from "./routes/emailTracker.js";
+import multiResumesRoute from "./routes/resumes.js";
 import { scrapeRemoteOkJobs } from "./scraper/remoteOkJobs.js";
 
 // --------------------
@@ -108,6 +110,8 @@ app.use("/api/v1/auth", authLimiter, authRoutes);
 app.use("/api/v1/waitlist", waitlistRoute);
 app.use("/api/v1/jobs", jobsLimiter, jobsRoute);
 app.use("/api/v1/resume", jobsLimiter, resumeRoutes);
+app.use("/api/v1/email-tracker", jobsLimiter, emailTrackerRoute);
+app.use("/api/v1/resumes", jobsLimiter, multiResumesRoute);
 
 // API ROOT
 app.get("/api/v1", (req, res) => {

@@ -7,6 +7,9 @@ import Signup from "./pages/Signup";
 import Activate from "./pages/Activate";
 import SavedJobs from "./pages/SavedJobs";
 import Onboarding from "./pages/Onboarding";
+import EmailTracker from "./pages/EmailTracker";
+import Resumes from "./pages/Resumes";
+import Premium from "./pages/Premium";
 
 export default function App() {
   return (
@@ -19,6 +22,9 @@ export default function App() {
         <Route path="/activate" element={<Activate />} />
         <Route path="/saved" element={<SavedJobs />} />
         <Route path="/onboarding" element={<Onboarding />} />
+        <Route path="/email-tracker" element={<EmailTracker />} />
+        <Route path="/resumes" element={<Resumes />} />
+        <Route path="/premium" element={<Premium />} />
       </Routes>
     </AuthProvider>
   );

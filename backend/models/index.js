@@ -6,3 +6,5 @@
 export { default as User } from "./User.js";
 export { default as Job } from "./Job.js";
 export { default as SavedJob } from "./SavedJob.js";
+export { default as EmailTrack } from "./EmailTrack.js";
+export { default as Resume } from "./Resume.js";
