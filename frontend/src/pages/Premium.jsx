@@ -9,7 +9,7 @@ export default function Premium() {
             period: "/ forever",
             features: [
                 { name: "Daily Matches", value: "10 per day", included: true },
-                { name: "Founder Details", value: "YC Jobs Only", included: true },
+                { name: "Founder Details", value: "Limited", included: true },
                 { name: "Email Tracker", value: "Basic", included: true },
                 { name: "Resume Storage", value: "1 Resume", included: true },
                 { name: "AI Optimization", value: "No", included: false },
@@ -137,7 +137,7 @@ export default function Premium() {
                     <div className="max-w-5xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl font-bold text-gray-900 mb-4">Compare Features</h2>
-                            <p className="text-gray-500">See exactly why Pro is the right choice for serious builders.</p>
+                            <p className="text-gray-500">See exactly why Pro is the right choice for serious hunters.</p>
                         </div>
 
                         <div className="bg-white rounded-[2rem] border border-gray-100 overflow-hidden shadow-xl">
@@ -151,8 +151,8 @@ export default function Premium() {
                                 </thead>
                                 <tbody className="divide-y divide-gray-50">
                                     {[
-                                        ["Unlimited Job Swiping", "✕", "✓"],
-                                        ["Direct Founder Emails", "YC Only", "Included"],
+                                        ["Unlimited Job Swiping", "10 per week", "✓"],
+                                        ["Direct Founder Emails", "Limited", "Included"],
                                         ["AI Resume Optimization", "Limited", "Unlimited"],
                                         ["Email Open Tracking", "✕", "Included"],
                                         ["Premium Batch Exclusives", "✕", "✓"],
