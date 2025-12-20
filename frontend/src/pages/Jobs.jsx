@@ -20,8 +20,14 @@ export default function Jobs() {
   const [saving, setSaving] = useState(false);
   const [exitX, setExitX] = useState(0);
 
-  const { isAuthenticated, loading: authLoading } = useAuth();
+  const { user, isAuthenticated, loading: authLoading } = useAuth();
   const navigate = useNavigate();
+
+  // Free tier logic
+  const [sessionViewedCount, setSessionViewedCount] = useState(0);
+  const FREE_LIMIT = 5;
+  const isPremium = user?.subscription?.plan !== "free";
+  const isLocked = !isPremium && sessionViewedCount >= FREE_LIMIT;
 
   // Swipe motion value
   const x = useMotionValue(0);
@@ -97,7 +103,7 @@ export default function Jobs() {
   };
 
   const handleLike = async () => {
-    if (saving) return;
+    if (saving || isLocked) return;
     setExitX(200);
 
     // allow animation to start before data update
@@ -109,6 +115,7 @@ export default function Jobs() {
     setSaving(true);
     try {
       await likeJob(currentJob._id, "swipe");
+      setSessionViewedCount(prev => prev + 1);
     } catch (err) {
       console.error("Failed to like job:", err);
     } finally {
@@ -119,7 +126,7 @@ export default function Jobs() {
   };
 
   const handleSkip = async () => {
-    if (saving) return;
+    if (saving || isLocked) return;
     setExitX(-200);
 
     // allow animation to start before data update
@@ -131,6 +138,7 @@ export default function Jobs() {
     setSaving(true);
     try {
       await skipJob(currentJob._id, "swipe");
+      setSessionViewedCount(prev => prev + 1);
     } catch (err) {
       console.error("Failed to skip job:", err);
     } finally {
@@ -179,7 +187,24 @@ export default function Jobs() {
                 </p>
               )}
             </div>
-            {jobs.length > 0 && currentIndex < jobs.length && (
+
+            {/* Free Tier Progress */}
+            {!isPremium && (
+              <div className="flex flex-col items-end">
+                <div className="text-xs font-bold text-gray-500 mb-1">
+                  {Math.min(sessionViewedCount, FREE_LIMIT)} / {FREE_LIMIT} free matches
+                </div>
+                <div className="w-24 h-2 bg-gray-100 rounded-full overflow-hidden">
+                  <div
+                    className={`h-full rounded-full transition-all duration-300 ${isLocked ? 'bg-red-500' : 'bg-green-500'}`}
+                    style={{ width: `${(Math.min(sessionViewedCount, FREE_LIMIT) / FREE_LIMIT) * 100}%` }}
+                  ></div>
+                </div>
+              </div>
+            )}
+
+            {/* Standard Counter */}
+            {isPremium && jobs.length > 0 && currentIndex < jobs.length && (
               <span className="text-sm text-gray-500">
                 {currentIndex + 1} / {jobs.length}
               </span>
@@ -189,7 +214,7 @@ export default function Jobs() {
       </div>
 
       {/* Main */}
-      <main className="flex-1 flex items-center justify-center px-4 md:px-6 py-8">
+      <main className="flex-1 flex items-center justify-center px-4 md:px-6 py-8 overflow-hidden">
         {loading ? (
           <div className="text-center">
             <div className="animate-spin w-10 h-10 border-3 border-black border-t-transparent rounded-full mx-auto mb-4" />
@@ -251,80 +276,131 @@ export default function Jobs() {
             )}
 
             <AnimatePresence mode="wait">
-              <motion.div
-                key={currentJob._id}
-                drag="x"
-                style={{ x, rotate }}
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.15}
-                onDragEnd={(e, info) => {
-                  if (info.offset.x > 120) handleLike();
-                  else if (info.offset.x < -120) handleSkip();
-                  else x.set(0);
-                }}
-                initial={{ opacity: 0, y: 50, x: 0 }}
-                animate={{ opacity: 1, y: 0, x: 0 }}
-                exit={{ opacity: 0, x: exitX || -200, rotate: exitX > 0 ? 15 : -15 }}
-                transition={{ duration: 0.4 }}
-                className="relative touch-pan-x cursor-grab active:cursor-grabbing"
-              >
-                {/* Skip Indicator */}
+              {isLocked ? (
                 <motion.div
-                  className="absolute top-6 left-6 z-10 bg-red-500 text-white px-4 py-2 rounded-full shadow-lg"
-                  style={{ opacity: leftOpacity }}
+                  key="locked-card"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="relative w-full bg-white rounded-3xl border shadow-xl overflow-hidden h-[600px] flex flex-col"
                 >
-                  <span className="flex items-center gap-1 font-medium">
-                    ✕ Skip
-                  </span>
-                </motion.div>
+                  {/* Blurred Content Placeholder */}
+                  <div className="p-6 filter blur-md select-none opacity-50 flex-1 bg-gray-50">
+                    <div className="flex gap-4">
+                      <div className="w-16 h-16 bg-gray-200 rounded-2xl"></div>
+                      <div className="flex-1 space-y-2">
+                        <div className="h-6 bg-gray-200 rounded w-3/4"></div>
+                        <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+                      </div>
+                    </div>
+                    <div className="mt-8 space-y-4">
+                      <div className="h-4 bg-gray-200 rounded w-full"></div>
+                      <div className="h-4 bg-gray-200 rounded w-full"></div>
+                      <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+                    </div>
+                  </div>
 
-                {/* Like Indicator */}
+                  {/* Overlay */}
+                  <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white/80 backdrop-blur-md p-8 text-center">
+                    <div className="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-3xl mb-4 shadow-lg">
+                      🔒
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-2">Daily Free Limit Reached</h2>
+                    <p className="text-gray-600 mb-6 max-w-xs">
+                      You've viewed your 5 free matches for today. Upgrade to Premium to unlock unlimited matches and founder signals.
+                    </p>
+                    <button className="w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all text-lg mb-3">
+                      Upgrade to Premium
+                    </button>
+                    <p className="text-xs text-gray-500 font-medium">Starting at $9/mo</p>
+                  </div>
+                </motion.div>
+              ) : (
                 <motion.div
-                  className="absolute top-6 right-6 z-10 bg-green-500 text-white px-4 py-2 rounded-full shadow-lg"
-                  style={{ opacity: rightOpacity }}
+                  key={currentJob._id}
+                  drag="x"
+                  style={{ x, rotate }}
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.15}
+                  onDragEnd={(e, info) => {
+                    if (info.offset.x > 120) handleLike();
+                    else if (info.offset.x < -120) handleSkip();
+                    else x.set(0);
+                  }}
+                  initial={{ opacity: 0, y: 50, x: 0 }}
+                  animate={{ opacity: 1, y: 0, x: 0 }}
+                  exit={{ opacity: 0, x: exitX || -200, rotate: exitX > 0 ? 15 : -15 }}
+                  transition={{ duration: 0.4 }}
+                  className="relative touch-pan-x cursor-grab active:cursor-grabbing"
                 >
-                  <span className="flex items-center gap-1 font-medium">
-                    ♥ Like
-                  </span>
-                </motion.div>
+                  {/* Skip Indicator */}
+                  <motion.div
+                    className="absolute top-6 left-6 z-10 bg-red-500 text-white px-4 py-2 rounded-full shadow-lg"
+                    style={{ opacity: leftOpacity }}
+                  >
+                    <span className="flex items-center gap-1 font-medium">
+                      ✕ Skip
+                    </span>
+                  </motion.div>
 
-                <JobCard job={currentJob} />
-              </motion.div>
+                  {/* Like Indicator */}
+                  <motion.div
+                    className="absolute top-6 right-6 z-10 bg-green-500 text-white px-4 py-2 rounded-full shadow-lg"
+                    style={{ opacity: rightOpacity }}
+                  >
+                    <span className="flex items-center gap-1 font-medium">
+                      ♥ Like
+                    </span>
+                  </motion.div>
+
+                  <JobCard job={currentJob} />
+                </motion.div>
+              )}
             </AnimatePresence>
 
             {/* Action buttons */}
-            <div className="flex justify-center gap-6 mt-6">
-              <button
-                onClick={handleSkip}
-                disabled={saving}
-                className="w-16 h-16 rounded-full border-2 border-red-200 bg-white text-red-500 flex items-center justify-center hover:bg-red-50 hover:border-red-300 active:scale-95 transition disabled:opacity-50"
-              >
-                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
+            {!isLocked && (
+              <div className="flex justify-center gap-6 mt-6">
+                <button
+                  onClick={handleSkip}
+                  disabled={saving}
+                  className="w-16 h-16 rounded-full border-2 border-red-200 bg-white text-red-500 flex items-center justify-center hover:bg-red-50 hover:border-red-300 active:scale-95 transition disabled:opacity-50"
+                >
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
 
-              <button
-                onClick={handleLike}
-                disabled={saving}
-                className="w-16 h-16 rounded-full border-2 border-green-200 bg-white text-green-500 flex items-center justify-center hover:bg-green-50 hover:border-green-300 active:scale-95 transition disabled:opacity-50"
-              >
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                </svg>
-              </button>
-            </div>
+                <button
+                  onClick={handleLike}
+                  disabled={saving}
+                  className="w-16 h-16 rounded-full border-2 border-green-200 bg-white text-green-500 flex items-center justify-center hover:bg-green-50 hover:border-green-300 active:scale-95 transition disabled:opacity-50"
+                >
+                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                  </svg>
+                </button>
+              </div>
+            )}
 
             {/* Keyboard shortcuts hint */}
-            <p className="text-xs text-gray-400 text-center mt-4">
-              Swipe or use ← → keys
-            </p>
+            {!isLocked && (
+              <p className="text-xs text-gray-400 text-center mt-4">
+                Swipe or use ← → keys
+              </p>
+            )}
+
+            {/* Locked Hint */}
+            {isLocked && (
+              <p className="text-xs text-gray-400 text-center mt-4">
+                Match limit reached
+              </p>
+            )}
           </div>
         )}
       </main>
 
       {/* Keyboard controls */}
-      <KeyboardHandler onLeft={handleSkip} onRight={handleLike} />
+      {!isLocked && <KeyboardHandler onLeft={handleSkip} onRight={handleLike} />}
     </div>
   );
 }

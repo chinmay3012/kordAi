@@ -66,345 +66,259 @@ export default function JobCard({ job }) {
   };
 
   return (
-    <div className="bg-white rounded-2xl border shadow-sm p-6 select-none">
-      {/* Header */}
-      <div className="flex items-start gap-4">
-        {/* Company Logo */}
-        {companyLogo ? (
-          <img
-            src={companyLogo}
-            alt={companyName}
-            className="h-14 w-14 rounded-xl object-cover"
-            onError={(e) => {
-              e.target.style.display = "none";
-              e.target.nextSibling.style.display = "flex";
-            }}
-          />
-        ) : null}
-        <div
-          className={`h-14 w-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 text-white flex items-center justify-center text-xl font-semibold ${companyLogo ? "hidden" : ""
-            }`}
-        >
-          {companyName?.[0]?.toUpperCase() || "C"}
+  return (
+    <div className="bg-white rounded-3xl border shadow-xl overflow-hidden select-none flex flex-col w-full">
+      {/* Header Section */}
+      <div className="p-6 pb-2">
+        <div className="flex items-start gap-4">
+          {companyLogo ? (
+            <img
+              src={companyLogo}
+              alt={companyName}
+              className="h-16 w-16 rounded-2xl object-cover border border-gray-100 shadow-sm"
+              onError={(e) => {
+                e.target.style.display = "none";
+                e.target.nextSibling.style.display = "flex";
+              }}
+            />
+          ) : null}
+          <div
+            className={`h-16 w-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 text-white flex items-center justify-center text-2xl font-bold shadow-sm ${companyLogo ? "hidden" : ""
+              }`}
+          >
+            {companyName?.[0]?.toUpperCase() || "C"}
+          </div>
+
+          <div className="flex-1 min-w-0">
+            <h2 className="text-2xl font-bold truncate tracking-tight text-gray-900">
+              {companyName}
+            </h2>
+            <div className="flex items-center gap-2 mt-1">
+              <p className="text-sm font-medium text-gray-500 truncate">
+                {job.title}
+              </p>
+              {job.company?.ycBatch && (
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded bg-[#F26522] text-white tracking-wide uppercase">
+                  YC {job.company.ycBatch}
+                </span>
+              )}
+            </div>
+          </div>
+
+          {/* Match Score */}
+          {matchScore !== null && (
+            <div className="flex flex-col items-center">
+              <div
+                className={`text-lg font-bold px-3 py-1 rounded-xl whitespace-nowrap shadow-sm ${getMatchColor(
+                  matchScore
+                )}`}
+              >
+                {matchScore}%
+              </div>
+              <span className="text-[10px] uppercase font-bold text-gray-400 mt-1">
+                Match
+              </span>
+            </div>
+          )}
         </div>
 
-        <div className="flex-1 min-w-0">
-          <h2 className="text-xl font-semibold truncate">{companyName}</h2>
-          <p className="text-sm text-gray-500 truncate">{job.title}</p>
-          {job.company?.ycBatch && (
-            <span className="inline-flex items-center gap-1 mt-1 text-xs text-orange-600 font-medium">
-              <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
-              YC {job.company.ycBatch}
+        {/* Quick Stats Grid */}
+        <div className="grid grid-cols-2 gap-3 mt-6">
+          <div className="bg-gray-50 p-3 rounded-xl border border-gray-100">
+            <span className="text-xs text-gray-400 uppercase font-bold block mb-1">
+              Location
+            </span>
+            <span className="text-sm font-semibold text-gray-700">
+              {locationTypeDisplay}
+            </span>
+          </div>
+          <div className="bg-gray-50 p-3 rounded-xl border border-gray-100">
+            <span className="text-xs text-gray-400 uppercase font-bold block mb-1">
+              Salary
+            </span>
+            <span className="text-sm font-semibold text-green-600">
+              {salaryDisplay || "Competitive"}
+            </span>
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex bg-gray-100 p-1 rounded-xl mt-6">
+          <button
+            onClick={() => setActiveTab("company")}
+            className={`flex-1 py-2 text-sm font-bold rounded-lg transition-all ${activeTab === "company"
+                ? "bg-white text-black shadow-sm"
+                : "text-gray-400 hover:text-gray-600"
+              }`}
+          >
+            Company
+          </button>
+          {job.matchDetails && (
+            <button
+              onClick={() => setActiveTab("match")}
+              className={`flex-1 py-2 text-sm font-bold rounded-lg transition-all ${activeTab === "match"
+                  ? "bg-white text-black shadow-sm"
+                  : "text-gray-400 hover:text-gray-600"
+                }`}
+            >
+              Analytics
+            </button>
+          )}
+        </div>
+
+        {/* Tab Content */}
+        <div className="mt-4 min-h-[120px]">
+          {activeTab === "company" && (
+            <div className="space-y-4">
+              <p className="text-sm text-gray-600 leading-relaxed line-clamp-4">
+                {job.shortDescription ||
+                  companyDescription ||
+                  job.description ||
+                  "Join a fast-growing team solving hard problems."}
+              </p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2">
+                {(job.tags || ["Startup", "Tech"]).slice(0, 5).map((tag, i) => (
+                  <span
+                    key={i}
+                    className="text-[10px] font-medium px-2 py-1 bg-gray-100 text-gray-500 rounded-md uppercase tracking-wide"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeTab === "match" && job.matchDetails && (
+            <div className="space-y-3">
+              {/* Detailed Match Breakdown */}
+              {Object.entries(job.matchDetails).map(([key, data]) => (
+                <div
+                  key={key}
+                  className="flex items-center justify-between p-2 rounded-lg bg-gray-50 border border-gray-100"
+                >
+                  <div className="flex flex-col">
+                    <span className="text-xs font-bold capitalize text-gray-700">
+                      {key} Match
+                    </span>
+                    <span className="text-[10px] text-gray-400">
+                      Based on {key === "experience" ? "level" : "keywords"}
+                    </span>
+                  </div>
+                  <div className="text-sm font-bold text-green-600">
+                    +{data.score}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* FOUNDER CARDS SECTION (Attached Below) */}
+      <div className="bg-gradient-to-b from-gray-50 to-gray-100 border-t border-gray-200 p-6">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-sm font-bold text-gray-900 uppercase tracking-widest">
+            Founding Team
+          </h3>
+          {hasFounders && (
+            <span className="text-[10px] font-bold bg-green-100 text-green-700 px-2 py-1 rounded-full">
+              ACTIVE
             </span>
           )}
         </div>
 
-        {/* Match Score */}
-        {matchScore !== null && (
-          <span
-            className={`text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap ${getMatchColor(
-              matchScore
-            )}`}
-          >
-            {matchScore}% match
-          </span>
-        )}
-      </div>
-
-      {/* Tabs */}
-      <div className="flex gap-6 border-b mt-6">
-        <button
-          onClick={() => setActiveTab("company")}
-          className={`pb-2 text-sm font-medium transition ${activeTab === "company"
-            ? "border-b-2 border-black text-black"
-            : "text-gray-400 hover:text-gray-600"
-            }`}
-        >
-          Company
-        </button>
-
-        {showFounderTab && (
-          <button
-            onClick={() => setActiveTab("founders")}
-            className={`pb-2 text-sm font-medium transition ${activeTab === "founders"
-              ? "border-b-2 border-black text-black"
-              : "text-gray-400 hover:text-gray-600"
-              }`}
-          >
-            Founders & Insights
-          </button>
-        )}
-
-        {job.matchDetails && (
-          <button
-            onClick={() => setActiveTab("match")}
-            className={`pb-2 text-sm font-medium transition ${activeTab === "match"
-              ? "border-b-2 border-black text-black"
-              : "text-gray-400 hover:text-gray-600"
-              }`}
-          >
-            Why This Match
-          </button>
-        )}
-      </div>
-
-      {/* Company Tab */}
-      {activeTab === "company" && (
-        <div className="mt-4">
-          {/* Description */}
-          <p className="text-sm text-gray-600 leading-relaxed">
-            {job.shortDescription || companyDescription || (
-              <>
-                {job.title} role at {companyName}.
-                {job.location
-                  ? ` Based in ${job.location}.`
-                  : " Remote-friendly position."}
-                {job.tags?.length
-                  ? ` Tech stack includes ${job.tags.slice(0, 3).join(", ")}.`
-                  : ""}
-              </>
-            )}
-          </p>
-
-          {/* Job Details Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 text-sm">
-            <div>
-              <p className="text-gray-400">Location</p>
-              <p className="font-medium">{locationTypeDisplay}</p>
-            </div>
-
-            <div>
-              <p className="text-gray-400">Type</p>
-              <p className="font-medium">{jobTypeDisplay}</p>
-            </div>
-
-            <div>
-              <p className="text-gray-400">Experience</p>
-              <p className="font-medium">{experienceDisplay}</p>
-            </div>
-
-            {salaryDisplay && (
-              <div>
-                <p className="text-gray-400">Salary</p>
-                <p className="font-medium text-green-600">{salaryDisplay}</p>
-              </div>
-            )}
-          </div>
-
-          {/* Tags */}
-          {job.tags && job.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-5">
-              {job.tags.slice(0, 8).map((tag, idx) => (
-                <span
-                  key={idx}
-                  className="text-xs bg-gray-100 px-3 py-1 rounded-full capitalize"
-                >
-                  {tag}
-                </span>
-              ))}
-              {job.tags.length > 8 && (
-                <span className="text-xs text-gray-400 px-2 py-1">
-                  +{job.tags.length - 8} more
-                </span>
-              )}
-            </div>
-          )}
-
-          {/* Company Info */}
-          {job.company?.funding?.stage && (
-            <div className="mt-5 pt-4 border-t">
-              <div className="flex items-center gap-4 text-sm">
-                <span className="text-gray-500">
-                  💰 {job.company.funding.stage.replace("-", " ").toUpperCase()}
-                </span>
-                {job.company.size && (
-                  <span className="text-gray-500">
-                    👥 {job.company.size} employees
-                  </span>
-                )}
-                {job.company.founded && (
-                  <span className="text-gray-500">
-                    📅 Founded {job.company.founded}
-                  </span>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Founders Tab */}
-      {showFounderTab && activeTab === "founders" && (
-        <div className="mt-4 space-y-4">
-          {hasFounders ? (
-            job.founders.map((f, idx) => (
+        {hasFounders ? (
+          <div className="space-y-4">
+            {job.founders.slice(0, 2).map((f, idx) => (
               <div
                 key={idx}
-                className="flex gap-4 items-start p-4 rounded-xl border bg-gray-50"
+                className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm transition hover:shadow-md"
               >
-                {f.imageUrl ? (
-                  <img
-                    src={f.imageUrl}
-                    alt={f.name}
-                    className="h-12 w-12 rounded-full object-cover"
-                  />
-                ) : (
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 text-white flex items-center justify-center font-medium">
-                    {f.name?.[0]?.toUpperCase() || "F"}
-                  </div>
-                )}
-
-                <div className="flex-1">
-                  <p className="font-medium">{f.name}</p>
-                  {f.role && (
-                    <p className="text-xs text-gray-500 mb-1">{f.role}</p>
+                <div className="flex gap-4">
+                  {f.imageUrl ? (
+                    <img
+                      src={f.imageUrl}
+                      alt={f.name}
+                      className="h-12 w-12 rounded-full object-cover border border-gray-100"
+                    />
+                  ) : (
+                    <div className="h-12 w-12 rounded-full bg-gray-200 flex items-center justify-center font-bold text-gray-500">
+                      {f.name?.[0]}
+                    </div>
                   )}
-                  {f.bio && (
-                    <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
-                      {f.bio}
+                  <div>
+                    <h4 className="font-bold text-gray-900">{f.name}</h4>
+                    <p className="text-xs font-medium text-gray-500">
+                      {f.role || "Co-Founder"}
                     </p>
-                  )}
-
-                  <div className="flex gap-2 mt-2">
-                    {f.linkedin && (
-                      <a
-                        href={f.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-700 text-xs"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        LinkedIn →
-                      </a>
-                    )}
-                    {f.twitter && (
-                      <a
-                        href={f.twitter}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-400 hover:text-blue-500 text-xs"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        Twitter →
-                      </a>
-                    )}
+                    <div className="flex gap-3 mt-2">
+                      {f.linkedin && (
+                        <a
+                          href={f.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-[#0077b5] transition"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+                        </a>
+                      )}
+                      {f.twitter && (
+                        <a
+                          href={f.twitter}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-[#1DA1F2] transition"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" /></svg>
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
-          ) : (
-            <div className="rounded-xl border bg-gray-50 p-6 text-center">
-              <p className="text-sm font-medium text-gray-800 mb-2">
-                Founder insights coming soon
-              </p>
-              <p className="text-sm text-gray-600">
-                Unlock signals about the founding team's background, experience,
-                and company-building journey.
-              </p>
-              <p className="text-xs text-gray-400 mt-3">
-                Available with Kord AI Premium
-              </p>
-            </div>
-          )}
-        </div>
-      )}
+                {f.bio && (
+                  <p className="mt-3 text-xs text-gray-500 leading-relaxed line-clamp-2">
+                    {f.bio}
+                  </p>
+                )}
 
-      {/* Match Details Tab */}
-      {activeTab === "match" && job.matchDetails && (
-        <div className="mt-4 space-y-4">
-          {/* Skills Match */}
-          {job.matchDetails.skills && (
-            <div className="p-4 rounded-xl bg-purple-50 border border-purple-100">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-purple-900">
-                  Skills Match
-                </span>
-                <span className="text-sm text-purple-600">
-                  +{job.matchDetails.skills.score} pts
-                </span>
+                {/* Contact Founder Button */}
+                <a
+                  href={`mailto:${f.email || job.applyEmail || "founders@company.com"}`}
+                  className="mt-3 block w-full py-2 bg-black text-white text-xs font-bold uppercase rounded-lg text-center hover:opacity-80 transition"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Contact Founder
+                </a>
               </div>
-              {job.matchDetails.skills.matched?.length > 0 && (
-                <p className="text-xs text-purple-700">
-                  Matching: {job.matchDetails.skills.matched.slice(0, 5).join(", ")}
-                  {job.matchDetails.skills.matched.length > 5 &&
-                    ` +${job.matchDetails.skills.matched.length - 5} more`
-                  }
-                </p>
-              )}
-            </div>
-          )}
-
-          {/* Role Match */}
-          {job.matchDetails.roles && job.matchDetails.roles.score > 0 && (
-            <div className="p-4 rounded-xl bg-blue-50 border border-blue-100">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-blue-900">
-                  Role Match
-                </span>
-                <span className="text-sm text-blue-600">
-                  +{job.matchDetails.roles.score} pts
-                </span>
-              </div>
-              <p className="text-xs text-blue-700">
-                Matching: {job.matchDetails.roles.matched?.join(", ")}
-              </p>
-            </div>
-          )}
-
-          {/* Experience Match */}
-          {job.matchDetails.experience && (
-            <div className="p-4 rounded-xl bg-green-50 border border-green-100">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-green-900">
-                  Experience Level
-                </span>
-                <span className="text-sm text-green-600">
-                  +{job.matchDetails.experience.score} pts ({job.matchDetails.experience.match})
-                </span>
-              </div>
-            </div>
-          )}
-
-          {/* Location Match */}
-          {job.matchDetails.location && job.matchDetails.location.score > 0 && (
-            <div className="p-4 rounded-xl bg-yellow-50 border border-yellow-100">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-yellow-900">
-                  Location Preference
-                </span>
-                <span className="text-sm text-yellow-600">
-                  +{job.matchDetails.location.score} pts
-                </span>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Description Snippet (Always visible to add length) */}
-      <div className="mt-6 p-4 rounded-xl bg-gray-50 border border-gray-100">
-        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
-          About the role
-        </h3>
-        <p className="text-sm text-gray-700 leading-relaxed line-clamp-4">
-          {job.description || job.shortDescription || "No detailed description available."}
-        </p>
+            ))}
+          </div>
+        ) : (
+          <div className="bg-white p-6 rounded-xl border border-gray-200 border-dashed text-center">
+            <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-2 text-2xl">🕵️‍♂️</div>
+            <p className="text-sm font-bold text-gray-900">Founder info locked</p>
+            <p className="text-xs text-gray-500 mt-1 mb-3">Upgrade to Premium to unlock founder signals and direct contact.</p>
+            <button className="text-xs bg-black text-white px-3 py-1.5 rounded-full font-bold">Unlock Data</button>
+          </div>
+        )}
       </div>
 
-      {/* CTA */}
-      {job.applyUrl && (
-        <div className="flex justify-center mt-8">
-          <a
-            href={job.applyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-3 bg-blue-600 text-white font-medium rounded-full shadow-lg shadow-blue-200 hover:bg-blue-700 hover:shadow-xl hover:scale-105 transition transform"
-            onClick={(e) => e.stopPropagation()}
-          >
-            View Opportunity
-          </a>
-        </div>
-      )}
+      {/* Main CTA */}
+      <div className="p-4 bg-white border-t border-gray-100">
+        <a
+          href={job.applyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block w-full py-4 bg-blue-600 text-white font-bold text-lg rounded-2xl text-center shadow-lg shadow-blue-200 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all"
+          onClick={(e) => e.stopPropagation()}
+        >
+          Apply Now
+        </a>
+      </div>
     </div>
   );
 }

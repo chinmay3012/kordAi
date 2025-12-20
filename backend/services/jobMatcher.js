@@ -241,30 +241,52 @@ export async function getMatchedJobs(userId, options = {}) {
         };
     });
 
-    // Filter by minimum score and sort by score
-    const topMatches = scoredJobs
-        .filter(job => job.matchScore >= minScore)
+    // Filter and Sort YC Jobs vs Others
+    const ycJobs = scoredJobs
+        .filter(j => j.source === "YCombinator" || j.company?.ycBatch)
+        .filter(j => j.matchScore >= 10); // Lower threshold for YC to ensure we find them
+
+    const otherJobs = scoredJobs
+        .filter(j => j.source !== "YCombinator" && !j.company?.ycBatch)
+        .filter(j => j.matchScore >= minScore);
+
+    // 1. Get top YCombinator Jobs (Up to 5)
+    // We prioritize them but still sort by match score to give relevant ones
+    const topYCMatches = ycJobs
         .sort((a, b) => b.matchScore - a.matchScore)
-        .slice(0, 100); // Take top 100 candidates
+        .slice(0, 5);
 
-    // Shuffle the top candidates to show variety of sources
-    const shuffledMatches = topMatches.sort(() => Math.random() - 0.5);
+    // Shuffle slightly to keep it fresh
+    const selectedYC = topYCMatches.sort(() => Math.random() - 0.5);
 
-    // Return requested limit
-    const matchedJobs = shuffledMatches.slice(0, limit);
+    // 2. Get remaining slots from other sources
+    const remainingSlots = limit - selectedYC.length;
 
-    // If not enough matched jobs, fill with top recent jobs (also shuffled)
+    // Sort others by score
+    const topOtherMatches = otherJobs
+        .sort((a, b) => b.matchScore - a.matchScore)
+        .slice(0, 100); // Pool of top candidates
+
+    // Shuffle pool
+    const selectedOthers = topOtherMatches
+        .sort(() => Math.random() - 0.5)
+        .slice(0, remainingSlots);
+
+    // Combine: YC first, then others
+    const matchedJobs = [...selectedYC, ...selectedOthers];
+
+    // If still not enough, fill with random fillers
     if (matchedJobs.length < limit) {
         const remainingCount = limit - matchedJobs.length;
         const matchedIds = new Set(matchedJobs.map(j => j._id.toString()));
 
         const fillerJobs = scoredJobs
             .filter(job => !matchedIds.has(job._id.toString()))
-            .sort(() => Math.random() - 0.5) // Randomize fillers
+            .sort(() => Math.random() - 0.5)
             .slice(0, remainingCount)
             .map(job => ({
                 ...job,
-                matchScore: Math.max(job.matchScore, 20), // Minimum display score
+                matchScore: Math.max(job.matchScore, 20),
             }));
 
         matchedJobs.push(...fillerJobs);
