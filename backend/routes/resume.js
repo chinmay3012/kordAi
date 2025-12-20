@@ -106,9 +106,10 @@ router.post("/upload", requireAuth, async (req, res) => {
             })),
         });
     } catch (err) {
-        console.error("Resume upload error:", err);
+        console.error("Resume upload error (Stack):", err);
         res.status(500).json({
             error: err.message || "Failed to process resume",
+            details: process.env.NODE_ENV !== 'production' ? err.stack : undefined
         });
     }
 });

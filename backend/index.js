@@ -153,7 +153,8 @@ if (frontendDistPath) {
 }
 
 // SPA Fallback: always serve index.html for non-API routes
-app.get("*", (req, res, next) => {
+// Note: In Express 5, '*' is no longer supported. Use /(.*)/ instead.
+app.get(/(.*)/, (req, res, next) => {
   if (req.path.startsWith("/api") || req.path === "/health") {
     return next();
   }

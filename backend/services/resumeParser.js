@@ -88,12 +88,19 @@ const EXPERIENCE_LEVELS = {
 export async function extractTextFromPDF(buffer) {
     try {
         // Dynamic import for ESM compatibility
-        const pdfParse = (await import("pdf-parse")).default;
+        const pdfParseModule = await import("pdf-parse");
+        // Handle both ESM default export and CommonJS module.exports
+        const pdfParse = pdfParseModule.default || pdfParseModule;
+
+        if (typeof pdfParse !== 'function') {
+            throw new Error("pdf-parse library not loaded correctly");
+        }
+
         const data = await pdfParse(buffer);
         return data.text;
     } catch (err) {
-        console.error("PDF parsing error:", err.message);
-        throw new Error("Failed to parse PDF");
+        console.error("PDF parsing error:", err);
+        throw new Error(`Failed to parse PDF: ${err.message}`);
     }
 }
 
