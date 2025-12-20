@@ -150,14 +150,25 @@ for (const p of possibleFrontendPaths) {
 if (frontendDistPath) {
   console.log(`📦 Serving frontend from ${frontendDistPath}`);
   app.use(express.static(frontendDistPath));
-
-  app.get(/.*/, (req, res, next) => {
-    if (req.path.startsWith("/api") || req.path === "/health") {
-      return next();
-    }
-    res.sendFile(path.join(frontendDistPath, "index.html"));
-  });
 }
+
+// SPA Fallback: always serve index.html for non-API routes
+app.get("*", (req, res, next) => {
+  if (req.path.startsWith("/api") || req.path === "/health") {
+    return next();
+  }
+
+  if (frontendDistPath && fs.existsSync(path.join(frontendDistPath, "index.html"))) {
+    res.sendFile(path.join(frontendDistPath, "index.html"));
+  } else {
+    res.status(404).send(`
+      <h1>Backend Connected</h1>
+      <p>Frontend build not found.</p>
+      <p>1. If developing locally, use <code>npm run dev</code> in the frontend folder.</p>
+      <p>2. If testing production, run <code>npm run build</code> in the frontend folder first.</p>
+    `);
+  }
+});
 
 // --------------------
 // 404 HANDLER
