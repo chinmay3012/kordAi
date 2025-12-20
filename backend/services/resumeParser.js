@@ -85,17 +85,15 @@ const EXPERIENCE_LEVELS = {
 /**
  * Extract text from PDF buffer
  */
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const pdfParse = require("pdf-parse");
+
+/**
+ * Extract text from PDF buffer
+ */
 export async function extractTextFromPDF(buffer) {
     try {
-        // Dynamic import for ESM compatibility
-        const pdfParseModule = await import("pdf-parse");
-        // Handle both ESM default export and CommonJS module.exports
-        const pdfParse = pdfParseModule.default || pdfParseModule;
-
-        if (typeof pdfParse !== 'function') {
-            throw new Error("pdf-parse library not loaded correctly");
-        }
-
         const data = await pdfParse(buffer);
         return data.text;
     } catch (err) {
