@@ -105,6 +105,8 @@ router.post("/login", async (req, res) => {
         email: user.email,
         profile: user.profile,
         subscription: user.subscription,
+        activity: user.activity, // checking for onboarding status
+        onboarding: user.onboarding,
       },
     });
   } catch (err) {

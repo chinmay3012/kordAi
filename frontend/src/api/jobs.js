@@ -29,16 +29,83 @@ API.interceptors.request.use((config) => {
  * =========================
  * Handle token refresh on 401
  */
+let isRefreshing = false;
+let failedQueue = [];
+
+const processQueue = (error, token = null) => {
+  failedQueue.forEach((prom) => {
+    if (error) {
+      prom.reject(error);
+    } else {
+      prom.resolve(token);
+    }
+  });
+  failedQueue = [];
+};
+
 API.interceptors.response.use(
   (response) => response,
-  (error) => {
-    // If 401, clear local storage and redirect to login
-    if (error.response?.status === 401) {
-      localStorage.removeItem("accessToken");
-      localStorage.removeItem("refreshToken");
-      localStorage.removeItem("userEmail");
-      window.location.href = "/login";
+  async (error) => {
+    const originalRequest = error.config;
+
+    // specific check for 401 and that we haven't already retried this request
+    if (error.response?.status === 401 && !originalRequest._retry) {
+      if (isRefreshing) {
+        return new Promise(function (resolve, reject) {
+          failedQueue.push({ resolve, reject });
+        })
+          .then((token) => {
+            originalRequest.headers["Authorization"] = "Bearer " + token;
+            return API(originalRequest);
+          })
+          .catch((err) => {
+            return Promise.reject(err);
+          });
+      }
+
+      originalRequest._retry = true;
+      isRefreshing = true;
+
+      const refreshToken = localStorage.getItem("refreshToken");
+
+      if (!refreshToken) {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        localStorage.removeItem("userEmail");
+        window.location.href = "/login.html"; // Ensure full redirect
+        return Promise.reject(error);
+      }
+
+      try {
+        // Use a new instance or raw axios to avoid interceptor loop
+        const response = await axios.post(
+          `${import.meta.env.VITE_API_URL || ""}/api/v1/auth/refresh`,
+          { refreshToken }
+        );
+
+        const { accessToken } = response.data;
+
+        localStorage.setItem("accessToken", accessToken);
+        API.defaults.headers.common["Authorization"] = "Bearer " + accessToken;
+
+        processQueue(null, accessToken);
+        isRefreshing = false;
+
+        originalRequest.headers["Authorization"] = "Bearer " + accessToken;
+        return API(originalRequest);
+      } catch (err) {
+        processQueue(err, null);
+        isRefreshing = false;
+
+        // Clear auth data and redirect to login
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        localStorage.removeItem("userEmail");
+        window.location.href = "/login";
+        return Promise.reject(err);
+      }
     }
+
     return Promise.reject(error);
   }
 );

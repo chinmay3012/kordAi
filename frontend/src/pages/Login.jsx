@@ -17,8 +17,14 @@ export default function Login() {
     setError("");
 
     try {
-      await login(email, password);
-      navigate("/onboarding"); // Navigate to onboarding for resume upload
+      const data = await login(email, password);
+
+      // Check if user has completed onboarding
+      if (data.user?.activity?.onboardingCompleted) {
+        navigate("/app");
+      } else {
+        navigate("/onboarding");
+      }
     } catch (err) {
       setError(err.message);
     } finally {
