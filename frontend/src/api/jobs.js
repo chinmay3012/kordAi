@@ -6,7 +6,7 @@ import axios from "axios";
  * =========================
  */
 const API = axios.create({
-  baseURL: `${import.meta.env.VITE_API_URL}/api/v1`,
+  baseURL: `${import.meta.env.VITE_API_URL || ""}/api/v1`,
 });
 
 /**
@@ -31,42 +31,14 @@ API.interceptors.request.use((config) => {
  */
 API.interceptors.response.use(
   (response) => response,
-  async (error) => {
-    const originalRequest = error.config;
-
-    // Prevent infinite loop
-    if (error.response?.status === 401 && !originalRequest._retry) {
-      originalRequest._retry = true;
-
-      try {
-        const refreshToken = localStorage.getItem("refreshToken");
-        if (!refreshToken) {
-          throw new Error("No refresh token");
-        }
-
-        // Refresh access token
-        const res = await API.post("/auth/refresh", { refreshToken });
-        const { accessToken } = res.data;
-
-        // Store new token
-        localStorage.setItem("accessToken", accessToken);
-
-        // Retry original request
-        originalRequest.headers.Authorization = `Bearer ${accessToken}`;
-        return API(originalRequest);
-      } catch (refreshError) {
-        // Hard fail: clear session and return to home
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
-        localStorage.removeItem("userEmail");
-
-        // IMPORTANT: avoid hard navigation to /login
-        window.location.replace("/");
-
-        return Promise.reject(refreshError);
-      }
+  (error) => {
+    // If 401, clear local storage and redirect to login
+    if (error.response?.status === 401) {
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+      localStorage.removeItem("userEmail");
+      window.location.href = "/login";
     }
-
     return Promise.reject(error);
   }
 );
