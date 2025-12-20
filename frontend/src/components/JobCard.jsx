@@ -66,7 +66,6 @@ export default function JobCard({ job }) {
   };
 
   return (
-  return (
     <div className="bg-white rounded-3xl border shadow-xl overflow-hidden select-none flex flex-col w-full">
       {/* Header Section */}
       <div className="p-6 pb-2">
@@ -147,8 +146,8 @@ export default function JobCard({ job }) {
           <button
             onClick={() => setActiveTab("company")}
             className={`flex-1 py-2 text-sm font-bold rounded-lg transition-all ${activeTab === "company"
-                ? "bg-white text-black shadow-sm"
-                : "text-gray-400 hover:text-gray-600"
+              ? "bg-white text-black shadow-sm"
+              : "text-gray-400 hover:text-gray-600"
               }`}
           >
             Company
@@ -157,8 +156,8 @@ export default function JobCard({ job }) {
             <button
               onClick={() => setActiveTab("match")}
               className={`flex-1 py-2 text-sm font-bold rounded-lg transition-all ${activeTab === "match"
-                  ? "bg-white text-black shadow-sm"
-                  : "text-gray-400 hover:text-gray-600"
+                ? "bg-white text-black shadow-sm"
+                : "text-gray-400 hover:text-gray-600"
                 }`}
             >
               Analytics
