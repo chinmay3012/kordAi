@@ -188,13 +188,21 @@ export async function getMatchedJobs(userId, options = {}) {
     }
 
     // Build user profile for matching
+    // combine explicit preferences with parsed resume data
+    const skillSet = new Set([
+        ...(user.preferences?.skills || []),
+        ...(user.resumeAnalysis?.skills || [])
+    ]);
+
+    const roleSet = new Set([
+        ...(user.preferences?.desiredRoles || []),
+        ...(user.resumeAnalysis?.preferredRoles || [])
+    ]);
+
     const userProfile = {
-        skills: [
-            ...(user.preferences?.skills || []),
-            // Also use skills from resume analysis if stored
-        ],
-        desiredRoles: user.preferences?.desiredRoles || [],
-        experienceLevel: user.preferences?.experienceLevel,
+        skills: Array.from(skillSet),
+        desiredRoles: Array.from(roleSet),
+        experienceLevel: user.preferences?.experienceLevel || user.resumeAnalysis?.experienceLevel,
         desiredLocations: user.preferences?.desiredLocations || [],
         remoteOnly: user.preferences?.remoteOnly || false,
         minSalary: user.preferences?.minSalary,
