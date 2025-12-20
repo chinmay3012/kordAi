@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
 
     const login = async (email, password) => {
         const res = await fetch(
-            `${import.meta.env.VITE_API_URL}/api/v1/auth/login`,
+            `${import.meta.env.VITE_API_URL || ""}/api/v1/auth/login`,
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -45,7 +45,7 @@ export function AuthProvider({ children }) {
 
     const register = async (email, password) => {
         const res = await fetch(
-            `${import.meta.env.VITE_API_URL}/api/v1/auth/register`,
+            `${import.meta.env.VITE_API_URL || ""}/api/v1/auth/register`,
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -67,7 +67,7 @@ export function AuthProvider({ children }) {
 
         try {
             await fetch(
-                `${import.meta.env.VITE_API_URL}/api/v1/auth/logout`,
+                `${import.meta.env.VITE_API_URL || ""}/api/v1/auth/logout`,
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -93,7 +93,7 @@ export function AuthProvider({ children }) {
         }
 
         const res = await fetch(
-            `${import.meta.env.VITE_API_URL}/api/v1/auth/refresh`,
+            `${import.meta.env.VITE_API_URL || ""}/api/v1/auth/refresh`,
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
