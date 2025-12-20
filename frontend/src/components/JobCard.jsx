@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function JobCard({ job }) {
+export default function JobCard({ job, isPremium = false }) {
   const [activeTab, setActiveTab] = useState("company");
 
   // Get company name (handle new and legacy format)
@@ -10,6 +10,10 @@ export default function JobCard({ job }) {
 
   // Get match score
   const matchScore = job.matchScore || null;
+
+  // YC Check
+  const isYC = job.source?.toLowerCase() === "ycombinator" || !!job.company?.ycBatch;
+  const foundersUnlocked = isPremium || isYC;
 
   // Detect startup vs MNC
   const isStartup =
@@ -229,7 +233,7 @@ export default function JobCard({ job }) {
           )}
         </div>
 
-        {hasFounders ? (
+        {foundersUnlocked && hasFounders ? (
           <div className="space-y-4">
             {job.founders.slice(0, 2).map((f, idx) => (
               <div
@@ -298,10 +302,22 @@ export default function JobCard({ job }) {
           </div>
         ) : (
           <div className="bg-white p-6 rounded-xl border border-gray-200 border-dashed text-center">
-            <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-2 text-2xl">🕵️‍♂️</div>
-            <p className="text-sm font-bold text-gray-900">Founder info locked</p>
-            <p className="text-xs text-gray-500 mt-1 mb-3">Upgrade to Premium to unlock founder signals and direct contact.</p>
-            <button className="text-xs bg-black text-white px-3 py-1.5 rounded-full font-bold">Unlock Data</button>
+            <div className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-2 text-2xl text-gray-400">
+              {hasFounders ? "🔒" : "🕵️‍♂️"}
+            </div>
+            <p className="text-sm font-bold text-gray-900">
+              {hasFounders ? "Founder info locked" : "Founder insights coming soon"}
+            </p>
+            <p className="text-xs text-gray-400 mt-1 mb-3">
+              {hasFounders
+                ? "Upgrade to Premium to unlock founder signals and direct contact."
+                : "We're currently gathering intelligence on this startup's founding team."}
+            </p>
+            {hasFounders && !foundersUnlocked && (
+              <button className="text-xs bg-black text-white px-3 py-1.5 rounded-full font-bold">
+                Unlock Data
+              </button>
+            )}
           </div>
         )}
       </div>

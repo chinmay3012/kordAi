@@ -242,12 +242,13 @@ export async function getMatchedJobs(userId, options = {}) {
     });
 
     // Filter and Sort YC Jobs vs Others
+    // Database source is lowercase "ycombinator"
     const ycJobs = scoredJobs
-        .filter(j => j.source === "YCombinator" || j.company?.ycBatch)
-        .filter(j => j.matchScore >= 10); // Lower threshold for YC to ensure we find them
+        .filter(j => j.source === "ycombinator" || j.source === "YCombinator" || j.company?.ycBatch)
+        .filter(j => j.matchScore >= 10);
 
     const otherJobs = scoredJobs
-        .filter(j => j.source !== "YCombinator" && !j.company?.ycBatch)
+        .filter(j => j.source !== "ycombinator" && j.source !== "YCombinator" && !j.company?.ycBatch)
         .filter(j => j.matchScore >= minScore);
 
     // 1. Get top YCombinator Jobs (Up to 5)
@@ -259,21 +260,34 @@ export async function getMatchedJobs(userId, options = {}) {
     // Shuffle slightly to keep it fresh
     const selectedYC = topYCMatches.sort(() => Math.random() - 0.5);
 
-    // 2. Get remaining slots from other sources
-    const remainingSlots = limit - selectedYC.length;
+    // 2. Get 5 regular jobs from other sources
+    const selectedOthersCount = 5;
 
     // Sort others by score
     const topOtherMatches = otherJobs
         .sort((a, b) => b.matchScore - a.matchScore)
-        .slice(0, 100); // Pool of top candidates
+        .slice(0, 50); // Pool of top candidates
 
-    // Shuffle pool
+    // Shuffle pool and take 5
     const selectedOthers = topOtherMatches
         .sort(() => Math.random() - 0.5)
-        .slice(0, remainingSlots);
+        .slice(0, selectedOthersCount);
 
-    // Combine: YC first, then others
-    const matchedJobs = [...selectedYC, ...selectedOthers];
+    // Combine: YC first (5), then others (5)
+    let matchedJobs = [...selectedYC, ...selectedOthers];
+
+    // If limit (e.g. 20) is higher than 10, fill with remaining
+    if (matchedJobs.length < limit) {
+        const remainingCount = limit - matchedJobs.length;
+        const matchedIds = new Set(matchedJobs.map(j => j._id.toString()));
+
+        const additionalFillers = scoredJobs
+            .filter(job => !matchedIds.has(job._id.toString()))
+            .sort(() => Math.random() - 0.5)
+            .slice(0, remainingCount);
+
+        matchedJobs = [...matchedJobs, ...additionalFillers];
+    }
 
     // If still not enough, fill with random fillers
     if (matchedJobs.length < limit) {

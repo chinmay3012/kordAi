@@ -352,7 +352,7 @@ export default function Jobs() {
                     </span>
                   </motion.div>
 
-                  <JobCard job={currentJob} />
+                  <JobCard job={currentJob} isPremium={isPremium} />
                 </motion.div>
               )}
             </AnimatePresence>
