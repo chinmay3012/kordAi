@@ -9,30 +9,48 @@ export default function Resumes() {
     const [loading, setLoading] = useState(true);
     const [showBuilder, setShowBuilder] = useState(false);
 
-    // Mock data
-    const mockResumes = [
-        {
-            _id: "1",
-            name: "Standard Resume",
-            version: "2.1",
-            isPrimary: true,
-            createdAt: new Date(Date.now() - 604800000).toISOString()
-        },
-        {
-            _id: "2",
-            name: "Startup Focused",
-            version: "1.0",
-            isPrimary: false,
-            createdAt: new Date(Date.now() - 2592000000).toISOString()
-        }
-    ];
-
     useEffect(() => {
-        setTimeout(() => {
-            setResumes(mockResumes);
-            setLoading(false);
-        }, 800);
+        const fetchResumes = async () => {
+            try {
+                const token = localStorage.getItem("token");
+                const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || "/api/v1"}/resumes`, {
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                });
+                const data = await response.json();
+                if (data.success) {
+                    setResumes(data.resumes);
+                }
+            } catch (err) {
+                console.error("Failed to fetch resumes:", err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchResumes();
     }, []);
+
+    const handlePreview = async (resumeId) => {
+        try {
+            const token = localStorage.getItem("token");
+            const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || "/api/v1"}/resumes/${resumeId}/data`, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            const data = await response.json();
+            if (data.success) {
+                const link = document.createElement('a');
+                link.href = `data:${data.mimeType || 'application/pdf'};base64,${data.fileData}`;
+                link.target = "_blank";
+                link.click();
+            }
+        } catch (err) {
+            console.error("Failed to preview resume:", err);
+        }
+    };
 
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -85,7 +103,12 @@ export default function Resumes() {
                                         </div>
                                     )}
                                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                                        <button className="p-2 bg-white rounded-full text-black hover:scale-110 transition-transform">👁️</button>
+                                        <button
+                                            onClick={() => handlePreview(resume._id)}
+                                            className="p-2 bg-white rounded-full text-black hover:scale-110 transition-transform"
+                                        >
+                                            👁️
+                                        </button>
                                         <button className="p-2 bg-white rounded-full text-black hover:scale-110 transition-transform">⚙️</button>
                                     </div>
                                 </div>

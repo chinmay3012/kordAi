@@ -306,7 +306,7 @@ export default function Jobs() {
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900 mb-2">Daily Free Limit Reached</h2>
                     <p className="text-gray-600 mb-6 max-w-xs">
-                      You've viewed your 5 YC and 5 Regular matches for today. Upgrade to Premium to unlock unlimited matches and founder signals.
+                      You've viewed your 10 matches for today. Upgrade to Premium to unlock unlimited matches and founder signals.
                     </p>
                     <button className="w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all text-lg mb-3">
                       Upgrade to Premium

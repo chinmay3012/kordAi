@@ -253,21 +253,23 @@ export async function getMatchedJobs(userId, options = {}) {
         .filter(j => j.source?.toLowerCase() !== "ycombinator" && !j.company?.ycBatch)
         .filter(j => j.matchScore >= minScore);
 
-    // 1. Get top YCombinator Jobs (Up to 5)
+    // 1. Get top YCombinator Jobs (Up to 6)
     // Prioritize ones that have founder data already populated
     const topYCMatches = ycJobs
         .sort((a, b) => {
             const aHas = (a.founders && a.founders.length > 0) ? 1 : 0;
             const bHas = (b.founders && b.founders.length > 0) ? 1 : 0;
             if (aHas !== bHas) return bHas - aHas;
+            // Then sort by match score
             return b.matchScore - a.matchScore;
         })
-        .slice(0, 5);
+        .slice(0, 6);
 
-    const selectedYC = topYCMatches.sort(() => Math.random() - 0.5);
+    // Sort these 6 by score again to look professional
+    const selectedYC = topYCMatches.sort((a, b) => b.matchScore - a.matchScore);
 
-    // 2. Get 5 regular jobs from other sources
-    const selectedOthersCount = 5;
+    // 2. Get 4 regular jobs from other sources
+    const selectedOthersCount = 10 - selectedYC.length; // Ensure total is 10
 
     const topOtherMatches = otherJobs
         .sort((a, b) => b.matchScore - a.matchScore)
@@ -275,12 +277,12 @@ export async function getMatchedJobs(userId, options = {}) {
 
     const selectedOthers = topOtherMatches
         .sort(() => Math.random() - 0.5)
-        .slice(0, selectedOthersCount);
+        .slice(0, Math.max(4, selectedOthersCount));
 
-    // FOR FREE USERS: strictly return 5 YC + 5 Regular (Exactly 10)
+    // FOR FREE USERS: strictly return 10 jobs (6 YC + 4 Regular split)
     if (!isPremium) {
-        // Return exactly these 10 in order: 5 YC, then 5 others
-        return [...selectedYC, ...selectedOthers];
+        // Return exactly these 10 in order: YC first, then others
+        return [...selectedYC, ...selectedOthers].slice(0, 10);
     }
 
     // FOR PREMIUM USERS: Combine and fill up to the requested limit
