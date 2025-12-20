@@ -24,8 +24,12 @@
     "mongoose": "^9.0.1",
     "natural": "^8.1.0",
     "node-cron": "^4.2.1",
-    "pdf-parse": "^2.4.5",
+    "pdf-parse": "1.1.1",
+    "pdfjs-dist": "2.12.313",
     "playwright": "^1.57.0",
     "zod": "^4.2.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

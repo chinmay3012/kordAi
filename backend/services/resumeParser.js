@@ -85,14 +85,18 @@ const EXPERIENCE_LEVELS = {
 /**
  * Extract text from PDF buffer
  */
+import pdf from "pdf-parse/lib/pdf-parse.js";
+
+/**
+ * Extract text from PDF buffer
+ */
 export async function extractTextFromPDF(buffer) {
     try {
-        const { default: pdfParse } = await import("pdf-parse");
-        const data = await pdfParse(buffer);
+        const data = await pdf(buffer);
         return data.text;
     } catch (err) {
         console.error("PDF parsing error:", err);
-        throw new Error(`Failed to parse PDF: ${err.message}`);
+        throw new Error("Failed to parse PDF file");
     }
 }
 
