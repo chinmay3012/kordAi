@@ -32,7 +32,7 @@ export default function Activate() {
 
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/auth/activate`,
+        `${import.meta.env.VITE_API_URL}/api/v1/auth/activate`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
