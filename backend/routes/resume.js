@@ -1,7 +1,6 @@
 import express from "express";
 import { requireAuth } from "../middleware/auth.middleware.js";
 import { parseResumeBuffer, generateSearchKeywords } from "../services/resumeParser.js";
-import { getJobsFromResumeAnalysis, updateUserFromResume } from "../services/jobMatcher.js";
 import User from "../models/User.js";
 
 const router = express.Router();
@@ -84,6 +83,7 @@ router.post("/upload", requireAuth, async (req, res) => {
         await user.save();
 
         // Get matched jobs based on resume
+        const { getJobsFromResumeAnalysis } = await import("../services/jobMatcher.js");
         const matchedJobs = await getJobsFromResumeAnalysis(resumeAnalysis, {
             limit: 15,
         });
