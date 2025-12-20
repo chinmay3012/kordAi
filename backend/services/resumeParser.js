@@ -85,15 +85,9 @@ const EXPERIENCE_LEVELS = {
 /**
  * Extract text from PDF buffer
  */
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-const pdfParse = require("pdf-parse");
-
-/**
- * Extract text from PDF buffer
- */
 export async function extractTextFromPDF(buffer) {
     try {
+        const { default: pdfParse } = await import("pdf-parse");
         const data = await pdfParse(buffer);
         return data.text;
     } catch (err) {
