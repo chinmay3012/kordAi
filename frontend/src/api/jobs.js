@@ -1,10 +1,20 @@
 import axios from "axios";
 
+/**
+ * =========================
+ * AXIOS INSTANCE
+ * =========================
+ */
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL + "/api/v1"
+  baseURL: `${import.meta.env.VITE_API_URL}/api/v1`,
 });
 
-// Add auth token to every request
+/**
+ * =========================
+ * REQUEST INTERCEPTOR
+ * =========================
+ * Attach access token to every request
+ */
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem("accessToken");
   if (token) {
@@ -13,41 +23,46 @@ API.interceptors.request.use((config) => {
   return config;
 });
 
-// Handle token expiration and refresh
+/**
+ * =========================
+ * RESPONSE INTERCEPTOR
+ * =========================
+ * Handle token refresh on 401
+ */
 API.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
 
-    // If 401 and not already retried
+    // Prevent infinite loop
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
       try {
         const refreshToken = localStorage.getItem("refreshToken");
-
         if (!refreshToken) {
           throw new Error("No refresh token");
         }
 
-        // Try to refresh the token
-        const res = await axios.post(
-          `${import.meta.env.VITE_API_URL}/auth/refresh`,
-          { refreshToken }
-        );
-
+        // Refresh access token
+        const res = await API.post("/auth/refresh", { refreshToken });
         const { accessToken } = res.data;
+
+        // Store new token
         localStorage.setItem("accessToken", accessToken);
 
-        // Retry the original request with new token
+        // Retry original request
         originalRequest.headers.Authorization = `Bearer ${accessToken}`;
         return API(originalRequest);
       } catch (refreshError) {
-        // Refresh failed - clear tokens and redirect to login
+        // Hard fail: clear session and return to home
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
         localStorage.removeItem("userEmail");
-        window.location.href = "/login";
+
+        // IMPORTANT: avoid hard navigation to /login
+        window.location.replace("/");
+
         return Promise.reject(refreshError);
       }
     }
@@ -56,9 +71,11 @@ API.interceptors.response.use(
   }
 );
 
-// ==================
-// JOBS API
-// ==================
+/**
+ * =========================
+ * JOBS API
+ * =========================
+ */
 export const fetchJobs = (params = {}) => API.get("/jobs", { params });
 
 export const fetchMatchedJobs = (params = {}) =>
@@ -82,9 +99,11 @@ export const fetchLikedJobs = (params = {}) =>
 export const fetchUserStats = () =>
   API.get("/jobs/user/stats");
 
-// ==================
-// RESUME API
-// ==================
+/**
+ * =========================
+ * RESUME API
+ * =========================
+ */
 export const uploadResume = (fileData, fileName, mimeType) =>
   API.post("/resume/upload", { fileData, fileName, mimeType });
 
@@ -97,22 +116,18 @@ export const deleteResume = () =>
 export const analyzeResumeText = (text) =>
   API.post("/resume/analyze-text", { text });
 
-// ==================
-// USER API
-// ==================
+/**
+ * =========================
+ * USER API
+ * =========================
+ */
 export const getCurrentUser = () =>
-  axios.get(`${import.meta.env.VITE_API_URL}/api/v1/auth/me`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("accessToken")}` }
-  });
+  API.get("/auth/me");
 
 export const updateProfile = (data) =>
-  axios.patch(`${import.meta.env.VITE_API_URL}/api/v1/auth/profile`, data, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("accessToken")}` }
-  });
+  API.patch("/auth/profile", data);
 
 export const completeOnboarding = (data) =>
-  axios.post(`${import.meta.env.VITE_API_URL}/api/v1/auth/onboarding`, data, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("accessToken")}` }
-  });
+  API.post("/auth/onboarding", data);
 
 export default API;
