@@ -101,17 +101,17 @@ export const analyzeResumeText = (text) =>
 // USER API
 // ==================
 export const getCurrentUser = () =>
-  axios.get(`${import.meta.env.VITE_API_URL}/auth/me`, {
+  axios.get(`${import.meta.env.VITE_API_URL}/api/v1/auth/me`, {
     headers: { Authorization: `Bearer ${localStorage.getItem("accessToken")}` }
   });
 
 export const updateProfile = (data) =>
-  axios.patch(`${import.meta.env.VITE_API_URL}/auth/profile`, data, {
+  axios.patch(`${import.meta.env.VITE_API_URL}/api/v1/auth/profile`, data, {
     headers: { Authorization: `Bearer ${localStorage.getItem("accessToken")}` }
   });
 
 export const completeOnboarding = (data) =>
-  axios.post(`${import.meta.env.VITE_API_URL}/auth/onboarding`, data, {
+  axios.post(`${import.meta.env.VITE_API_URL}/api/v1/auth/onboarding`, data, {
     headers: { Authorization: `Bearer ${localStorage.getItem("accessToken")}` }
   });
 
