@@ -285,6 +285,7 @@ export async function getJobsFromResumeAnalysis(resumeAnalysis, options = {}) {
             jobs = await Job.find(
                 {
                     status: "active",
+                    source: { $in: ["YCombinator", "ycombinator", "YC"] },
                     $text: { $search: searchKeywords }
                 },
                 { score: { $meta: "textScore" } }
@@ -294,13 +295,19 @@ export async function getJobsFromResumeAnalysis(resumeAnalysis, options = {}) {
                 .lean();
         } catch (err) {
             // Fallback if text search fails
-            jobs = await Job.find({ status: "active" })
+            jobs = await Job.find({
+                status: "active",
+                source: { $in: ["YCombinator", "ycombinator", "YC"] }
+            })
                 .sort({ scrapedAt: -1 })
                 .limit(200)
                 .lean();
         }
     } else {
-        jobs = await Job.find({ status: "active" })
+        jobs = await Job.find({
+            status: "active",
+            source: { $in: ["YCombinator", "ycombinator", "YC"] }
+        })
             .sort({ scrapedAt: -1 })
             .limit(200)
             .lean();

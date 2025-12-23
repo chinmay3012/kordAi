@@ -31,10 +31,11 @@ export async function scrapeYCJobs() {
         if (title && company) {
           results.push({
             title,
-            company,
+            company: { name: company },
             location,
             applyUrl: link,
-            source: "YC"
+            source: "ycombinator",
+            status: "active"
           });
         }
       });
@@ -46,7 +47,7 @@ export async function scrapeYCJobs() {
 
     for (const job of jobs) {
       const res = await Job.updateOne(
-        { title: job.title, company: job.company },
+        { title: job.title, "company.name": job.company.name },
         { $set: job },
         { upsert: true }
       );
