@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchMatchedJobs, fetchJobs, likeJob, skipJob, getResumeStatus } from "../api/jobs";
+import { fetchMatchedJobs, fetchJobs, likeJob, skipJob, getResumeStatus, fetchUserStats } from "../api/jobs";
 import JobCard from "../components/JobCard";
 import Navbar from "../components/Navbar";
 import { useAuth } from "../context/AuthContext";
@@ -23,11 +23,12 @@ export default function Jobs() {
   const { user, isAuthenticated, loading: authLoading } = useAuth();
   const navigate = useNavigate();
 
-  // Free tier logic
+  // 10 job cards per week limit
   const [sessionViewedCount, setSessionViewedCount] = useState(0);
-  const FREE_LIMIT = 10;
-  const isPremium = user?.subscription?.plan !== "free";
-  const isLocked = !isPremium && sessionViewedCount >= FREE_LIMIT;
+  const [weeklyCount, setWeeklyCount] = useState(0);
+  const WEEKLY_LIMIT = 10;
+  // Unlock for all as per request "enabled for all"
+  const isLocked = (weeklyCount + sessionViewedCount) >= WEEKLY_LIMIT;
 
   // Swipe motion value
   const x = useMotionValue(0);
@@ -42,28 +43,33 @@ export default function Jobs() {
       return;
     }
 
-    async function checkOnboarding() {
+    async function checkStatus() {
       try {
-        const res = await getResumeStatus();
-        setHasResume(res.data.hasResume);
+        const [resumeRes, statsRes] = await Promise.all([
+          getResumeStatus(),
+          fetchUserStats()
+        ]);
+
+        setHasResume(resumeRes.data.hasResume);
+        setWeeklyCount(statsRes.data.weeklyCount || 0);
 
         // If no resume and onboarding not completed, redirect to onboarding
-        if (!res.data.hasResume && !res.data.onboardingCompleted) {
+        if (!resumeRes.data.hasResume && !resumeRes.data.onboardingCompleted) {
           navigate("/onboarding");
           return;
         }
 
         // Fetch jobs
-        loadJobs(res.data.hasResume);
+        loadJobs(resumeRes.data.hasResume);
       } catch (err) {
-        console.error("Failed to check resume status:", err);
+        console.error("Failed to check status:", err);
         // Try loading jobs anyway
         loadJobs(false);
       }
     }
 
     if (isAuthenticated) {
-      checkOnboarding();
+      checkStatus();
     }
   }, [authLoading, isAuthenticated, navigate]);
 
@@ -148,9 +154,8 @@ export default function Jobs() {
     }
   };
 
-  const handleLoadMore = async () => {
-    setCurrentIndex(0);
-    await loadJobs(hasResume);
+  const handleNoMoreJobs = () => {
+    navigate("/saved");
   };
 
   const currentJob = jobs[currentIndex];
@@ -188,25 +193,23 @@ export default function Jobs() {
               )}
             </div>
 
-            {/* Free Tier Progress */}
-            {!isPremium && (
-              <div className="flex flex-col items-end">
-                <div className="text-xs font-bold text-gray-500 mb-1">
-                  {Math.min(sessionViewedCount, FREE_LIMIT)} / {FREE_LIMIT} free matches
-                </div>
-                <div className="w-24 h-2 bg-gray-100 rounded-full overflow-hidden">
-                  <div
-                    className={`h-full rounded-full transition-all duration-300 ${isLocked ? 'bg-red-500' : 'bg-green-500'}`}
-                    style={{ width: `${(Math.min(sessionViewedCount, FREE_LIMIT) / FREE_LIMIT) * 100}%` }}
-                  ></div>
-                </div>
+            {/* Weekly Limit Progress */}
+            <div className="flex flex-col items-end">
+              <div className="text-xs font-bold text-gray-500 mb-1">
+                {Math.min(weeklyCount + sessionViewedCount, WEEKLY_LIMIT)} / {WEEKLY_LIMIT} jobs this week
               </div>
-            )}
+              <div className="w-24 h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div
+                  className={`h-full rounded-full transition-all duration-300 ${isLocked ? 'bg-red-500' : 'bg-[#4F7CFF]'}`}
+                  style={{ width: `${(Math.min(weeklyCount + sessionViewedCount, WEEKLY_LIMIT) / WEEKLY_LIMIT) * 100}%` }}
+                ></div>
+              </div>
+            </div>
 
-            {/* Standard Counter */}
-            {isPremium && jobs.length > 0 && currentIndex < jobs.length && (
+            {/* Indicator */}
+            {jobs.length > 0 && currentIndex < jobs.length && (
               <span className="text-sm text-gray-500">
-                {currentIndex + 1} / {jobs.length}
+                Found {jobs.length} YC Matches
               </span>
             )}
           </div>
@@ -248,21 +251,15 @@ export default function Jobs() {
           <div className="text-center max-w-md">
             <div className="text-5xl mb-4">🎉</div>
             <h3 className="text-xl font-semibold mb-2">
-              You've seen all today's matches!
+              That's all for this week!
             </h3>
             <p className="text-gray-500 mb-6">
-              Come back tomorrow for more opportunities, or check your saved jobs.
+              You've seen your 10 YCombinator matches for the week. Check your saved jobs to start applying.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button
-                onClick={handleLoadMore}
-                className="px-6 py-3 bg-black text-white rounded-full text-sm hover:opacity-90 transition"
-              >
-                Load More Jobs
-              </button>
-              <button
                 onClick={() => navigate("/saved")}
-                className="px-6 py-3 border border-gray-300 rounded-full text-sm hover:bg-gray-50 transition"
+                className="px-6 py-3 bg-[#4F7CFF] text-white rounded-full text-sm font-semibold hover:opacity-90 transition shadow-sm"
               >
                 View Saved Jobs
               </button>
@@ -301,17 +298,19 @@ export default function Jobs() {
 
                   {/* Overlay */}
                   <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white/80 backdrop-blur-md p-8 text-center">
-                    <div className="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-3xl mb-4 shadow-lg">
+                    <div className="w-16 h-16 bg-[#4F7CFF] text-white rounded-full flex items-center justify-center text-3xl mb-4 shadow-lg">
                       🔒
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-2">Daily Free Limit Reached</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-2">Weekly Limit Reached</h2>
                     <p className="text-gray-600 mb-6 max-w-xs">
-                      You've viewed your 10 matches for today. Upgrade to Premium to unlock unlimited matches and founder signals.
+                      You've viewed your 10 YCombinator matches for this week.
                     </p>
-                    <button className="w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all text-lg mb-3">
-                      Upgrade to Premium
+                    <button
+                      onClick={() => navigate("/saved")}
+                      className="w-full py-4 bg-[#4F7CFF] text-white font-bold rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 transition-all text-lg mb-3"
+                    >
+                      View My Saved Jobs
                     </button>
-                    <p className="text-xs text-gray-500 font-medium tracking-wide">UNLOCK UNLIMITED ACCESS</p>
                   </div>
                 </motion.div>
               ) : (

@@ -282,7 +282,17 @@ router.get("/user/stats", requireAuth, async (req, res) => {
     const userId = req.user.userId;
     const stats = await SavedJob.getUserStats(userId);
 
-    res.json({ stats });
+    // Count jobs seen in last 7 days (liked + skipped)
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+
+    const weeklyCount = await SavedJob.countDocuments({
+      user: userId,
+      action: { $in: ["liked", "skipped"] },
+      createdAt: { $gte: sevenDaysAgo }
+    });
+
+    res.json({ stats, weeklyCount });
   } catch (err) {
     console.error("❌ Get stats error:", err);
     res.status(500).json({ error: "Failed to get stats" });

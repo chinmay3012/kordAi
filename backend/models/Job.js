@@ -270,7 +270,7 @@ const jobSchema = new mongoose.Schema(
     source: {
       type: String,
       required: true,
-      enum: ["RemoteOK", "YCombinator", "ycombinator", "LinkedIn", "Indeed", "Manual", "Other"],
+      enum: ["RemoteOK", "YCombinator", "ycombinator", "LinkedIn", "Indeed", "Manual", "Other", "YC"],
       index: true,
     },
 
