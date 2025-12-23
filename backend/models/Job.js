@@ -63,6 +63,14 @@ const companySchema = new mongoose.Schema(
       type: String,
       maxlength: 2000,
     },
+    slogan: {
+      type: String,
+      trim: true,
+    },
+    about: {
+      type: String,
+      trim: true,
+    },
     industry: {
       type: String,
       trim: true,

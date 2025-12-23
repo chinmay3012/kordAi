@@ -43,9 +43,32 @@ export async function scrapeYCJobs() {
       return results;
     });
 
+    // Enrich with slogan and about from JSON if available
+    let companyData = [];
+    try {
+      const fs = await import("fs");
+      const path = await import("path");
+      const jsonPath = path.join(process.cwd(), "data", "yc_companies_clean.json");
+      if (fs.existsSync(jsonPath)) {
+        companyData = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+      }
+    } catch (e) {
+      console.warn("Could not load yc_companies_clean.json for enrichment");
+    }
+
     let savedCount = 0;
 
     for (const job of jobs) {
+      // Find matching company in JSON
+      const enriched = companyData.find(c => c.company?.name === job.company.name);
+      if (enriched) {
+        job.company.slogan = enriched.company.slogan;
+        job.company.about = enriched.company.about;
+        if (!job.founders || job.founders.length === 0) {
+          job.founders = enriched.founders;
+        }
+      }
+
       const res = await Job.updateOne(
         { title: job.title, "company.name": job.company.name },
         { $set: job },
@@ -57,7 +80,7 @@ export async function scrapeYCJobs() {
       }
     }
 
-    console.log(`✅ Scraped ${savedCount} YC jobs`);
+    console.log(`✅ Scraped and enriched ${savedCount} YC jobs`);
   } catch (err) {
     console.error("❌ YC Scraper Error:", err);
   } finally {
