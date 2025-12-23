@@ -41,6 +41,9 @@ router.get("/", requireAuth, async (req, res) => {
       filter.experienceLevel = experienceLevel;
     }
 
+    // Force strict source filtering as requested (covering potential variations)
+    filter.source = { $in: ["YCombinator", "ycombinator", "YC"] };
+
     // Exclude jobs user has already seen
     if (excludeSeen === "true" && req.user?.userId) {
       const seenJobIds = await SavedJob.getSeenJobIds(req.user.userId);

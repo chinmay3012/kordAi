@@ -72,7 +72,8 @@ function determineLocationType(location) {
  */
 export async function scrapeRemoteOkJobs() {
   try {
-    console.log("🌍 Fetching RemoteOK jobs...");
+    console.log("🌍 Fetching RemoteOK jobs matches - DISABLED by user request");
+    return { saved: 0, updated: 0, errors: 0 };
 
     const response = await axios.get(REMOTE_OK_API, {
       headers: {
