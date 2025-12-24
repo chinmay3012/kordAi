@@ -10,6 +10,14 @@ const API = axios.create({
   withCredentials: true,
 });
 
+API.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
 /**
  * =========================
  * RESPONSE INTERCEPTOR
@@ -53,15 +61,25 @@ API.interceptors.response.use(
       isRefreshing = true;
 
       try {
-        await axios.post(
+        const currentToken = localStorage.getItem("token");
+        const refreshResponse = await axios.post(
           `${import.meta.env.VITE_API_URL || ""}/api/v1/auth/refresh`,
           {},
-          { withCredentials: true }
+          {
+            headers: currentToken ? { "Authorization": `Bearer ${currentToken}` } : {},
+            withCredentials: true
+          }
         );
+
+        const { accessToken } = refreshResponse.data;
+        if (accessToken) {
+          localStorage.setItem("token", accessToken);
+        }
 
         processQueue(null);
         isRefreshing = false;
 
+        originalRequest.headers.Authorization = `Bearer ${accessToken}`;
         return API(originalRequest);
       } catch (err) {
         processQueue(err);

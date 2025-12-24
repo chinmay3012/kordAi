@@ -3,13 +3,13 @@ import jwt from "jsonwebtoken";
 export function requireAuth(req, res, next) {
   let token = null;
 
-  // Check cookies first
-  if (req.cookies && req.cookies.accessToken) {
-    token = req.cookies.accessToken;
-  }
-  // Then check Authorization header
-  else if (req.headers.authorization && req.headers.authorization.startsWith("Bearer ")) {
+  // Check Authorization header first (explicit)
+  if (req.headers.authorization && req.headers.authorization.startsWith("Bearer ")) {
     token = req.headers.authorization.split(" ")[1];
+  }
+  // Then check cookies as fallback
+  else if (req.cookies && req.cookies.accessToken) {
+    token = req.cookies.accessToken;
   }
 
   if (!token) {

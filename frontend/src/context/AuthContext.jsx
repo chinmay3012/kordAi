@@ -10,17 +10,34 @@ export function AuthProvider({ children }) {
 
     // Check for existing session on mount
     useEffect(() => {
-        checkAuth();
+        const checkSession = async () => {
+            const token = localStorage.getItem("token");
+            if (token) {
+                await checkAuth(token);
+            } else {
+                await checkAuth(); // Try cookies
+            }
+        };
+        checkSession();
     }, []);
 
-    const checkAuth = async () => {
+    const checkAuth = async (token = null) => {
         try {
+            const headers = {};
+            if (token) headers["Authorization"] = `Bearer ${token}`;
+
             const res = await fetch(`${API_URL}/api/v1/auth/me`, {
+                headers,
                 credentials: 'include',
             });
             if (res.ok) {
                 const data = await res.json();
+                if (data.accessToken) {
+                    localStorage.setItem("token", data.accessToken);
+                }
                 setUser(data.user);
+            } else {
+                localStorage.removeItem("token");
             }
         } catch (err) {
             console.error("Auth check failed:", err);
@@ -46,6 +63,9 @@ export function AuthProvider({ children }) {
             throw new Error(data.message || "Login failed");
         }
 
+        if (data.accessToken) {
+            localStorage.setItem("token", data.accessToken);
+        }
         setUser(data.user);
         return data;
     };
@@ -71,6 +91,9 @@ export function AuthProvider({ children }) {
             throw new Error(data.message || "Registration failed");
         }
 
+        if (data.accessToken) {
+            localStorage.setItem("token", data.accessToken);
+        }
         setUser(data.user);
         return data;
     };
@@ -88,23 +111,31 @@ export function AuthProvider({ children }) {
             console.error("Logout request failed:", err);
         }
 
+        localStorage.removeItem("token");
         setUser(null);
     };
 
     const refreshAccessToken = async () => {
+        const currentToken = localStorage.getItem("token");
         const res = await fetch(
             `${API_URL}/api/v1/auth/refresh`,
             {
                 method: "POST",
+                headers: currentToken ? { "Authorization": `Bearer ${currentToken}` } : {},
                 credentials: 'include',
             }
         );
 
         if (!res.ok) {
+            localStorage.removeItem("token");
             setUser(null);
             throw new Error("Session expired");
         }
 
+        const data = await res.json();
+        if (data.accessToken) {
+            localStorage.setItem("token", data.accessToken);
+        }
         return true;
     };
 
