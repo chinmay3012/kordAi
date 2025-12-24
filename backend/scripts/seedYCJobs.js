@@ -40,7 +40,7 @@ async function seed() {
 
     return {
       source: "YCombinator",
-      title: "Hiring...",
+      title: "Hiring ",
       company: {
         name: companyName,
         about: c.company.about || "",
