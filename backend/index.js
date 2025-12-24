@@ -35,34 +35,48 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // --------------------
-// CORS CONFIGURATION (FIXED)
+// CORS CONFIGURATION (IMPROVED)
 // --------------------
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "https://joinkord.onrender.com",
+];
+
 const corsOptions = {
-  origin: [
-    "http://localhost:5173",
-    "http://localhost:3000",
-    "https://joinkord.onrender.com",
-  ],
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, curl, or same-origin)
+    if (!origin) return callback(null, true);
+
+    const isAllowed = allowedOrigins.includes(origin) ||
+      origin.endsWith(".onrender.com") ||
+      origin.includes("localhost");
+
+    if (isAllowed) {
+      callback(null, true);
+    } else {
+      console.warn(`[CORS] Blocked origin: ${origin}`);
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: [
     "Content-Type",
     "Authorization",
     "X-Requested-With",
     "Accept",
+    "Origin",
   ],
-  credentials: true,
-  maxAge: 86400,
+  exposedHeaders: ["X-Total-Count", "X-Page", "X-Limit"],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
 };
 
-// CRITICAL: Enable CORS + PREFLIGHT
+// Apply CORS middleware
 app.use(cors(corsOptions));
+// No need for separate OPTIONS handler as cors() handles it
 
-app.use((req, res, next) => {
-  if (req.method === "OPTIONS") {
-    return cors(corsOptions)(req, res, next);
-  }
-  next();
-});
 
 // --------------------
 // COOKIE & SESSION

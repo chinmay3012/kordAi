@@ -68,6 +68,8 @@ router.post("/register", async (req, res) => {
 
     return res.status(201).json({
       message: "User registered successfully",
+      accessToken,
+      refreshToken,
       user: {
         id: user._id,
         email: user.email,
@@ -154,12 +156,14 @@ router.post("/login", async (req, res) => {
 
     return res.json({
       message: "Logged in successfully",
+      accessToken,
+      refreshToken,
       user: {
         id: user._id,
         email: user.email,
         profile: user.profile,
         subscription: user.subscription,
-        activity: user.activity, // checking for onboarding status
+        activity: user.activity,
         onboarding: user.onboarding,
       },
     });
@@ -263,7 +267,12 @@ router.post("/activate", async (req, res) => {
  * =========================
  */
 router.post("/refresh", async (req, res) => {
-  const refreshToken = req.cookies.refreshToken;
+  let refreshToken = req.cookies.refreshToken;
+
+  // Fallback to Authorization header if cookie is missing
+  if (!refreshToken && req.headers.authorization && req.headers.authorization.startsWith("Bearer ")) {
+    refreshToken = req.headers.authorization.split(" ")[1];
+  }
 
   if (!refreshToken) {
     return res.status(401).json({
@@ -305,6 +314,7 @@ router.post("/refresh", async (req, res) => {
 
     return res.json({
       message: "Token refreshed",
+      accessToken,
     });
   } catch (err) {
     return res.status(401).json({
@@ -320,7 +330,12 @@ router.post("/refresh", async (req, res) => {
  */
 router.post("/logout", async (req, res) => {
   try {
-    const refreshToken = req.cookies.refreshToken;
+    let refreshToken = req.cookies.refreshToken;
+
+    // Fallback to Authorization header if cookie is missing
+    if (!refreshToken && req.headers.authorization && req.headers.authorization.startsWith("Bearer ")) {
+      refreshToken = req.headers.authorization.split(" ")[1];
+    }
 
     if (refreshToken) {
       // Find user with this refresh token and clear it

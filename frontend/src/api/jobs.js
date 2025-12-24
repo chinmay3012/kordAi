@@ -12,6 +12,23 @@ const API = axios.create({
 
 /**
  * =========================
+ * REQUEST INTERCEPTOR
+ * =========================
+ * Attach Bearer token if it exists
+ */
+API.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem("accessToken");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+/**
+ * =========================
  * RESPONSE INTERCEPTOR
  * =========================
  * Handle token refresh on 401
@@ -19,12 +36,12 @@ const API = axios.create({
 let isRefreshing = false;
 let failedQueue = [];
 
-const processQueue = (error) => {
+const processQueue = (error, token = null) => {
   failedQueue.forEach((prom) => {
     if (error) {
       prom.reject(error);
     } else {
-      prom.resolve();
+      prom.resolve(token);
     }
   });
   failedQueue = [];
@@ -41,7 +58,8 @@ API.interceptors.response.use(
         return new Promise(function (resolve, reject) {
           failedQueue.push({ resolve, reject });
         })
-          .then(() => {
+          .then((token) => {
+            originalRequest.headers.Authorization = `Bearer ${token}`;
             return API(originalRequest);
           })
           .catch((err) => {
@@ -53,22 +71,37 @@ API.interceptors.response.use(
       isRefreshing = true;
 
       try {
-        await axios.post(
+        const refreshToken = localStorage.getItem("refreshToken");
+        const res = await axios.post(
           `${import.meta.env.VITE_API_URL || ""}/api/v1/auth/refresh`,
           {},
-          { withCredentials: true }
+          {
+            withCredentials: true,
+            headers: refreshToken ? { Authorization: `Bearer ${refreshToken}` } : {}
+          }
         );
 
-        processQueue(null);
+        const { accessToken } = res.data;
+        if (accessToken) {
+          localStorage.setItem("accessToken", accessToken);
+          originalRequest.headers.Authorization = `Bearer ${accessToken}`;
+        }
+
+        processQueue(null, accessToken);
         isRefreshing = false;
 
         return API(originalRequest);
       } catch (err) {
-        processQueue(err);
+        processQueue(err, null);
         isRefreshing = false;
 
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+
         // Redirect to login if refresh fails
-        window.location.href = "/login";
+        if (window.location.pathname !== "/login") {
+          window.location.href = "/login";
+        }
         return Promise.reject(err);
       }
     }

@@ -15,12 +15,22 @@ export function AuthProvider({ children }) {
 
     const checkAuth = async () => {
         try {
+            const token = localStorage.getItem("accessToken");
+            const headers = {};
+            if (token) {
+                headers["Authorization"] = `Bearer ${token}`;
+            }
+
             const res = await fetch(`${API_URL}/api/v1/auth/me`, {
                 credentials: 'include',
+                headers
             });
             if (res.ok) {
                 const data = await res.json();
                 setUser(data.user);
+            } else if (res.status === 401) {
+                // If 401, try to refresh
+                await refreshAccessToken();
             }
         } catch (err) {
             console.error("Auth check failed:", err);
@@ -44,6 +54,13 @@ export function AuthProvider({ children }) {
 
         if (!res.ok) {
             throw new Error(data.message || "Login failed");
+        }
+
+        if (data.accessToken) {
+            localStorage.setItem("accessToken", data.accessToken);
+        }
+        if (data.refreshToken) {
+            localStorage.setItem("refreshToken", data.refreshToken);
         }
 
         setUser(data.user);
@@ -71,41 +88,72 @@ export function AuthProvider({ children }) {
             throw new Error(data.message || "Registration failed");
         }
 
+        if (data.accessToken) {
+            localStorage.setItem("accessToken", data.accessToken);
+        }
+        if (data.refreshToken) {
+            localStorage.setItem("refreshToken", data.refreshToken);
+        }
+
         setUser(data.user);
         return data;
     };
 
     const logout = async () => {
         try {
+            const token = localStorage.getItem("accessToken");
+            const headers = {};
+            if (token) {
+                headers["Authorization"] = `Bearer ${token}`;
+            }
+
             await fetch(
                 `${API_URL}/api/v1/auth/logout`,
                 {
                     method: "POST",
                     credentials: 'include',
+                    headers
                 }
             );
         } catch (err) {
             console.error("Logout request failed:", err);
         }
 
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
         setUser(null);
     };
 
     const refreshAccessToken = async () => {
-        const res = await fetch(
-            `${API_URL}/api/v1/auth/refresh`,
-            {
-                method: "POST",
-                credentials: 'include',
+        try {
+            const rfToken = localStorage.getItem("refreshToken");
+            const res = await fetch(
+                `${API_URL}/api/v1/auth/refresh`,
+                {
+                    method: "POST",
+                    credentials: 'include',
+                    headers: rfToken ? { "Authorization": `Bearer ${rfToken}` } : {}
+                }
+            );
+
+            if (!res.ok) {
+                localStorage.removeItem("accessToken");
+                localStorage.removeItem("refreshToken");
+                setUser(null);
+                return false;
             }
-        );
 
-        if (!res.ok) {
+            const data = await res.json();
+            if (data.accessToken) {
+                localStorage.setItem("accessToken", data.accessToken);
+            }
+            return true;
+        } catch (err) {
+            localStorage.removeItem("accessToken");
+            localStorage.removeItem("refreshToken");
             setUser(null);
-            throw new Error("Session expired");
+            return false;
         }
-
-        return true;
     };
 
     const value = {
