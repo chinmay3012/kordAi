@@ -34,7 +34,7 @@ async function seed() {
 
     return {
       source: "ycombinator",
-      title: "Hiring at YC startup",
+      title: "Hiring ",
       company: c.company.name,
       companyDescription: c.company.about,
       applyUrl: c.apply.url,

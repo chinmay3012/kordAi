@@ -209,7 +209,7 @@ export default function Jobs() {
             {/* Indicator */}
             {jobs.length > 0 && currentIndex < jobs.length && (
               <span className="text-sm text-gray-500">
-                Found {jobs.length} YC Matches
+                Found {jobs.length} Matches
               </span>
             )}
           </div>
