@@ -5,10 +5,10 @@ import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import Job from "../models/Job.js";
 
-dotenv.config();
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.join(__dirname, "../.env") });
 
 const dataPath = path.join(__dirname, "../data/yc_companies_clean.json");
 
@@ -34,7 +34,7 @@ async function seed() {
 
     return {
       source: "ycombinator",
-      title: "Hiring ",
+      title: "Hiring...",
       company: c.company.name,
       companyDescription: c.company.about,
       applyUrl: c.apply.url,
