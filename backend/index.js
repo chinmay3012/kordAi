@@ -30,6 +30,7 @@ dotenv.config();
 // APP INIT
 // --------------------
 const app = express();
+app.set('trust proxy', 1);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -104,14 +105,14 @@ app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 // --------------------
 const generalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 1000,
+  max: 5000,
   standardHeaders: true,
   legacyHeaders: false,
 });
 
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 20,
+  max: 1000,
   message: { error: "Too many authentication attempts." },
   standardHeaders: true,
   legacyHeaders: false,
