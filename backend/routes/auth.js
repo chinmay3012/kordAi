@@ -4,6 +4,7 @@ import User from "../models/User.js";
 import { hashPassword, comparePassword } from "../services/auth.service.js";
 import { registerSchema, loginSchema } from "../validators/auth.schema.js";
 import { requireAuth } from "../middleware/auth.middleware.js";
+import passport from "passport";
 
 const router = express.Router();
 
@@ -30,9 +31,48 @@ router.post("/register", async (req, res) => {
       status: "active",
     });
 
+    const accessToken = jwt.sign(
+      { userId: user._id, email: user.email },
+      process.env.JWT_SECRET,
+      { expiresIn: "15m" }
+    );
+
+    const refreshToken = jwt.sign(
+      { userId: user._id },
+      process.env.JWT_REFRESH_SECRET,
+      { expiresIn: "30d" }
+    );
+
+    // Update user login activity
+    user.refreshToken = refreshToken;
+    user.activity = user.activity || {};
+    user.activity.lastLogin = new Date();
+    user.activity.loginCount = 1;
+    user.activity.lastActive = new Date();
+    await user.save();
+
+    // Set cookies
+    res.cookie("accessToken", accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      maxAge: 15 * 60 * 1000, // 15 mins
+    });
+
+    res.cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+    });
+
     return res.status(201).json({
       message: "User registered successfully",
-      userId: user._id,
+      user: {
+        id: user._id,
+        email: user.email,
+        profile: user.profile,
+      },
     });
   } catch (err) {
     console.error("Registration error:", err);
@@ -97,9 +137,23 @@ router.post("/login", async (req, res) => {
     user.status = "active"; // Ensure user is active
     await user.save();
 
+    // Set cookies
+    res.cookie("accessToken", accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      maxAge: 15 * 60 * 1000, // 15 mins
+    });
+
+    res.cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+    });
+
     return res.json({
-      accessToken,
-      refreshToken,
+      message: "Logged in successfully",
       user: {
         id: user._id,
         email: user.email,
@@ -209,7 +263,7 @@ router.post("/activate", async (req, res) => {
  * =========================
  */
 router.post("/refresh", async (req, res) => {
-  const { refreshToken } = req.body;
+  const refreshToken = req.cookies.refreshToken;
 
   if (!refreshToken) {
     return res.status(401).json({
@@ -231,11 +285,18 @@ router.post("/refresh", async (req, res) => {
       });
     }
 
-    const newAccessToken = jwt.sign(
+    const accessToken = jwt.sign(
       { userId: user._id, email: user.email },
       process.env.JWT_SECRET,
       { expiresIn: "15m" }
     );
+
+    res.cookie("accessToken", accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      maxAge: 15 * 60 * 1000, // 15 mins
+    });
 
     // Update last active
     user.activity = user.activity || {};
@@ -243,9 +304,9 @@ router.post("/refresh", async (req, res) => {
     await user.save();
 
     return res.json({
-      accessToken: newAccessToken,
+      message: "Token refreshed",
     });
-  } catch {
+  } catch (err) {
     return res.status(401).json({
       message: "Invalid or expired refresh token",
     });
@@ -259,21 +320,27 @@ router.post("/refresh", async (req, res) => {
  */
 router.post("/logout", async (req, res) => {
   try {
-    const { refreshToken } = req.body;
+    const refreshToken = req.cookies.refreshToken;
 
-    if (!refreshToken) {
-      return res.status(400).json({
-        message: "Refresh token required",
-      });
+    if (refreshToken) {
+      // Find user with this refresh token and clear it
+      const user = await User.findOne({ refreshToken }).select("+refreshToken");
+      if (user) {
+        user.refreshToken = null;
+        await user.save();
+      }
     }
 
-    // Find user with this refresh token and clear it
-    const user = await User.findOne({ refreshToken }).select("+refreshToken");
-
-    if (user) {
-      user.refreshToken = null;
-      await user.save();
-    }
+    res.clearCookie("accessToken", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    });
+    res.clearCookie("refreshToken", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    });
 
     return res.json({
       message: "Logged out successfully",
@@ -414,6 +481,73 @@ router.post("/onboarding", requireAuth, async (req, res) => {
   } catch (err) {
     console.error("Onboarding error:", err);
     return res.status(500).json({ message: "Failed to complete onboarding" });
+  }
+});
+
+
+/**
+ * =========================
+ * GOOGLE OAUTH
+ * =========================
+ */
+router.get("/google", passport.authenticate("google", {
+  scope: ["profile", "email"],
+  prompt: "select_account",
+  state: true,
+}));
+
+router.get("/google/callback", passport.authenticate("google", {
+  failureRedirect: `${process.env.FRONTEND_URL || "http://localhost:5173"}/login?error=google_auth_failed`,
+  session: true,
+}), async (req, res) => {
+  try {
+    const user = req.user;
+
+    // Generate tokens
+    const accessToken = jwt.sign(
+      { userId: user._id, email: user.email },
+      process.env.JWT_SECRET,
+      { expiresIn: "15m" }
+    );
+
+    const refreshToken = jwt.sign(
+      { userId: user._id },
+      process.env.JWT_REFRESH_SECRET,
+      { expiresIn: "30d" }
+    );
+
+    // Update user login activity
+    user.refreshToken = refreshToken;
+    user.activity = user.activity || {};
+    user.activity.lastLogin = new Date();
+    user.activity.loginCount = (user.activity.loginCount || 0) + 1;
+    user.activity.lastActive = new Date();
+    await user.save();
+
+    // Set cookies
+    res.cookie("accessToken", accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      maxAge: 15 * 60 * 1000,
+    });
+
+    res.cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+    });
+
+    // Redirect to frontend
+    const frontendUrl = process.env.FRONTEND_URL || "http://localhost:5173";
+    if (!user.activity.onboardingCompleted) {
+      return res.redirect(`${frontendUrl}/onboarding`);
+    }
+    res.redirect(`${frontendUrl}/app`);
+  } catch (err) {
+    console.error("Google callback error:", err);
+    res.redirect(`${process.env.FRONTEND_URL || "http://localhost:5173"}/login?error=server_error`);
   }
 });
 

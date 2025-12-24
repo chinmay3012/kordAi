@@ -6,25 +6,37 @@ export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // Check for existing tokens on mount
-    useEffect(() => {
-        const accessToken = localStorage.getItem("accessToken");
-        const refreshToken = localStorage.getItem("refreshToken");
-        const userEmail = localStorage.getItem("userEmail");
+    const API_URL = import.meta.env.VITE_API_URL || "";
 
-        if (accessToken && refreshToken) {
-            setUser({ email: userEmail, accessToken, refreshToken });
-        }
-        setLoading(false);
+    // Check for existing session on mount
+    useEffect(() => {
+        checkAuth();
     }, []);
+
+    const checkAuth = async () => {
+        try {
+            const res = await fetch(`${API_URL}/api/v1/auth/me`, {
+                credentials: 'include',
+            });
+            if (res.ok) {
+                const data = await res.json();
+                setUser(data.user);
+            }
+        } catch (err) {
+            console.error("Auth check failed:", err);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const login = async (email, password) => {
         const res = await fetch(
-            `${import.meta.env.VITE_API_URL || ""}/api/v1/auth/login`,
+            `${API_URL}/api/v1/auth/login`,
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
+                credentials: 'include',
             }
         );
 
@@ -34,22 +46,22 @@ export function AuthProvider({ children }) {
             throw new Error(data.message || "Login failed");
         }
 
-        // Store tokens
-        localStorage.setItem("accessToken", data.accessToken);
-        localStorage.setItem("refreshToken", data.refreshToken);
-        localStorage.setItem("userEmail", email);
-
-        setUser({ email, accessToken: data.accessToken, refreshToken: data.refreshToken });
+        setUser(data.user);
         return data;
+    };
+
+    const loginWithGoogle = () => {
+        window.location.href = `${API_URL}/api/v1/auth/google`;
     };
 
     const register = async (email, password) => {
         const res = await fetch(
-            `${import.meta.env.VITE_API_URL || ""}/api/v1/auth/register`,
+            `${API_URL}/api/v1/auth/register`,
             {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
+                credentials: 'include',
             }
         );
 
@@ -59,59 +71,41 @@ export function AuthProvider({ children }) {
             throw new Error(data.message || "Registration failed");
         }
 
+        setUser(data.user);
         return data;
     };
 
     const logout = async () => {
-        const refreshToken = localStorage.getItem("refreshToken");
-
         try {
             await fetch(
-                `${import.meta.env.VITE_API_URL || ""}/api/v1/auth/logout`,
+                `${API_URL}/api/v1/auth/logout`,
                 {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ refreshToken }),
+                    credentials: 'include',
                 }
             );
         } catch (err) {
             console.error("Logout request failed:", err);
         }
 
-        // Clear local storage regardless
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
-        localStorage.removeItem("userEmail");
         setUser(null);
     };
 
     const refreshAccessToken = async () => {
-        const refreshToken = localStorage.getItem("refreshToken");
-
-        if (!refreshToken) {
-            throw new Error("No refresh token");
-        }
-
         const res = await fetch(
-            `${import.meta.env.VITE_API_URL || ""}/api/v1/auth/refresh`,
+            `${API_URL}/api/v1/auth/refresh`,
             {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ refreshToken }),
+                credentials: 'include',
             }
         );
 
-        const data = await res.json();
-
         if (!res.ok) {
-            // Refresh token expired - logout
-            await logout();
+            setUser(null);
             throw new Error("Session expired");
         }
 
-        localStorage.setItem("accessToken", data.accessToken);
-        setUser(prev => ({ ...prev, accessToken: data.accessToken }));
-        return data.accessToken;
+        return true;
     };
 
     const value = {
@@ -119,9 +113,11 @@ export function AuthProvider({ children }) {
         loading,
         isAuthenticated: !!user,
         login,
+        loginWithGoogle,
         register,
         logout,
         refreshAccessToken,
+        checkAuth,
     };
 
     return (

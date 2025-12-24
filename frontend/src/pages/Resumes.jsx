@@ -12,11 +12,8 @@ export default function Resumes() {
     useEffect(() => {
         const fetchResumes = async () => {
             try {
-                const token = localStorage.getItem("token");
                 const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || "/api/v1"}/resumes`, {
-                    headers: {
-                        "Authorization": `Bearer ${token}`
-                    }
+                    credentials: 'include'
                 });
                 const data = await response.json();
                 if (data.success) {
@@ -34,11 +31,8 @@ export default function Resumes() {
 
     const handlePreview = async (resumeId) => {
         try {
-            const token = localStorage.getItem("token");
             const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || "/api/v1"}/resumes/${resumeId}/data`, {
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
+                credentials: 'include'
             });
             const data = await response.json();
             if (data.success) {

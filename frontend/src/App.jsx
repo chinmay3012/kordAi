@@ -11,20 +11,64 @@ import EmailTracker from "./pages/EmailTracker";
 import Resumes from "./pages/Resumes";
 import Premium from "./pages/Premium";
 
+import ProtectedRoute from "./components/ProtectedRoute";
+
 export default function App() {
   return (
     <AuthProvider>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/app" element={<Jobs />} />
+        <Route
+          path="/app"
+          element={
+            <ProtectedRoute>
+              <Jobs />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/activate" element={<Activate />} />
-        <Route path="/saved" element={<SavedJobs />} />
-        <Route path="/onboarding" element={<Onboarding />} />
-        <Route path="/email-tracker" element={<EmailTracker />} />
-        <Route path="/resumes" element={<Resumes />} />
-        <Route path="/premium" element={<Premium />} />
+        <Route
+          path="/saved"
+          element={
+            <ProtectedRoute>
+              <SavedJobs />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/onboarding"
+          element={
+            <ProtectedRoute>
+              <Onboarding />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/email-tracker"
+          element={
+            <ProtectedRoute>
+              <EmailTracker />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/resumes"
+          element={
+            <ProtectedRoute>
+              <Resumes />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/premium"
+          element={
+            <ProtectedRoute>
+              <Premium />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </AuthProvider>
   );

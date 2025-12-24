@@ -7,6 +7,10 @@ import rateLimit from "express-rate-limit";
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
+import cookieParser from "cookie-parser";
+import session from "express-session";
+import MongoStore from "connect-mongo";
+import passport from "./services/googleAuth.service.js";
 
 import { connectDB, getConnectionStatus } from "./db.js";
 import waitlistRoute from "./routes/waitlist.js";
@@ -58,6 +62,35 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+// --------------------
+// COOKIE & SESSION
+// --------------------
+app.use(cookieParser());
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "kord_secret_key",
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+      collectionName: "sessions",
+    }),
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    },
+  })
+);
+
+// --------------------
+// PASSPORT INIT
+// --------------------
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 
 // --------------------

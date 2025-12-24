@@ -7,20 +7,7 @@ import axios from "axios";
  */
 const API = axios.create({
   baseURL: `${import.meta.env.VITE_API_URL || ""}/api/v1`,
-});
-
-/**
- * =========================
- * REQUEST INTERCEPTOR
- * =========================
- * Attach access token to every request
- */
-API.interceptors.request.use((config) => {
-  const token = localStorage.getItem("accessToken");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
+  withCredentials: true,
 });
 
 /**
@@ -32,12 +19,12 @@ API.interceptors.request.use((config) => {
 let isRefreshing = false;
 let failedQueue = [];
 
-const processQueue = (error, token = null) => {
+const processQueue = (error) => {
   failedQueue.forEach((prom) => {
     if (error) {
       prom.reject(error);
     } else {
-      prom.resolve(token);
+      prom.resolve();
     }
   });
   failedQueue = [];
@@ -54,8 +41,7 @@ API.interceptors.response.use(
         return new Promise(function (resolve, reject) {
           failedQueue.push({ resolve, reject });
         })
-          .then((token) => {
-            originalRequest.headers["Authorization"] = "Bearer " + token;
+          .then(() => {
             return API(originalRequest);
           })
           .catch((err) => {
@@ -66,41 +52,22 @@ API.interceptors.response.use(
       originalRequest._retry = true;
       isRefreshing = true;
 
-      const refreshToken = localStorage.getItem("refreshToken");
-
-      if (!refreshToken) {
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
-        localStorage.removeItem("userEmail");
-        window.location.href = "/login"; // Correct redirect
-        return Promise.reject(error);
-      }
-
       try {
-        // Use a new instance or raw axios to avoid interceptor loop
-        const response = await axios.post(
+        await axios.post(
           `${import.meta.env.VITE_API_URL || ""}/api/v1/auth/refresh`,
-          { refreshToken }
+          {},
+          { withCredentials: true }
         );
 
-        const { accessToken } = response.data;
-
-        localStorage.setItem("accessToken", accessToken);
-        API.defaults.headers.common["Authorization"] = "Bearer " + accessToken;
-
-        processQueue(null, accessToken);
+        processQueue(null);
         isRefreshing = false;
 
-        originalRequest.headers["Authorization"] = "Bearer " + accessToken;
         return API(originalRequest);
       } catch (err) {
-        processQueue(err, null);
+        processQueue(err);
         isRefreshing = false;
 
-        // Clear auth data and redirect to login
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
-        localStorage.removeItem("userEmail");
+        // Redirect to login if refresh fails
         window.location.href = "/login";
         return Promise.reject(err);
       }
