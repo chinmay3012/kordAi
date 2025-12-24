@@ -44,7 +44,6 @@ async function seed() {
         name: f.name,
         linkedin: f.social || null,
       })),
-      status: "active",
       scrapedAt: new Date(),
     };
   });

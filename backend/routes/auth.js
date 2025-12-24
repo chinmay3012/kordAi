@@ -68,8 +68,6 @@ router.post("/register", async (req, res) => {
 
     return res.status(201).json({
       message: "User registered successfully",
-      accessToken,
-      refreshToken,
       user: {
         id: user._id,
         email: user.email,
@@ -156,8 +154,6 @@ router.post("/login", async (req, res) => {
 
     return res.json({
       message: "Logged in successfully",
-      accessToken,
-      refreshToken,
       user: {
         id: user._id,
         email: user.email,
@@ -309,7 +305,6 @@ router.post("/refresh", async (req, res) => {
 
     return res.json({
       message: "Token refreshed",
-      accessToken,
     });
   } catch (err) {
     return res.status(401).json({
@@ -371,14 +366,7 @@ router.get("/me", requireAuth, async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    const accessToken = jwt.sign(
-      { userId: user._id, email: user.email },
-      process.env.JWT_SECRET,
-      { expiresIn: "15m" }
-    );
-
     return res.json({
-      accessToken,
       user: {
         id: user._id,
         email: user.email,
