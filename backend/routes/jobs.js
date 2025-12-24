@@ -67,7 +67,7 @@ router.get("/", requireAuth, async (req, res) => {
       sortOptions = { featured: -1, scrapedAt: -1 };
     }
 
-    const [jobs, total] = await Promise.all([
+    let [jobs, total] = await Promise.all([
       query
         .sort(sortOptions)
         .skip(skip)
@@ -75,6 +75,31 @@ router.get("/", requireAuth, async (req, res) => {
         .lean(),
       Job.countDocuments(filter),
     ]);
+
+    // FALLBACK: If no jobs found with current filter, try a broader search
+    if (jobs.length === 0) {
+      console.log("⚠️ No YC jobs found, falling back to broader search");
+      const fallbackFilter = { status: "active" };
+
+      // Still exclude seen
+      if (excludeSeen === "true" && req.user?.userId) {
+        const seenJobIds = await SavedJob.getSeenJobIds(req.user.userId);
+        if (seenJobIds.length > 0) {
+          fallbackFilter._id = { $nin: seenJobIds };
+        }
+      }
+
+      const fallbackJobs = await Job.find(fallbackFilter)
+        .sort({ featured: -1, scrapedAt: -1 })
+        .skip(skip)
+        .limit(limit)
+        .lean();
+
+      if (fallbackJobs.length > 0) {
+        jobs = fallbackJobs;
+        total = await Job.countDocuments(fallbackFilter);
+      }
+    }
 
     // Set pagination headers
     res.set("X-Total-Count", total.toString());

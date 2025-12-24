@@ -215,7 +215,7 @@ export async function getMatchedJobs(userId, options = {}) {
     }
 
     // Fetch active jobs - RESTRICT TO YC ONLY as per new requirement
-    const jobQuery = {
+    let jobQuery = {
         status: "active",
         source: { $in: ["YCombinator", "ycombinator", "YC"] }
     };
@@ -224,10 +224,23 @@ export async function getMatchedJobs(userId, options = {}) {
     }
 
     // Get more jobs than needed for scoring
-    const jobs = await Job.find(jobQuery)
+    let jobs = await Job.find(jobQuery)
         .sort({ featured: -1, scrapedAt: -1 })
-        .limit(200) // Lower limit since we only want 10
+        .limit(200)
         .lean();
+
+    // FALLBACK: If no YC jobs found, try any active jobs
+    if (jobs.length === 0) {
+        console.log("⚠️ No YC jobs for matcher, broadening search...");
+        const fallbackQuery = { status: "active" };
+        if (excludeJobIds.length > 0) {
+            fallbackQuery._id = { $nin: excludeJobIds };
+        }
+        jobs = await Job.find(fallbackQuery)
+            .sort({ featured: -1, scrapedAt: -1 })
+            .limit(200)
+            .lean();
+    }
 
     // Score and rank jobs
     const scoredJobs = jobs.map(job => {
@@ -308,6 +321,15 @@ export async function getJobsFromResumeAnalysis(resumeAnalysis, options = {}) {
             status: "active",
             source: { $in: ["YCombinator", "ycombinator", "YC"] }
         })
+            .sort({ scrapedAt: -1 })
+            .limit(200)
+            .lean();
+    }
+
+    // FALLBACK: If no YC jobs found for resume analysis, try any active jobs
+    if (jobs.length === 0) {
+        console.log("⚠️ No YC jobs for resume analysis, broadening search...");
+        jobs = await Job.find({ status: "active" })
             .sort({ scrapedAt: -1 })
             .limit(200)
             .lean();

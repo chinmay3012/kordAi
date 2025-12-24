@@ -495,6 +495,13 @@ jobSchema.statics.getStats = async function () {
 // PRE-SAVE HOOKS
 // ==================
 jobSchema.pre("save", function (next) {
+  // Fix: If company was passed as a string, convert it to object structure
+  // This happens if legacy scripts pass company: "Company Name"
+  if (typeof this.company === "string") {
+    const name = this.company;
+    this.company = { name };
+  }
+
   // Sync legacy companyName field
   if (this.company?.name && !this.companyName) {
     this.companyName = this.company.name;
