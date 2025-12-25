@@ -1,4 +1,6 @@
 import express from "express";
+import axios from "axios";
+
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -276,4 +278,24 @@ function startBackgroundTasks() {
   cron.schedule("0 */6 * * *", scrapeRemoteOkJobs);
 }
 
+// --------------------
+// KEEP ALIVE (Self-Pinger)
+// --------------------
+function startPinger() {
+  const url = "https://joinkord.onrender.com/health";
+  // Ping every 14 minutes
+  setInterval(async () => {
+    try {
+      const { data } = await axios.get(url);
+      console.log(`[Pinger] Self-ping successful: ${data.status} at ${new Date().toISOString()}`);
+    } catch (err) {
+      console.error(`[Pinger] Self-ping failed: ${err.message}`);
+    }
+  }, 14 * 60 * 1000);
+}
+
 startServer();
+
+if (process.env.NODE_ENV === "production") {
+  startPinger();
+}
